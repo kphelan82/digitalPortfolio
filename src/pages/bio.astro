@@ -1,22 +1,42 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactLinks from '../components/ContactLinks.astro';
+import { site } from '../data/site';
 ---
 
-<BaseLayout title="Bio" description="About the designer.">
+<BaseLayout title="Bio" description={`About ${site.name}: 15+ years designing across digital, print and UX.`}>
   <h1 class="page-title">Bio</h1>
 
   <div class="prose">
     <p>
-      Placeholder bio. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      I was born in Charlotte, NC in 1982. I'm the oldest of four boys, and we grew up moving across
+      the country. While we usually stayed somewhere along the East Coast, I spent a great few years
+      in the Denver suburbs in my more formative years, which happened to be long enough to develop a
+      love for Denver sports teams and mountain views. After another move back to New Jersey, I
+      finished high school and moved on to study Fine Arts at Monmouth University, and I've been
+      local to the Jersey Shore area since (which is not at all like the TV show… thankfully).
     </p>
     <p>
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-      nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-      deserunt mollit anim id est laborum.
+      The years on the move taught me some very valuable lessons about self-reliance and
+      adaptability, both of which would prove to be really valuable professionally. In today's
+      fast-paced and tech-centric life, those two skills are essential to continued learning and
+      growth — especially considering my first job out of school was for a print publication.
     </p>
+    <p>
+      Throughout my 15+ years of experience, I'm most proud of the wide range of skills I've
+      developed working across digital, print, UX and even some development. In 2021, I continued
+      developing skills, earning several online certifications specifically in UX/UI Design.
+    </p>
+
+    <h2>Other interests</h2>
+    <ul>
+      <li>Heavy metal</li>
+      <li>Trying different craft beer with friends</li>
+      <li>Photography</li>
+      <li>Travel</li>
+      <li>Fitness</li>
+      <li>Hanging with my wife and pandemic pup Stout</li>
+    </ul>
 
     <h2>Get in touch</h2>
     <p>The best ways to reach me:</p>
