@@ -1,29 +1,12 @@
 ---
 // Résumé lives at /cv because the old /resume URL redirects here (see astro.config.mjs).
+// Content comes from src/data/resume.ts.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data/site';
-
-const experience = [
-  {
-    title: 'Senior Product Designer',
-    org: 'Company Name',
-    dates: '2021 – Present',
-    points: ['Placeholder achievement or responsibility.', 'Another placeholder bullet point.'],
-  },
-  {
-    title: 'Product Designer',
-    org: 'Another Company',
-    dates: '2018 – 2021',
-    points: ['Placeholder achievement or responsibility.'],
-  },
-];
-
-const education = [{ title: 'BFA, Graphic Design', org: 'University Name', dates: '2014 – 2018' }];
-
-const skills = ['Product design', 'Design systems', 'Prototyping', 'User research', 'Visual design'];
+import { resume } from '../data/resume';
 ---
 
-<BaseLayout title="Résumé" description="Résumé: experience, education and skills.">
+<BaseLayout title="Résumé" description={`Résumé of ${site.name}: experience, education, skills and certifications.`}>
   <h1 class="page-title">Résumé</h1>
 
   <div class="prose">
@@ -37,38 +20,65 @@ const skills = ['Product design', 'Design systems', 'Prototyping', 'User researc
       )
     }
 
-    <h2>Experience</h2>
+    <h2>About me</h2>
+    <p>{resume.about}</p>
+
+    <h2>Industry experience</h2>
     {
-      experience.map((job) => (
-        <section>
+      resume.experience.map((job) => (
+        <section class="job">
           <h3>{job.title}</h3>
           <p class="muted">
-            {job.org} · {job.dates}
+            {job.company} · {job.location} · {job.dates}
           </p>
+          <p>{job.description}</p>
+          <p class="label">{job.highlightsLabel}</p>
           <ul>
-            {job.points.map((point) => (
-              <li>{point}</li>
+            {job.highlights.map((item) => (
+              <li>{item}</li>
             ))}
           </ul>
         </section>
       ))
     }
 
+    <h2>Key skills</h2>
+    <ul>
+      {resume.skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+
     <h2>Education</h2>
     {
-      education.map((item) => (
+      resume.education.map((item) => (
         <section>
-          <h3>{item.title}</h3>
+          <h3>{item.degree}</h3>
           <p class="muted">
-            {item.org} · {item.dates}
+            {item.school}, {item.location} · {item.year}
+            {item.honors && `, ${item.honors}`}
           </p>
         </section>
       ))
     }
 
-    <h2>Skills</h2>
+    <h2>Certifications</h2>
     <ul>
-      {skills.map((skill) => <li>{skill}</li>)}
+      {resume.certifications.map((cert) => <li>{cert}</li>)}
+    </ul>
+
+    <h2>Affiliations</h2>
+    <ul>
+      {resume.affiliations.map((item) => <li>{item}</li>)}
     </ul>
   </div>
 </BaseLayout>
+
+<style>
+  .job + .job {
+    margin-top: var(--space-3);
+  }
+  .label {
+    margin-top: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+</style>

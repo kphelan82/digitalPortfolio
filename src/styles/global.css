@@ -167,6 +167,9 @@ svg {
 .prose > h2 {
   margin-top: 2em;
 }
+.prose section > * + * {
+  margin-top: 0.5em;
+}
 .prose ul,
 .prose ol {
   padding-left: 1.25em;

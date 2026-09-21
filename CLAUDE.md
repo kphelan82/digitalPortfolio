@@ -20,6 +20,7 @@ astro.config.mjs            site URL + redirects
 src/content.config.ts       case study collection + Zod schema
 src/content/case-studies/   one .md file per case study (filename = URL slug)
 src/data/site.ts            name, email, socials, footer text, nav
+src/data/resume.ts          résumé content (rendered by pages/cv.astro)
 src/lib/caseStudies.ts      getCaseStudies(): draft filtering + sort order
 src/assets/thumbnails/      case study thumbnails
 src/assets/gallery/         gallery images (auto-read)
@@ -40,7 +41,7 @@ public/                     favicon and other files served as-is
 | `/bio` | `src/pages/bio.astro` |
 | `/cv` | `src/pages/cv.astro` (résumé) |
 
-The résumé is at `/cv` (not `/resume`) because `/resume` is an old URL that redirects here.
+The résumé is at `/cv` (not `/resume`) because `/resume` is an old URL that redirects here. Edit its content in `src/data/resume.ts`, not in the page. The bio text is written directly in `src/pages/bio.astro`.
 
 ## Case studies
 
