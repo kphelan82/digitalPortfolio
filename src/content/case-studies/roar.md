@@ -1,34 +1,34 @@
 ---
-title: "Roar: Placeholder Case Study"
-client: "Roar"
-year: 2021
-role: "Product Designer"
-summary: "Placeholder summary. Replace with one or two sentences on the problem, your approach and the outcome."
-thumbnail: ../../assets/thumbnails/roar.svg
+title: "Roar Bikes"
+client: "Roar Bikes"
+year: 2000 # TODO: replace with the real year
+role: "UX/UI Designer"
+summary: "Wireframes and a hi-fi prototype for a site and mobile app that lets customers explore Roar Bikes' three models, customize a build and place an order, created for a design certification."
+thumbnail: ../../assets/thumbnails/roar.svg # TODO: replace with a real thumbnail
 order: 2
-draft: false
+draft: true # TODO: set to false (or remove) once the year and images are in
 ---
 
-Placeholder content. Replace everything below with the real case study.
+**Client:** Roar Bikes is a manufacturer of small-run, contemporary bicycles sold exclusively from their own website.
 
-## Overview
+**Product:** Site wireframe and hi-fi prototype
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+## My role
+
+This was a project specifically done for a certification I earned, so I had full control of the UX/UI, animation and visual design from start to finish.
 
 ## The problem
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+Roar is a small company that was in need of a new website that would streamline their sales process. Each bike is built custom based on 3 model types and they also have apparel and merchandise for purchase.
 
-## Process
+## Audience
 
-- Research and discovery
-- Concepts and exploration
-- Prototyping and testing
-- Final design and handoff
+Young adult riders who appreciate quality craftsmanship and would prefer to support local businesses rather than big-box stores. They have an eye for detail and are willing to spend a little bit more money if they see a bike that really stands out.
 
-## Outcome
+## The solution
 
-Sunt in culpa qui officia deserunt mollit anim id est laborum.
+A custom site and mobile app that showcases the 3 bike models and displays various customization options before allowing customers to place orders.
 
-<!-- Images: put files in src/assets/ and reference them relatively, e.g.
-![Alt text](../../assets/thumbnails/roar.svg) -->
+<!-- TODO: add wireframes and hi-fi screens (and the prototype, if it can be linked or embedded).
+     Put images in src/assets/ and reference them like:
+     ![Alt text](../../assets/roar/wireframes.png) -->
