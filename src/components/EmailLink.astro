@@ -1,0 +1,26 @@
+---
+// Spam-resistant email link. The address never appears in the HTML source:
+// it is base64-encoded at build time and turned into a mailto: link in the
+// browser. Scrapers that don't run JavaScript see nothing to harvest. With JS
+// disabled, visitors get an obfuscated "name [at] domain [dot] com" instead.
+import { site } from '../data/site';
+
+interface Props {
+  label?: string;
+}
+
+const { label = 'Email' } = Astro.props;
+
+const encoded = Buffer.from(site.email).toString('base64');
+const readable = site.email.replace('@', ' [at] ').replace(/\./g, ' [dot] ');
+---
+
+<a data-email={encoded} hidden>{label}</a>
+<noscript><span>{readable}</span></noscript>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('a[data-email]').forEach((link) => {
+    link.href = 'mailto:' + atob(link.dataset.email ?? '');
+    link.hidden = false;
+  });
+</script>

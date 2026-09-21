@@ -1,0 +1,65 @@
+---
+import { site } from '../data/site';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+// "Work" (/) is also the parent of every /work/* case study page.
+const isCurrent = (href: string) =>
+  href === '/' ? path === '/' || path.startsWith('/work') : path === href;
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href="/">{site.name}</a>
+    <nav aria-label="Main">
+      <ul>
+        {
+          site.nav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-3);
+    padding-block: var(--space-2);
+  }
+  .brand {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  nav a {
+    text-decoration: none;
+    color: var(--color-muted);
+  }
+  nav a:hover,
+  nav a[aria-current='page'] {
+    color: var(--color-text);
+  }
+  nav a[aria-current='page'] {
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 0.35em;
+  }
+</style>

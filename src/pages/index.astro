@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import { site } from '../data/site';
+import { getCaseStudies } from '../lib/caseStudies';
+
+const caseStudies = await getCaseStudies();
+---
+
+<BaseLayout>
+  <h1 class="intro">{site.tagline}</h1>
+
+  {
+    caseStudies.length > 0 ? (
+      <div class="grid">
+        {caseStudies.map((entry) => (
+          <CaseStudyCard entry={entry} />
+        ))}
+      </div>
+    ) : (
+      <p class="muted">No case studies yet. Add a Markdown file to src/content/case-studies/.</p>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .intro {
+    max-width: 22em;
+    margin-bottom: var(--space-4);
+    font-size: var(--text-hero);
+  }
+</style>

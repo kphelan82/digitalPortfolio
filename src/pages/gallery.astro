@@ -1,0 +1,62 @@
+---
+// Drop images into src/assets/gallery/ — they appear here automatically, sorted by filename.
+// Prefix filenames with numbers to control order; the rest of the name becomes the alt text.
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/gallery/*.{jpg,jpeg,png,webp,avif,gif,svg}',
+  { eager: true },
+);
+
+const images = Object.entries(modules)
+  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+  .map(([path, mod]) => {
+    const file = path.split('/').pop() ?? '';
+    const alt = file
+      .replace(/\.[^.]+$/, '') // extension
+      .replace(/^\d+[-_ ]*/, '') // leading sort number
+      .replace(/[-_]+/g, ' ')
+      .trim();
+    return { src: mod.default, alt };
+  });
+---
+
+<BaseLayout title="Gallery" description="A collection of design work and explorations.">
+  <h1 class="page-title">Gallery</h1>
+
+  {
+    images.length > 0 ? (
+      <ul class="gallery">
+        {images.map(({ src, alt }) => (
+          <li>
+            <Image src={src} alt={alt} width={900} loading="lazy" />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="muted">No images yet. Add files to src/assets/gallery/.</p>
+    )
+  }
+</BaseLayout>
+
+<style>
+  /* Masonry-style columns: as many ~16rem columns as fit. */
+  .gallery {
+    column-width: 16rem;
+    column-gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .gallery li {
+    break-inside: avoid;
+    margin-bottom: var(--space-2);
+  }
+  .gallery :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    background: var(--color-surface);
+  }
+</style>

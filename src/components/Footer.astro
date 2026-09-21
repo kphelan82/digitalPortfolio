@@ -1,0 +1,26 @@
+---
+import { site } from '../data/site';
+import ContactLinks from './ContactLinks.astro';
+---
+
+<footer class="site-footer">
+  <div class="container inner">
+    <p class="muted">{site.footerText}</p>
+    <ContactLinks />
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding-block: var(--space-3);
+    font-size: var(--text-sm);
+  }
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+</style>

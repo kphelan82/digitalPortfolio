@@ -1,0 +1,29 @@
+---
+// Social links from site.ts plus the obfuscated email link. No contact form by design.
+import { site } from '../data/site';
+import EmailLink from './EmailLink.astro';
+---
+
+<ul class="contact-links">
+  {
+    site.socials.map((social) => (
+      <li>
+        <a href={social.url} target="_blank" rel="noopener noreferrer">
+          {social.label}
+        </a>
+      </li>
+    ))
+  }
+  <li><EmailLink /></li>
+</ul>
+
+<style>
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+</style>

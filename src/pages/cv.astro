@@ -1,0 +1,74 @@
+---
+// Résumé lives at /cv because the old /resume URL redirects here (see astro.config.mjs).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+const experience = [
+  {
+    title: 'Senior Product Designer',
+    org: 'Company Name',
+    dates: '2021 – Present',
+    points: ['Placeholder achievement or responsibility.', 'Another placeholder bullet point.'],
+  },
+  {
+    title: 'Product Designer',
+    org: 'Another Company',
+    dates: '2018 – 2021',
+    points: ['Placeholder achievement or responsibility.'],
+  },
+];
+
+const education = [{ title: 'BFA, Graphic Design', org: 'University Name', dates: '2014 – 2018' }];
+
+const skills = ['Product design', 'Design systems', 'Prototyping', 'User research', 'Visual design'];
+---
+
+<BaseLayout title="Résumé" description="Résumé: experience, education and skills.">
+  <h1 class="page-title">Résumé</h1>
+
+  <div class="prose">
+    {
+      site.resumePdf && (
+        <p>
+          <a href={site.resumePdf} download>
+            Download PDF
+          </a>
+        </p>
+      )
+    }
+
+    <h2>Experience</h2>
+    {
+      experience.map((job) => (
+        <section>
+          <h3>{job.title}</h3>
+          <p class="muted">
+            {job.org} · {job.dates}
+          </p>
+          <ul>
+            {job.points.map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+
+    <h2>Education</h2>
+    {
+      education.map((item) => (
+        <section>
+          <h3>{item.title}</h3>
+          <p class="muted">
+            {item.org} · {item.dates}
+          </p>
+        </section>
+      ))
+    }
+
+    <h2>Skills</h2>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+  </div>
+</BaseLayout>
