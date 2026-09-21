@@ -2,8 +2,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: replace with the real production URL (used for canonical links).
-  site: 'https://example.com',
+  // Production URL (used for canonical links).
+  site: 'https://kevinphelandesign.com',
 
   // Old URLs -> new URLs. In a static build Astro emits a small HTML page with a
   // meta-refresh for each entry. If the host supports real 301s (Netlify

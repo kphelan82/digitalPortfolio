@@ -96,7 +96,7 @@ Current map: `/case-study-aarp|roar|canvashack|bydureon|latuda|ihop` → `/work/
 Hosted on GitHub Pages. Pushing to `main` runs `.github/workflows/deploy.yml`, which builds with `withastro/action` and publishes `dist/`. In the GitHub repo, Settings → Pages → Source must be set to **GitHub Actions** (one-time).
 
 - The site assumes it is served from the **domain root** (custom domain, or a `<user>.github.io` user site). Internal links are root-relative (`/bio`). If it is ever served from a project subpath (`<user>.github.io/<repo>`), set `base` in `astro.config.mjs` **and** make internal links base-aware, or every link will break.
-- A custom domain needs a `public/CNAME` file containing just the domain, plus `site` in `astro.config.mjs` set to `https://<domain>`.
+- Production domain is `kevinphelandesign.com` (bare domain is canonical; `www` redirects to it). `site` in `astro.config.mjs` must match. Because deploys use a GitHub Actions workflow, the custom domain is set in GitHub → Settings → Pages; a `public/CNAME` file is ignored, so don't add one.
 - Commit directly to `main` for small content edits; use a branch + PR for larger changes. `node_modules/`, `dist/` and `.astro/` are git-ignored.
 
 ## Conventions
