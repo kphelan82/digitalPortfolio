@@ -37,6 +37,19 @@ const isCurrent = (href: string) =>
 </header>
 
 <style>
+  /* Sticky on tablet and mobile only — on desktop the header just scrolls
+     away normally. Needs its own opaque background since it now sits over
+     content while scrolling, and a bottom border to separate the two once
+     something is actually scrolling underneath it. */
+  @media (max-width: 1024px) {
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+    }
+  }
   .bar {
     display: flex;
     flex-wrap: wrap;
