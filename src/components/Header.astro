@@ -84,11 +84,20 @@ const isCurrent = (href: string) =>
     flex-direction: column;
     line-height: 1.15;
   }
+  /* Sized and tracked out so "kevin phelan" spans the same rendered width
+     as the tagline below it once the tagline is showing — tuned by
+     measuring both lines' actual glyph widths in the browser, not
+     guessed. Applied at every breakpoint (not just where the tagline
+     shows) so the wordmark reads as one consistent logo regardless of
+     whether the tagline is present. This match only holds for this exact
+     name/tagline pair at these exact sizes; if either text or the name's
+     font-size ever changes, re-measure and adjust letter-spacing rather
+     than assume it still lines up. */
   .brand-name {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
     text-transform: lowercase;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.106em;
     color: var(--header-brand-red);
   }
   .brand-tagline {
@@ -102,16 +111,6 @@ const isCurrent = (href: string) =>
   @media (min-width: 52rem) {
     .brand-tagline {
       display: block;
-    }
-    /* Sized and tracked out so "kevin phelan" spans the same rendered
-       width as the tagline below it — tuned by measuring both lines'
-       actual glyph widths in the browser, not guessed. This match only
-       holds for this exact name/tagline pair at these exact sizes; if
-       either text or font-size ever changes, re-measure and adjust
-       letter-spacing rather than assume it still lines up. */
-    .brand-name {
-      font-size: 1.75rem;
-      letter-spacing: 0.106em;
     }
   }
   .controls {
