@@ -16,6 +16,18 @@
   --color-badge-bg: #b81b1b;
   --color-badge-text: #ffffff;
 
+  /* The header is a fixed dark element by design — it doesn't follow the
+     toggle or the OS preference, so it needs its own set of colors that
+     never change, rather than reading the theme-reactive --color-* ones
+     above. Values match the dark theme. Used only by Header.astro and
+     ThemeToggle.astro (which lives inside the header). */
+  --header-bg: #1e1e1e;
+  --header-surface: #292929;
+  --header-text: #f2f1ec;
+  --header-muted: #a6a59f;
+  --header-border: #3a3a38;
+  --header-accent: #4a93ba;
+
   /* Urbanist is loaded from Google Fonts in BaseLayout.astro's <head>.
      The system stack after it is the fallback while it loads (or if the
      font request fails), not a general-purpose default anymore. */

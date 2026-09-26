@@ -39,13 +39,21 @@ const isCurrent = (href: string) =>
 <style>
   /* Sticky at every breakpoint. Needs its own opaque background since it
      now sits over content while scrolling, and a bottom border to separate
-     the two once something is actually scrolling underneath it. */
+     the two once something is actually scrolling underneath it.
+
+     The header is intentionally locked to the dark palette regardless of
+     the site's light/dark toggle — it uses the fixed --header-* tokens
+     from global.css, not the theme-reactive --color-* ones, so it stays
+     put while the toggle switches the rest of the page. Setting `color`
+     here means the brand link (which relies on the global `a { color:
+     inherit }` rule) picks up the right text color automatically. */
   .site-header {
     position: sticky;
     top: 0;
     z-index: 20;
-    background: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
+    background: var(--header-bg);
+    color: var(--header-text);
+    border-bottom: 1px solid var(--header-border);
   }
   .bar {
     display: flex;
@@ -79,15 +87,22 @@ const isCurrent = (href: string) =>
   }
   nav a {
     text-decoration: none;
-    color: var(--color-muted);
+    color: var(--header-muted);
   }
   nav a:hover,
   nav a[aria-current='page'] {
-    color: var(--color-text);
+    color: var(--header-text);
   }
   nav a[aria-current='page'] {
     text-decoration: underline;
-    text-decoration-color: var(--color-accent);
+    text-decoration-color: var(--header-accent);
     text-underline-offset: 0.35em;
+  }
+  /* The global :focus-visible rule uses the page's (theme-reactive) accent
+     color, which would be low-contrast against this always-dark header
+     once the page itself switches to light. Pin it to the header's own. */
+  .brand:focus-visible,
+  nav a:focus-visible {
+    outline-color: var(--header-accent);
   }
 </style>
