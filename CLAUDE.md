@@ -91,9 +91,8 @@ There is deliberately no contact form. Contact is LinkedIn (from `site.socials`)
 
 ## Branding
 
-- The logo lives in `src/assets/logo/` (`KPD-logo.svg` plus pre-sized PNGs) and renders next to the site name in `Header.astro` via `astro:assets`' `Image`.
-- Favicons are copies of the same logo, placed in `public/` (not imported, since `public/` is served as-is): `favicon.svg` (primary), `favicon-32.png` and `apple-touch-icon.png` (180×180). If the logo changes, re-copy all three and re-export the PNGs at those sizes — `public/` files don't get Astro's image processing.
-- The provided PNGs are not square (e.g. 180×202), matching the logo's own aspect ratio rather than being padded to a square canvas. If a favicon looks cropped or stretched in a browser tab, that's why — ask for square, padded exports to fix it.
+- The logo lives in `src/assets/logo/` (`KPD-logo.svg`, plus `KPD-favicon_32x32.png` and `KPD-favicon_180x180.png` — square, padded exports for the favicon sizes) and renders next to the site name in `Header.astro` via `astro:assets`' `Image`.
+- Favicons in `public/` (not imported, since `public/` is served as-is) are copies of those same PNGs/SVG: `favicon.svg` (primary), `favicon-32.png` and `apple-touch-icon.png`. If the logo changes, re-export square, padded PNGs at 32×32 and 180×180 into `src/assets/logo/`, then re-copy all three into `public/` under their existing names — `public/` files don't get Astro's image processing, so this is a manual step, not automatic.
 
 ## Redirects
 
