@@ -16,9 +16,10 @@
   --color-badge-bg: #b81b1b;
   --color-badge-text: #ffffff;
 
-  /* Fonts (system stacks by default — no external requests).
-     To use a web font, load it in BaseLayout.astro and change the name here. */
-  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  /* Urbanist is loaded from Google Fonts in BaseLayout.astro's <head>.
+     The system stack after it is the fallback while it loads (or if the
+     font request fails), not a general-purpose default anymore. */
+  --font-body: 'Urbanist', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-heading: var(--font-body);
   --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
@@ -44,8 +45,14 @@
   --space-4: 4rem;
 }
 
+/* Light theme values. Applied either when the OS asks for light and the
+   visitor hasn't overridden it with the toggle (the media-query block,
+   guarded so an explicit `data-theme="dark"` always wins), or when the
+   visitor's toggle choice is stored as light (the attribute block, which
+   applies regardless of the OS setting). Keep these two blocks in sync —
+   see components/ThemeToggle.astro for how `data-theme` gets set. */
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme='dark']) {
     --color-bg: #d3d3d3;
     --color-surface: #c6c6c6;
     --color-text: #171717;
@@ -56,6 +63,14 @@
        for link text. Same hue and saturation, darkened until it clears 4.5:1. */
     --color-accent: #2e607a;
   }
+}
+:root[data-theme='light'] {
+  --color-bg: #d3d3d3;
+  --color-surface: #c6c6c6;
+  --color-text: #171717;
+  --color-muted: #5c5c58;
+  --color-border: #b0b0b0;
+  --color-accent: #2e607a;
 }
 
 /* ==========================================================================

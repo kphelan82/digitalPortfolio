@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { site } from '../data/site';
 import logo from '../assets/logo/KPD-logo.svg';
+import ThemeToggle from './ThemeToggle.astro';
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
@@ -16,19 +17,22 @@ const isCurrent = (href: string) =>
       <Image src={logo} alt="" width={28} height={31} />
       <span>{site.name}</span>
     </a>
-    <nav aria-label="Main">
-      <ul>
-        {
-          site.nav.map((item) => (
-            <li>
-              <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
+    <div class="controls">
+      <nav aria-label="Main">
+        <ul>
+          {
+            site.nav.map((item) => (
+              <li>
+                <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <ThemeToggle />
+    </div>
   </div>
 </header>
 
@@ -48,6 +52,12 @@ const isCurrent = (href: string) =>
     font-family: var(--font-heading);
     font-weight: 600;
     text-decoration: none;
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-1) var(--space-2);
   }
   ul {
     display: flex;

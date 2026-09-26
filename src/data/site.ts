@@ -24,9 +24,9 @@ export interface SiteConfig {
 }
 
 export const site: SiteConfig = {
-  name: 'Your Name',
+  name: 'Kevin Phelan',
   tagline: 'Product designer making complicated things feel simple.',
-  description: 'Portfolio of Your Name, product designer. Selected case studies, gallery, bio and résumé.',
+  description: 'Portfolio of Kevin Phelan, product designer. Selected case studies, gallery, bio and résumé.',
 
   email: 'hello@example.com',
 
@@ -34,7 +34,7 @@ export const site: SiteConfig = {
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/your-handle/' },
   ],
 
-  footerText: `© ${new Date().getFullYear()} Your Name. All rights reserved.`,
+  footerText: `© ${new Date().getFullYear()} Kevin Phelan. All rights reserved.`,
 
   nav: [
     { label: 'Work', href: '/' },
