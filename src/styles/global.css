@@ -2,13 +2,19 @@
    Design tokens — change the look of the whole site here.
    ========================================================================== */
 :root {
-  /* Colors */
-  --color-bg: #fbfbf9;
-  --color-surface: #f1f0ec;
-  --color-text: #171717;
-  --color-muted: #6a6a65;
-  --color-border: #e3e2dd;
-  --color-accent: #2f4bff;
+  /* Colors — dark is the default theme (brand-driven, not system-driven);
+     see the `prefers-color-scheme: light` override below for the alternate. */
+  --color-bg: #1e1e1e;
+  --color-surface: #292929;
+  --color-text: #f2f1ec;
+  --color-muted: #a6a59f;
+  --color-border: #3a3a38;
+  --color-accent: #4a93ba;
+
+  /* Fixed brand colors — same in both themes, so not overridden below.
+     Currently used only for the "Draft" badge (filled chip, not text-on-page). */
+  --color-badge-bg: #b81b1b;
+  --color-badge-text: #ffffff;
 
   /* Fonts (system stacks by default — no external requests).
      To use a web font, load it in BaseLayout.astro and change the name here. */
@@ -38,14 +44,17 @@
   --space-4: 4rem;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --color-bg: #121211;
-    --color-surface: #1c1c1a;
-    --color-text: #ecebe6;
-    --color-muted: #9a9993;
-    --color-border: #2c2c29;
-    --color-accent: #8ea0ff;
+    --color-bg: #d3d3d3;
+    --color-surface: #c6c6c6;
+    --color-text: #171717;
+    /* Slightly darker than a plain gray so it still clears 4.5:1 against #d3d3d3. */
+    --color-muted: #5c5c58;
+    --color-border: #b0b0b0;
+    /* The literal brand blue (#4a93ba) is only ~2.3:1 against #d3d3d3 — too low
+       for link text. Same hue and saturation, darkened until it clears 4.5:1. */
+    --color-accent: #2e607a;
   }
 }
 

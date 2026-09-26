@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { site } from '../data/site';
+import logo from '../assets/logo/KPD-logo.svg';
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
@@ -10,7 +12,10 @@ const isCurrent = (href: string) =>
 
 <header class="site-header">
   <div class="container bar">
-    <a class="brand" href="/">{site.name}</a>
+    <a class="brand" href="/">
+      <Image src={logo} alt="" width={28} height={31} />
+      <span>{site.name}</span>
+    </a>
     <nav aria-label="Main">
       <ul>
         {
@@ -37,6 +42,9 @@ const isCurrent = (href: string) =>
     padding-block: var(--space-2);
   }
   .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--font-heading);
     font-weight: 600;
     text-decoration: none;

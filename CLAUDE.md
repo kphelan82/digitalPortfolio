@@ -81,10 +81,18 @@ There is deliberately no contact form. Contact is LinkedIn (from `site.socials`)
 ## Styling
 
 - All colors, fonts, type scale, widths, spacing and radius are CSS custom properties at the top of `src/styles/global.css`. Change the look there.
-- Dark mode is a variable override in the `prefers-color-scheme: dark` block in the same file; delete the block to disable it.
+- **Dark is the default theme** (brand-driven, not system-driven) — the base `:root` block holds the dark palette. A `prefers-color-scheme: light` override further down supplies the light alternate for visitors whose systems request it. This is inverted from Astro's usual pattern (light default + dark override), so don't "fix" it back the normal way.
+- `--color-accent` is **not** the same hex in both themes: the brand blue (`#4a93ba`) reads fine on the dark background but fails text contrast (~2.3:1) against the light background's `#d3d3d3`, so the light override uses a darkened same-hue shade (`#2e607a`) instead. If the brand blue ever changes, recheck contrast against both theme backgrounds before swapping the light-mode value too.
+- `--color-badge-bg` / `--color-badge-text` (brand red + white) are fixed in both themes — used only as a filled chip (the "Draft" badge), never as text color directly on the page background, so they don't need a light/dark variant.
 - Fonts default to system stacks. For a web font, load it in `BaseLayout.astro` and update `--font-body` / `--font-heading`.
 - Component-specific layout uses scoped `<style>` blocks but must reference the variables, never hard-coded colors or font names.
 - Mobile-first and responsive with no JS: grids use `auto-fill`/`minmax`, the nav wraps, the gallery uses CSS columns.
+
+## Branding
+
+- The logo lives in `src/assets/logo/` (`KPD-logo.svg` plus pre-sized PNGs) and renders next to the site name in `Header.astro` via `astro:assets`' `Image`.
+- Favicons are copies of the same logo, placed in `public/` (not imported, since `public/` is served as-is): `favicon.svg` (primary), `favicon-32.png` and `apple-touch-icon.png` (180×180). If the logo changes, re-copy all three and re-export the PNGs at those sizes — `public/` files don't get Astro's image processing.
+- The provided PNGs are not square (e.g. 180×202), matching the logo's own aspect ratio rather than being padded to a square canvas. If a favicon looks cropped or stretched in a browser tab, that's why — ask for square, padded exports to fix it.
 
 ## Redirects
 
