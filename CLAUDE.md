@@ -67,6 +67,14 @@ Each case study is a Markdown file in `src/content/case-studies/`. The filename 
 
 The single place for name, tagline, description, email, social links, footer text, nav items, and the optional résumé PDF path. Components read from it; don't hard-code these values elsewhere. Add another social link by appending `{ label, url }` to `socials`.
 
+`tagline` is the homepage H1; `brandTagline` is a separate, shorter field for the small line under the name in the header logo lockup ("digital experience & visual design") — don't conflate the two.
+
+## Header logo lockup
+
+The header's brand block (`Header.astro`) is a logo lockup, not a nav link styled like the others: the name renders large, bold, and in the fixed `--header-brand-red` token (lowercase via `text-transform`, not by editing `site.name`, which stays properly cased for page titles/footer/meta), so it reads as part of the mark rather than "just another link". The whole lockup (icon + name) still links home — that's deliberate, since clicking a logo to go home is a standard, expected convention; only the visual treatment changes.
+
+`brandTagline` only renders once there's room (a `min-width: 52rem` media query on `.brand-tagline`), and drops on narrower viewports along with the larger logo size — there's no fixed breakpoint tying this to the header's own wrap point, so check both independently after changing either.
+
 ## Contact: no form
 
 There is deliberately no contact form. Contact is LinkedIn (from `site.socials`) plus a spam-resistant email link:

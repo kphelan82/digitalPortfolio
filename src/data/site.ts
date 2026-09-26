@@ -13,6 +13,8 @@ export interface NavItem {
 export interface SiteConfig {
   name: string;
   tagline: string;
+  /** Short line under the name in the header logo lockup. Only shown once there's room (see Header.astro). */
+  brandTagline: string;
   description: string;
   /** Never rendered as plain text in the HTML — see components/EmailLink.astro. */
   email: string;
@@ -26,6 +28,7 @@ export interface SiteConfig {
 export const site: SiteConfig = {
   name: 'Kevin Phelan',
   tagline: 'Product designer making complicated things feel simple.',
+  brandTagline: 'Digital experience & visual design',
   description: 'Portfolio of Kevin Phelan, product designer. Selected case studies, gallery, bio and résumé.',
 
   email: 'hello@example.com',

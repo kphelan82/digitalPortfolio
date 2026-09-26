@@ -27,6 +27,7 @@
   --header-muted: #a6a59f;
   --header-border: #3a3a38;
   --header-accent: #4a93ba;
+  --header-brand-red: #b81b1b;
 
   /* Urbanist is loaded from Google Fonts in BaseLayout.astro's <head>.
      The system stack after it is the fallback while it loads (or if the
