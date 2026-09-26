@@ -14,7 +14,7 @@ const isCurrent = (href: string) =>
 <header class="site-header">
   <div class="container bar">
     <a class="brand" href="/">
-      <Image src={logo} alt="" width={44} height={49} />
+      <Image class="brand-logo" src={logo} alt="" width={44} height={49} />
       <span class="brand-text">
         <span class="brand-name">{site.name}</span>
         <span class="brand-tagline">{site.brandTagline}</span>
@@ -111,6 +111,19 @@ const isCurrent = (href: string) =>
   @media (min-width: 52rem) {
     .brand-tagline {
       display: block;
+    }
+    /* The logo's own artwork has a straight vertical edge on its right
+       side (the "d" stroke, from y=70.41 to y=272.79 in its 372-tall
+       viewBox — 54.4% of the icon's total height). Sized here so that
+       edge matches the height of the two-line text block next to it,
+       measured at 47.125px: 47.125 / 0.5440 = 86.62px icon height. Width
+       is left to `auto` so it scales off the logo's own aspect ratio
+       rather than a second hand-computed number. Re-derive this if the
+       logo artwork, its two-line text block's size, or its line-height
+       ever changes. */
+    .brand-logo {
+      height: 86.62px;
+      width: auto;
     }
   }
   .controls {
