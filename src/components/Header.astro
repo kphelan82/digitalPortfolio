@@ -135,7 +135,7 @@ const isCurrent = (href: string) =>
   ul {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-1) var(--space-2);
+    gap: var(--space-1) 1.5rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -143,6 +143,8 @@ const isCurrent = (href: string) =>
   nav a {
     text-decoration: none;
     color: var(--header-muted);
+    font-weight: 700;
+    text-transform: lowercase;
   }
   nav a:hover,
   nav a[aria-current='page'] {
