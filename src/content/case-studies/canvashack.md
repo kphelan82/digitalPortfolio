@@ -4,7 +4,7 @@ client: "Facebook / IHOP"
 year: 2000 # TODO: replace with the real year
 role: "Interactive Art Director"
 summary: "A proof-of-concept Facebook Canvas ad for IHOP, created at an agency hackathon by three art directors. Timed gestures and video turned the ad into shareable pancake-making mini games."
-thumbnail: ../../assets/thumbnails/canvashack.svg # TODO: replace with a real thumbnail
+thumbnail: ../../assets/thumbnails/canvashack.png
 order: 3
 draft: true # TODO: set to false (or remove) once the year and images are in
 ---

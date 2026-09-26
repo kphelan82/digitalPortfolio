@@ -4,7 +4,7 @@ client: "Sunovion Pharmaceuticals"
 year: 2019
 role: "Senior Art Director"
 summary: "A patient-first redesign of Latuda.com that segmented visitors into three pathways and used progressive disclosure to surface the right information faster, with almost no new content."
-thumbnail: ../../assets/thumbnails/latuda.svg # TODO: replace with a real thumbnail
+thumbnail: ../../assets/thumbnails/latuda.png
 order: 5
 draft: true # TODO: set to false (or remove) once the images are in
 ---

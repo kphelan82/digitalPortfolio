@@ -4,7 +4,7 @@ client: "Roar Bikes"
 year: 2000 # TODO: replace with the real year
 role: "UX/UI Designer"
 summary: "Wireframes and a hi-fi prototype for a site and mobile app that lets customers explore Roar Bikes' three models, customize a build and place an order, created for a design certification."
-thumbnail: ../../assets/thumbnails/roar.svg # TODO: replace with a real thumbnail
+thumbnail: ../../assets/thumbnails/roar.png
 order: 2
 draft: true # TODO: set to false (or remove) once the year and images are in
 ---

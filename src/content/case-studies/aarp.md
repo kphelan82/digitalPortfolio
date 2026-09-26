@@ -4,7 +4,7 @@ client: "AARP"
 year: 2000 # TODO: replace with the real year
 role: "Interactive Art Director"
 summary: "A scalable, tile-based website for AARP's medical bankruptcy campaign. A handful of filmed stories and motion design conveyed thousands of people affected and drove visitors to contact Congress."
-thumbnail: ../../assets/thumbnails/aarp.svg # TODO: replace with a real thumbnail
+thumbnail: ../../assets/thumbnails/aarp.png
 order: 1
 draft: true # TODO: set to false (or remove) once the year and images are in
 ---

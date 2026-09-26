@@ -4,7 +4,7 @@ client: "AstraZeneca Pharmaceuticals"
 year: 2019
 role: "Senior Art Director"
 summary: "A full redesign of the Bydureon consumer site, built from content modules to feel warmer and scale across AstraZeneca brands. Video, quizzes, FAQs and copay registration became reusable pieces."
-thumbnail: ../../assets/thumbnails/bydureon.svg # TODO: replace with a real thumbnail
+thumbnail: ../../assets/thumbnails/bydureon.png
 order: 4
 draft: true # TODO: set to false (or remove) once the images are in
 ---

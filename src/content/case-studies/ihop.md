@@ -4,7 +4,7 @@ client: "IHOP"
 year: 2000 # TODO: replace with the real year
 role: "Interactive Art Director" # TODO: confirm the title to show
 summary: "A choose-your-own-adventure Facebook Canvas ad that put IHOP's food on customers' phones to drive morning and late-night visits. It reached 25% engagement, 196% of Facebook's Canvas benchmark."
-thumbnail: ../../assets/thumbnails/ihop.svg # TODO: replace with a real thumbnail
+thumbnail: ../../assets/thumbnails/ihop.png
 order: 6
 draft: true # TODO: set to false (or remove) once the year and images are in
 ---

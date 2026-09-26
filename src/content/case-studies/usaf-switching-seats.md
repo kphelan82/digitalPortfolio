@@ -4,7 +4,7 @@ client: "U.S. Air Force / NASCAR"
 year: 2000 # TODO: replace with the real year
 role: "Interactive Art Director"
 summary: "A 360° interactive micro-site supporting the U.S. Air Force's NASCAR sponsorship, where a pit crew and USAF Airmen switched places. It generated over 4,000 qualified recruitment leads."
-thumbnail: ../../assets/thumbnails/usaf-switching-seats.svg # TODO: replace with a real thumbnail
+thumbnail: ../../assets/thumbnails/usaf-switching-seats.png
 order: 0
 draft: true # TODO: set to false (or remove) once the year and images are in
 ---
