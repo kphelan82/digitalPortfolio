@@ -103,6 +103,16 @@ const isCurrent = (href: string) =>
     .brand-tagline {
       display: block;
     }
+    /* Sized and tracked out so "kevin phelan" spans the same rendered
+       width as the tagline below it — tuned by measuring both lines'
+       actual glyph widths in the browser, not guessed. This match only
+       holds for this exact name/tagline pair at these exact sizes; if
+       either text or font-size ever changes, re-measure and adjust
+       letter-spacing rather than assume it still lines up. */
+    .brand-name {
+      font-size: 1.75rem;
+      letter-spacing: 0.106em;
+    }
   }
   .controls {
     display: flex;
