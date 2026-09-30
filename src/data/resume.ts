@@ -1,5 +1,5 @@
 // Résumé content, rendered by src/pages/cv.astro. Edit here; the page layout doesn't need to change.
-// TODO: this is the May 2021 résumé. Update it from the newer LinkedIn version.
+// Updated to match the 2026 résumé PDF (public/kevin-phelan-resume.pdf), finalized Sep 2026.
 
 export interface Job {
   title: string;
@@ -22,7 +22,6 @@ export interface Education {
 export interface Resume {
   about: string;
   experience: Job[];
-  skills: string[];
   education: Education[];
   certifications: string[];
   affiliations: string[];
@@ -30,20 +29,33 @@ export interface Resume {
 
 export const resume: Resume = {
   about:
-    "Seasoned full stack visual/experience designer looking to continue creating outstanding digital content using my knowledge of design, client strategy, brand identity, UX and digital development to exceed client expectations. I've built a versatile design portfolio through working with major national brands on some exceptional teams. My strong organizational skills, adaptiveness, and teamwork have been instrumental to successfully working in a fast-paced agency space over the last several years.",
+    "UX/Visual Designer with 20+ years of experience across startup, agency, and enterprise environments. I've partnered with a wide array of teams and clients to ship refined experiences that are intuitive, scalable, and built for launch — with a growing curiosity for AI-optimized design workflows.",
 
   experience: [
+    {
+      title: 'Senior UX Designer',
+      company: 'Comcast Business',
+      location: 'Philadelphia, PA',
+      dates: 'Jul. 2021 – Present',
+      description:
+        'UX and UI design for Comcast Business customer education and acquisition experiences. In this role, I partner with multi-disciplinary teams and stakeholders to deliver features and merchandising campaigns in an agile and high speed environment.',
+      highlightsLabel: 'Key highlights',
+      highlights: [
+        'Lead UI design for Comcast Business Mobile learn content.',
+        'Selected as a 2026 AI Champion, using AI tools to rapid prototype designs and automate workflows.',
+      ],
+    },
     {
       title: 'Senior Art Director/UI Designer',
       company: 'MRM',
       location: 'Princeton, NJ',
       dates: 'Sep. 2010 – May 2021',
       description:
-        'Over a ten year span, I combined experience design, motion graphics, and technical knowledge to support multi-million dollar brands. Most recently, I sought to expand my skill set and pursue an interest in user experience. My UI Designer role allowed me to take my existing skills to a more granular level, using atomic design principles to build design systems based on content audits, modular components, and identifying design patterns to create more streamlined user interfaces.',
+        'Combined visual design, motion graphics, and UI systems work for multi-million dollar brands. In my later role I specifically shifted to specializing in atomic design principles and modular component libraries.',
       highlightsLabel: 'Key highlights and clients',
       highlights: [
-        'IHOP, U.S. Army, Educational Testing Service, Johnson & Johnson Vision, Acuvue, Bristol-Myers Squibb, Sunovion Pharmaceuticals, Verizon, Cigna',
-        'Facebook Hackathon: Selected to represent MRM at this event, which brought together agencies from around the world to use digital innovation to "hack" and improve the new Canvas ad format',
+        'IHOP, U.S. Army, Educational Testing Service, Bristol-Myers Squibb, Sunovion Pharmaceuticals, Verizon',
+        'Selected to represent MRM at the Facebook Hackathon event, in which agency teams came together to "hack" the Canvas ad format, which later led to launching an award-winning ad unit for IHOP.',
       ],
     },
     {
@@ -52,40 +64,18 @@ export const resume: Resume = {
       location: 'Tinton Falls, NJ',
       dates: 'Nov. 2007 – Apr. 2010',
       description:
-        'Worked under the creative director as part of a small and tight-knit, award-winning interactive development team. Directly partnered with lead programmers to create a seamless design process between front and back-end development for several innovative interactive sites and digital campaigns. Provided art direction for freelance designers and interns on and off site.',
+        'Partnered with Lead Programmers to create a seamless process between front-end design and back-end development for several innovative websites and digital campaigns as part of a small, award-winning interactive development team.',
       highlightsLabel: 'Key highlights and clients',
       highlights: [
-        'Texas A&M, U.S. Air Force, AARP, Chili\'s, Kohler',
-        'Design and animation were part of an award-winning interactive site for the U.S. Air Force/NASCAR "Switching Seats" recruitment campaign',
-        "Supported the agency's business development team with print and digital promotional tactics",
+        "Texas A&M, U.S. Air Force, AARP, Chili's, Kohler",
+        'Created visual design and motion graphics for an award-winning website for the U.S. Air Force/NASCAR "Switching Seats" recruitment campaign',
       ],
     },
-    {
-      title: 'Senior Designer',
-      company: 'Group C Media, Inc.',
-      location: 'Tinton Falls, NJ',
-      dates: 'Sep. 2004 – Nov. 2007',
-      description:
-        "Designed magazine layouts for Business Facilities and Today's Facility Manager in cooperation with the editorial staff to bring the content to life. Worked with the Director of Marketing to produce all promotional sales materials and developed brand collateral for the publications' trade shows and events.",
-      highlightsLabel: 'Key highlights',
-      highlights: [
-        'Produced 13 published magazine covers in three years',
-        'Designed promo and identity materials for a brand new trade show',
-      ],
-    },
-  ],
-
-  skills: [
-    'Adobe CC',
-    'UX Prototyping',
-    'Animation/Video Editing',
-    'Print/Digital Production',
-    'HTML5/CSS',
   ],
 
   education: [
     {
-      degree: 'Bachelor of Fine Arts, Computer Graphics & Design',
+      degree: 'Bachelor of Fine Arts',
       school: 'Monmouth University',
       location: 'West Long Branch, NJ',
       year: '2004',
@@ -96,8 +86,8 @@ export const resume: Resume = {
   certifications: [
     'UX Design Master Course',
     'Principles & Practices for Great UI Design',
-    'Smart Interface Design Patterns 2021',
+    'Smart Interface Design Patterns',
   ],
 
-  affiliations: ['Sigma Pi Fraternity'],
+  affiliations: ['Sigma Pi Fraternity Member & Educational Foundation Donor'],
 };

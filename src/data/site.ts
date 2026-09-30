@@ -31,10 +31,10 @@ export const site: SiteConfig = {
   brandTagline: 'Digital experience & visual design',
   description: 'Portfolio of Kevin Phelan, product designer. Selected case studies, gallery, bio and résumé.',
 
-  email: 'hello@example.com',
+  email: 'kphelandesign@gmail.com',
 
   socials: [
-    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/your-handle/' },
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/kevin-phelan-5b059b41/' },
   ],
 
   footerText: `© ${new Date().getFullYear()} Kevin Phelan. All rights reserved.`,
@@ -46,5 +46,5 @@ export const site: SiteConfig = {
     { label: 'Résumé', href: '/cv' },
   ],
 
-  resumePdf: '',
+  resumePdf: '/kevin-phelan-resume.pdf',
 };

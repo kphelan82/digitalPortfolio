@@ -6,79 +6,203 @@ import { site } from '../data/site';
 import { resume } from '../data/resume';
 ---
 
-<BaseLayout title="Résumé" description={`Résumé of ${site.name}: experience, education, skills and certifications.`}>
-  <h1 class="page-title">Résumé</h1>
-
-  <div class="prose">
+<BaseLayout title="Résumé" description={`Résumé of ${site.name}: experience, education, and certifications.`}>
+  <div class="cv-header">
+    <h1 class="page-title">résumé</h1>
     {
       site.resumePdf && (
-        <p>
-          <a href={site.resumePdf} download>
-            Download PDF
-          </a>
-        </p>
+        <a class="download-btn" href={site.resumePdf} download>
+          <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none">
+            <path
+              d="M10 3v9m0 0 3.5-3.5M10 12l-3.5-3.5M4 14.5V16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-1.5"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Download PDF
+        </a>
       )
     }
+  </div>
 
-    <h2>About me</h2>
-    <p>{resume.about}</p>
+  <div class="prose">
+    <p class="about">{resume.about}</p>
 
     <h2>Industry experience</h2>
-    {
-      resume.experience.map((job) => (
-        <section class="job">
-          <h3>{job.title}</h3>
-          <p class="muted">
-            {job.company} · {job.location} · {job.dates}
-          </p>
-          <p>{job.description}</p>
-          <p class="label">{job.highlightsLabel}</p>
-          <ul>
-            {job.highlights.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-        </section>
-      ))
-    }
+    <div class="jobs">
+      {
+        resume.experience.map((job) => (
+          <section class="job">
+            <div class="job-head">
+              <h3>{job.title}</h3>
+              <p class="dates muted">{job.dates}</p>
+            </div>
+            <p class="muted">
+              {job.company} · {job.location}
+            </p>
+            <p>{job.description}</p>
+            <p class="label">{job.highlightsLabel}</p>
+            <ul>
+              {job.highlights.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
 
-    <h2>Key skills</h2>
-    <ul>
-      {resume.skills.map((skill) => <li>{skill}</li>)}
-    </ul>
+    <div class="meta-grid">
+      <section>
+        <h2>Education</h2>
+        {
+          resume.education.map((item) => (
+            <div class="meta-item">
+              <p class="meta-title">{item.degree}</p>
+              <p class="muted">
+                {item.school}, {item.location} · {item.year}
+                {item.honors && `, ${item.honors}`}
+              </p>
+            </div>
+          ))
+        }
+      </section>
 
-    <h2>Education</h2>
-    {
-      resume.education.map((item) => (
-        <section>
-          <h3>{item.degree}</h3>
-          <p class="muted">
-            {item.school}, {item.location} · {item.year}
-            {item.honors && `, ${item.honors}`}
-          </p>
-        </section>
-      ))
-    }
+      <section>
+        <h2>Certifications</h2>
+        <ul class="tag-list">
+          {resume.certifications.map((cert) => <li>{cert}</li>)}
+        </ul>
+      </section>
 
-    <h2>Certifications</h2>
-    <ul>
-      {resume.certifications.map((cert) => <li>{cert}</li>)}
-    </ul>
+      <section>
+        <h2>Affiliations</h2>
+        <ul class="tag-list">
+          {resume.affiliations.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+    </div>
 
-    <h2>Affiliations</h2>
-    <ul>
-      {resume.affiliations.map((item) => <li>{item}</li>)}
-    </ul>
   </div>
 </BaseLayout>
 
 <style>
-  .job + .job {
-    margin-top: var(--space-3);
+  .cv-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
   }
+  .cv-header .page-title {
+    margin-bottom: 0;
+  }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.55em 1.1em;
+    border-radius: var(--radius);
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+  .download-btn:hover {
+    opacity: 0.85;
+    color: var(--color-bg);
+    text-decoration: none;
+  }
+
+  .about {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+  }
+
+  .jobs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .job {
+    padding: var(--space-2);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius);
+  }
+  .job > * + * {
+    margin-top: 0.5em;
+  }
+
+  .job-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5em;
+  }
+  .job-head h3 {
+    margin: 0;
+    color: var(--color-accent);
+  }
+  .dates {
+    font-size: var(--text-sm);
+    white-space: nowrap;
+  }
+
   .label {
     margin-top: var(--space-2);
     font-size: var(--text-sm);
     font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .meta-grid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    margin-top: 2em;
+    padding: var(--space-2);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    border-radius: var(--radius);
+  }
+  .meta-grid > section > * + * {
+    margin-top: 0.5em;
+  }
+  .meta-item + .meta-item {
+    margin-top: var(--space-2);
+  }
+  .meta-title {
+    font-weight: 600;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .tag-list li {
+    padding: 0.3em 0.75em;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: var(--text-sm);
+  }
+  .meta-grid .tag-list li {
+    background: var(--color-bg);
   }
 </style>
