@@ -68,7 +68,7 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
     </section>
   </div>
 
-  <div class="prose prose-wide">
+  <div class="prose">
     <h2>Industry experience</h2>
     <div class="jobs">
       {
@@ -133,11 +133,12 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
     color: var(--color-muted);
   }
 
-  /* Widens just this .prose block (the experience section) to match
-     .info-cards' 56rem above — the intro paragraph's .prose keeps the
-     narrower default width, since a 56rem line length would be too wide
-     for comfortable reading. */
-  .prose-wide {
+  /* Overrides the global .prose max-width (--content-width, 42rem) for
+     this page only (Astro scopes this rule to cv.astro's own elements) —
+     56rem to match .info-cards below, so the whole page reads as one
+     consistent width instead of the intro paragraph being narrower than
+     everything under it. */
+  .prose {
     max-width: 56rem;
   }
 
@@ -200,14 +201,13 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
      page — a shade lighter, so the badge stays visible instead of
      blending into the background it'd otherwise match exactly.
 
-     Deliberately a sibling of .prose, not nested in it: .prose caps out
-     at --content-width (42rem) for comfortable paragraph reading, which
-     only leaves room for 2 of these cards side by side. Un-nesting lets
-     them use the page's full width instead, capped here at 56rem — wide
-     enough for 3 comfortably-sized columns, without stretching them
-     edge-to-edge at the site's full 72rem container width. The
-     experience section below matches this same 56rem via .prose-wide,
-     for a consistent width between the two sections. */
+     A sibling of .prose rather than nested in it, so its own width isn't
+     tied to .prose's typography-oriented rules — capped here at 56rem,
+     matching the page-wide .prose override below, for one consistent
+     width across the whole page (intro paragraph, cards, and experience
+     section alike). 56rem is wide enough for 3 comfortably-sized
+     columns without stretching them edge-to-edge at the site's full
+     72rem container width. */
   .info-cards {
     display: grid;
     gap: var(--space-3);
