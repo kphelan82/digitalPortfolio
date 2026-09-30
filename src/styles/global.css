@@ -10,6 +10,12 @@
   --color-muted: #a6a59f;
   --color-border: #3a3a38;
   --color-accent: #4a93ba;
+  /* Brand red, brightened for this background — the literal brand red
+     (#b81b1b) is only ~2.5:1 against #1e1e1e, under the 3:1 large-text
+     minimum. Currently used only for résumé section headings
+     (src/pages/cv.astro). Same hue/saturation, lightened until it clears
+     3:1 (large, bold heading text) with a working margin. */
+  --color-heading-accent: #e35b5b;
 
   /* Fixed brand colors — same in both themes, so not overridden below.
      Currently used only for the "Draft" badge (filled chip, not text-on-page). */
@@ -75,6 +81,10 @@
     /* The literal brand blue (#4a93ba) is only ~2.3:1 against #d3d3d3 — too low
        for link text. Same hue and saturation, darkened until it clears 4.5:1. */
     --color-accent: #2e607a;
+    /* The literal brand red already clears contrast against this lighter
+       background (~4.4:1), so no adjustment needed here — only dark mode
+       needs a brightened variant. */
+    --color-heading-accent: #b81b1b;
   }
 }
 :root[data-theme='light'] {
@@ -84,6 +94,7 @@
   --color-muted: #5c5c58;
   --color-border: #b0b0b0;
   --color-accent: #2e607a;
+  --color-heading-accent: #b81b1b;
 }
 
 /* ==========================================================================

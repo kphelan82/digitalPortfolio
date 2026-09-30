@@ -126,6 +126,15 @@ import { resume } from '../data/resume';
     color: var(--color-muted);
   }
 
+  /* Section headings (Industry experience, Education, Certifications,
+     Affiliations) get the brand red, distinct from the blue used for
+     job titles/labels/the download button/card accents elsewhere on this
+     page — mirrors the header's red-for-identity, blue-for-interaction
+     split. */
+  .prose h2 {
+    color: var(--color-heading-accent);
+  }
+
   .jobs {
     display: flex;
     flex-direction: column;
