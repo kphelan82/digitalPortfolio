@@ -44,8 +44,7 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
           <div class="meta-item">
             <p class="meta-title">{item.degree}</p>
             <p class="muted">
-              {item.school}, {item.location} · {item.year}
-              {item.honors && `, ${item.honors}`}
+              {item.school}, {item.location} · {item.year}{item.honors && `, ${item.honors}`}
             </p>
           </div>
         ))
@@ -239,18 +238,11 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
   }
 
   .tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5em;
-    list-style: none;
-    padding: 0;
+    list-style: disc;
+    padding-left: 1.25em;
     margin: 0;
   }
-  .tag-list li {
-    padding: 0.3em 0.75em;
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 999px;
-    font-size: var(--text-sm);
+  .tag-list li + li {
+    margin-top: 0.25em;
   }
 </style>
