@@ -33,41 +33,43 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
 
   <div class="prose">
     <p class="about">{resume.about}</p>
+  </div>
 
-    <div class="info-cards">
-      <section class="info-card">
-        <Image src={educationIcon} alt="" width={44} height={44} />
-        <h2>Education</h2>
-        {
-          resume.education.map((item) => (
-            <div class="meta-item">
-              <p class="meta-title">{item.degree}</p>
-              <p class="muted">
-                {item.school}, {item.location} · {item.year}
-                {item.honors && `, ${item.honors}`}
-              </p>
-            </div>
-          ))
-        }
-      </section>
+  <div class="info-cards">
+    <section class="info-card">
+      <Image src={educationIcon} alt="" width={44} height={44} />
+      <h2>Education</h2>
+      {
+        resume.education.map((item) => (
+          <div class="meta-item">
+            <p class="meta-title">{item.degree}</p>
+            <p class="muted">
+              {item.school}, {item.location} · {item.year}
+              {item.honors && `, ${item.honors}`}
+            </p>
+          </div>
+        ))
+      }
+    </section>
 
-      <section class="info-card">
-        <Image src={certificationsIcon} alt="" width={44} height={44} />
-        <h2>Certifications</h2>
-        <ul class="tag-list">
-          {resume.certifications.map((cert) => <li>{cert}</li>)}
-        </ul>
-      </section>
+    <section class="info-card">
+      <Image src={certificationsIcon} alt="" width={44} height={44} />
+      <h2>Certifications</h2>
+      <ul class="tag-list">
+        {resume.certifications.map((cert) => <li>{cert}</li>)}
+      </ul>
+    </section>
 
-      <section class="info-card">
-        <Image src={affiliationsIcon} alt="" width={44} height={44} />
-        <h2>Affiliations</h2>
-        <ul class="tag-list">
-          {resume.affiliations.map((item) => <li>{item}</li>)}
-        </ul>
-      </section>
-    </div>
+    <section class="info-card">
+      <Image src={affiliationsIcon} alt="" width={44} height={44} />
+      <h2>Affiliations</h2>
+      <ul class="tag-list">
+        {resume.affiliations.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+  </div>
 
+  <div class="prose prose-wide">
     <h2>Industry experience</h2>
     <div class="jobs">
       {
@@ -132,12 +134,22 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
     color: var(--color-muted);
   }
 
+  /* Widens just this .prose block (the experience section) to match
+     .info-cards' 56rem above — the intro paragraph's .prose keeps the
+     narrower default width, since a 56rem line length would be too wide
+     for comfortable reading. */
+  .prose-wide {
+    max-width: 56rem;
+  }
+
   /* Section headings (Industry experience, Education, Certifications,
      Affiliations) get the brand red, distinct from the blue used for
      job titles/labels/the download button/card accents elsewhere on this
      page — mirrors the header's red-for-identity, blue-for-interaction
-     split. */
-  .prose h2 {
+     split. Two selectors because .info-card sits outside .prose (see
+     .info-cards below for why) — both need to stay in sync. */
+  .prose h2,
+  .info-card h2 {
     color: var(--color-heading-accent);
   }
 
@@ -151,7 +163,6 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
     padding: var(--space-2);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-left: 3px solid var(--color-accent);
     border-radius: var(--radius);
   }
   .job > * + * {
@@ -188,18 +199,27 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
      fill (#1e1e1e) matches the dark theme's page background exactly, so
      it's placed on the card surface color rather than directly on the
      page — a shade lighter, so the badge stays visible instead of
-     blending into the background it'd otherwise match exactly. */
+     blending into the background it'd otherwise match exactly.
+
+     Deliberately a sibling of .prose, not nested in it: .prose caps out
+     at --content-width (42rem) for comfortable paragraph reading, which
+     only leaves room for 2 of these cards side by side. Un-nesting lets
+     them use the page's full width instead, capped here at 56rem — wide
+     enough for 3 comfortably-sized columns, without stretching them
+     edge-to-edge at the site's full 72rem container width. The
+     experience section below matches this same 56rem via .prose-wide,
+     for a consistent width between the two sections. */
   .info-cards {
     display: grid;
     gap: var(--space-3);
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    max-width: 56rem;
     margin: 2em 0;
   }
   .info-card {
     padding: var(--space-2);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-top: 3px solid var(--color-accent);
     border-radius: var(--radius);
   }
   .info-card img {
