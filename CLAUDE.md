@@ -43,6 +43,8 @@ public/                     favicon and other files served as-is
 
 The résumé is at `/cv` (not `/resume`) because `/resume` is an old URL that redirects here. Edit its content in `src/data/resume.ts`, not in the page. The bio text is written directly in `src/pages/bio.astro`.
 
+Education/Certifications/Affiliations render as three cards above the experience section, each with an icon from `src/assets/icons/` (`education_icon.svg`, `certifications_icon.svg`, `affiliations_icon.svg`). Those icons are fixed-color assets — a dark hexagon badge (matching the logo's hexagon motif) with a light glyph, `fill` baked into the SVG paths, not `currentColor` — so like the logo, they don't adapt to the theme toggle. The hexagon's fill (`#1e1e1e`) is the exact same hex as the dark theme's page background, so the cards deliberately sit on `--color-surface` rather than the raw page background — on the page background directly, the badge would visually disappear.
+
 ## Case studies
 
 Each case study is a Markdown file in `src/content/case-studies/`. The filename becomes the slug (`aarp.md` → `/work/aarp`). Frontmatter is validated by the Zod schema in `src/content.config.ts`; a build fails with a clear error if a field is missing or the wrong type.

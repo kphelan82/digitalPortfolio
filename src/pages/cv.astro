@@ -1,9 +1,13 @@
 ---
 // Résumé lives at /cv because the old /resume URL redirects here (see astro.config.mjs).
 // Content comes from src/data/resume.ts.
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data/site';
 import { resume } from '../data/resume';
+import educationIcon from '../assets/icons/education_icon.svg';
+import certificationsIcon from '../assets/icons/certifications_icon.svg';
+import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
 ---
 
 <BaseLayout title="Résumé" description={`Résumé of ${site.name}: experience, education, and certifications.`}>
@@ -30,6 +34,40 @@ import { resume } from '../data/resume';
   <div class="prose">
     <p class="about">{resume.about}</p>
 
+    <div class="info-cards">
+      <section class="info-card">
+        <Image src={educationIcon} alt="" width={44} height={44} />
+        <h2>Education</h2>
+        {
+          resume.education.map((item) => (
+            <div class="meta-item">
+              <p class="meta-title">{item.degree}</p>
+              <p class="muted">
+                {item.school}, {item.location} · {item.year}
+                {item.honors && `, ${item.honors}`}
+              </p>
+            </div>
+          ))
+        }
+      </section>
+
+      <section class="info-card">
+        <Image src={certificationsIcon} alt="" width={44} height={44} />
+        <h2>Certifications</h2>
+        <ul class="tag-list">
+          {resume.certifications.map((cert) => <li>{cert}</li>)}
+        </ul>
+      </section>
+
+      <section class="info-card">
+        <Image src={affiliationsIcon} alt="" width={44} height={44} />
+        <h2>Affiliations</h2>
+        <ul class="tag-list">
+          {resume.affiliations.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+    </div>
+
     <h2>Industry experience</h2>
     <div class="jobs">
       {
@@ -53,38 +91,6 @@ import { resume } from '../data/resume';
         ))
       }
     </div>
-
-    <div class="meta-grid">
-      <section>
-        <h2>Education</h2>
-        {
-          resume.education.map((item) => (
-            <div class="meta-item">
-              <p class="meta-title">{item.degree}</p>
-              <p class="muted">
-                {item.school}, {item.location} · {item.year}
-                {item.honors && `, ${item.honors}`}
-              </p>
-            </div>
-          ))
-        }
-      </section>
-
-      <section>
-        <h2>Certifications</h2>
-        <ul class="tag-list">
-          {resume.certifications.map((cert) => <li>{cert}</li>)}
-        </ul>
-      </section>
-
-      <section>
-        <h2>Affiliations</h2>
-        <ul class="tag-list">
-          {resume.affiliations.map((item) => <li>{item}</li>)}
-        </ul>
-      </section>
-    </div>
-
   </div>
 </BaseLayout>
 
@@ -175,18 +181,34 @@ import { resume } from '../data/resume';
     color: var(--color-accent);
   }
 
-  .meta-grid {
+  /* Education/Certifications/Affiliations as three cards above the
+     experience section. Each icon is a fixed-color asset (a dark hexagon
+     badge, matching the logo's hexagon motif, with a light glyph) — not
+     theme-reactive, same treatment as the logo itself. The hexagon's own
+     fill (#1e1e1e) matches the dark theme's page background exactly, so
+     it's placed on the card surface color rather than directly on the
+     page — a shade lighter, so the badge stays visible instead of
+     blending into the background it'd otherwise match exactly. */
+  .info-cards {
     display: grid;
     gap: var(--space-3);
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
-    margin-top: 2em;
+    margin: 2em 0;
+  }
+  .info-card {
     padding: var(--space-2);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-top: 3px solid var(--color-accent);
     border-radius: var(--radius);
   }
-  .meta-grid > section > * + * {
+  .info-card img {
+    margin-bottom: var(--space-1);
+  }
+  .info-card h2 {
+    margin-bottom: 0.5em;
+  }
+  .info-card > * + * {
     margin-top: 0.5em;
   }
   .meta-item + .meta-item {
@@ -206,12 +228,9 @@ import { resume } from '../data/resume';
   }
   .tag-list li {
     padding: 0.3em 0.75em;
-    background: var(--color-surface);
+    background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: 999px;
     font-size: var(--text-sm);
-  }
-  .meta-grid .tag-list li {
-    background: var(--color-bg);
   }
 </style>
