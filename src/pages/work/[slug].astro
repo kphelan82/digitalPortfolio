@@ -28,6 +28,20 @@ const badgeNumber = String(index + 1).padStart(2, '0');
 // The stat hexagon is drawn as a CSS mask so its fill can follow the theme.
 const hexMask = `--hex: url('${hexagon.src}')`;
 
+// Staggered feature rows: every second wide tile in a card is flipped to the
+// right-hand side, so the wide tile alternates left, right, left... down the grid.
+// It's a rule rather than a layout, so a case study only chooses which tiles are wide.
+const cards = sections?.map((section) => {
+  let wides = 0;
+  return {
+    ...section,
+    features: section.features?.map((feature) => ({
+      ...feature,
+      flip: feature.wide ? wides++ % 2 === 1 : false,
+    })),
+  };
+});
+
 const meta = [
   { label: 'Client', value: client },
   { label: 'Year', value: String(year) },
@@ -62,7 +76,7 @@ const meta = [
         </dl>
 
         <div class="cs-cards">
-          {sections.map((section) => (
+          {cards?.map((section) => (
             <section class="cs-card">
               <h2>{section.title}</h2>
               {section.paragraphs.map((text) => (
@@ -94,13 +108,13 @@ const meta = [
               {section.features && (
                 <ul class="features">
                   {section.features.map((feature) => (
-                    <li class:list={{ wide: feature.wide }}>
+                    <li class:list={{ wide: feature.wide, flip: feature.flip }}>
                       <figure>
                         <Image
                           src={feature.image}
                           alt={feature.alt}
-                          width={feature.wide ? 660 : 300}
-                          height={feature.wide ? 371 : 300}
+                          width={feature.wide ? 700 : 300}
+                          height={feature.wide ? 337 : 300}
                           densities={[1, 2]}
                           loading="lazy"
                         />
@@ -394,9 +408,24 @@ const meta = [
       grid-column: span 2;
     }
   }
+  /* Desktop: staggered rows. Three equal columns; a wide tile spans two and sits
+     beside one square. Its aspect ratio is two squares plus the gap between
+     them, divided by one square (2 + 1.5rem / ~300px, about 2.08), so it comes
+     out the same height as the square next to it and the captions line up. The
+     second wide tile (`.flip`) starts in column 2 instead, so the wide one
+     alternates sides; `dense` backfills the square into the free column 1. */
   @media (min-width: 60rem) {
     .features {
-      grid-template-columns: repeat(3, minmax(0, 300px));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .features li {
+      max-width: none;
+    }
+    .features li.wide :global(img) {
+      aspect-ratio: 2.08 / 1;
+    }
+    .features li.flip {
+      grid-column: 2 / span 2;
     }
   }
 

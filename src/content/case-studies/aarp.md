@@ -36,11 +36,11 @@ sections:
         wide: true
       - image: ../../assets/case-studies/aarp/feature-text-story.webp
         caption: "Text story"
+      - image: ../../assets/case-studies/aarp/feature-video-player.webp
+        caption: "Custom video player"
       - image: ../../assets/case-studies/aarp/feature-tile-edges.webp
         caption: "Tile edges"
         wide: true
-      - image: ../../assets/case-studies/aarp/feature-video-player.webp
-        caption: "Custom video player"
       - image: ../../assets/case-studies/aarp/feature-form.webp
         caption: "Custom form integration"
   - title: "Lessons learned"
