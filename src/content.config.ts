@@ -21,10 +21,13 @@ const caseStudies = defineCollection({
     });
 
     // One card on the case study page. Every section has a title and optional
-    // paragraphs; a section can also carry a stats row and/or a feature grid.
+    // paragraphs; a section can also carry a bulleted list, a stats row and/or a
+    // feature grid.
     const section = z.object({
       title: z.string(),
       paragraphs: z.array(z.string()).default([]),
+      // Plain bullets. Handy as a stand-in for `features` until screenshots exist.
+      list: z.array(z.string()).optional(),
       stats: z.array(stat).optional(),
       features: z.array(feature).optional(),
     });

@@ -69,6 +69,14 @@ const meta = [
                 <p>{text}</p>
               ))}
 
+              {section.list && (
+                <ul class="cs-list">
+                  {section.list.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              )}
+
               {section.stats && (
                 <ul class="stats">
                   {section.stats.map((stat) => (
@@ -244,6 +252,16 @@ const meta = [
   }
   .cs-card p + p {
     margin-top: 1em;
+  }
+  .cs-list {
+    margin: 0;
+    padding-left: 1.25em;
+  }
+  .cs-card p + .cs-list {
+    margin-top: 1em;
+  }
+  .cs-list li + li {
+    margin-top: 0.25em;
   }
 
   /* Stats row inside a card: hexagon icon, big red number, label. */
