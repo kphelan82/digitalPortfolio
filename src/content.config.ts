@@ -18,6 +18,9 @@ const caseStudies = defineCollection({
       image: image(),
       caption: z.string(),
       alt: z.string().default(''),
+      // Wide (16:9) tile spanning two columns, for screenshots a square would crop
+      // too much (full-width layouts, edge-to-edge details). Default is a square.
+      wide: z.boolean().default(false),
     });
 
     // One card on the case study page. Every section has a title and optional

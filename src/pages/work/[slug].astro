@@ -94,9 +94,16 @@ const meta = [
               {section.features && (
                 <ul class="features">
                   {section.features.map((feature) => (
-                    <li>
+                    <li class:list={{ wide: feature.wide }}>
                       <figure>
-                        <Image src={feature.image} alt={feature.alt} width={300} height={300} loading="lazy" />
+                        <Image
+                          src={feature.image}
+                          alt={feature.alt}
+                          width={feature.wide ? 660 : 300}
+                          height={feature.wide ? 371 : 300}
+                          densities={[1, 2]}
+                          loading="lazy"
+                        />
                         <figcaption>{feature.caption}</figcaption>
                       </figure>
                     </li>
@@ -337,9 +344,13 @@ const meta = [
     }
   }
 
-  /* Feature screenshots: 1 column on phones, 2 on tablet, 3 on desktop. */
+  /* Feature screenshots: 1 column on phones, 2 on tablet, 3 on desktop. A tile
+     marked `wide` is 16:9 and spans two columns (the full width on a phone).
+     `dense` lets later square tiles backfill the gap a wide tile can leave at
+     the end of a row, so the grid stays full without reordering the list. */
   .features {
     display: grid;
+    grid-auto-flow: dense;
     gap: var(--space-3) 1.5rem;
     margin: 1.5rem 0 0;
     padding: 0;
@@ -349,6 +360,12 @@ const meta = [
     justify-self: center;
     width: 100%;
     max-width: 300px;
+  }
+  .features li.wide {
+    max-width: none;
+  }
+  .features li.wide :global(img) {
+    aspect-ratio: 16 / 9;
   }
   .features figure {
     margin: 0;
@@ -372,6 +389,9 @@ const meta = [
     }
     .features li {
       justify-self: stretch;
+    }
+    .features li.wide {
+      grid-column: span 2;
     }
   }
   @media (min-width: 60rem) {

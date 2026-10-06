@@ -29,19 +29,20 @@ sections:
     paragraphs:
       - >-
         I don't recall if we ever really saw data on how many times the form was submitted or anything like that. That would have been great to know for sure, but shortly after this launched, we were thrust directly into some other huge projects. Our clients were happy with the site though, and it was certainly a little different than a typical site. I think the motion between tiles was really something fresh and new for the time, and it had a really simple look that made the people telling their stories the focus.
-  # PLACEHOLDER images: swap each `image` for a real screenshot.
   - title: "Project features"
     features:
-      - image: ../../assets/placeholders/screenshot.svg
+      - image: ../../assets/case-studies/aarp/feature-tab-navigation.webp
         caption: "Tab-based navigation"
-      - image: ../../assets/placeholders/screenshot.svg
+        wide: true
+      - image: ../../assets/case-studies/aarp/feature-text-story.webp
         caption: "Text story"
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "Custom video player"
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "Custom form integration"
-      - image: ../../assets/placeholders/screenshot.svg
+      - image: ../../assets/case-studies/aarp/feature-tile-edges.webp
         caption: "Tile edges"
+        wide: true
+      - image: ../../assets/case-studies/aarp/feature-video-player.webp
+        caption: "Custom video player"
+      - image: ../../assets/case-studies/aarp/feature-form.webp
+        caption: "Custom form integration"
   - title: "Lessons learned"
     paragraphs:
       - >-
