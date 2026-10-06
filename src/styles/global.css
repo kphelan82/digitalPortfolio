@@ -22,6 +22,12 @@
   --color-badge-bg: #b81b1b;
   --color-badge-text: #ffffff;
 
+  /* Numeral on the case study hero's hexagon badge. The badge sits on top of a
+     photo with a dark fill baked into its SVG, so it doesn't change with the
+     theme — which means this red can't either, and it has to be the lightened
+     one (the literal brand red is ~2.5:1 on that dark fill). */
+  --badge-hex-text: #e35b5b;
+
   /* The header is a fixed dark element by design — it doesn't follow the
      toggle or the OS preference, so it needs its own set of colors that
      never change, rather than reading the theme-reactive --color-* ones

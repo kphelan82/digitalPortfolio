@@ -56,9 +56,23 @@ Each case study is a Markdown file in `src/content/case-studies/`. The filename 
 | `year` | integer | e.g. `2024` |
 | `role` | string | |
 | `summary` | string | max 240 chars; shown on the card and as the meta description |
-| `thumbnail` | image path | relative to the .md file, e.g. `../../assets/thumbnails/aarp.svg`; must exist |
-| `order` | integer | lower first; default `999`; ties sort newest `year` first |
+| `product` | string, optional | shown in the meta strip under the hero, e.g. `Interactive micro-site` |
+| `thumbnail` | image path | relative to the .md file, e.g. `../../assets/thumbnails/aarp.svg`; must exist. Also the hero image on the case study page |
+| `order` | integer | lower first; default `999`; ties sort newest `year` first. The hexagon badge ("01") on the case study page is the entry's position in this same order |
 | `draft` | boolean | default `false`; drafts show (with a badge) in `npm run dev`, are omitted from builds |
+| `sections` | array, optional | the cards under the hero, in order — see below |
+
+### The card template (`sections`)
+
+When a case study has `sections`, `work/[slug].astro` renders the Figma card layout: title and summary, hero with the hexagon badge, a Client/Year/Role/Product strip, then one card per section. See `usaf-switching-seats.md` for a complete example. Each section is `{ title, paragraphs?, stats?, features? }`:
+
+- `paragraphs`: a list of strings, one `<p>` each.
+- `stats`: `{ value, label, icon }` entries, drawn as a hexagon icon, a big red number and a label (4 across on desktop, 2 on tablet, 1 on phones). `icon` is just the glyph SVG (e.g. `../../assets/icons/stats/people.svg`); the template draws the hexagon behind it, in the theme's page-background color, via a CSS mask.
+- `features`: `{ image, caption, alt? }` entries, a grid of square screenshots with captions (3 / 2 / 1 across). Images are shown at 300px square; `alt` defaults to empty because the caption names the image.
+
+A section can have any combination, so case studies can use different card sets (add an Audience card, drop Lessons, and so on). Card colors are the same tokens the résumé cards use (`--color-surface`, `--color-border`); red text uses `--color-heading-accent`, which is the lightened red in dark mode (on `--color-surface` it reaches ~4:1; the literal brand red or a lighter-gray card like Figma's `#444` would not).
+
+Case studies **without** `sections` still render their Markdown body in the older layout. That's a stopgap while they're moved over, one at a time; once every case study has `sections`, delete the `legacy-*` branch in `work/[slug].astro` and make the Markdown body optional.
 
 - To add a field: edit the schema in `src/content.config.ts`, then use it in `CaseStudyCard.astro` / `work/[slug].astro`.
 - Always load case studies through `getCaseStudies()` (`src/lib/caseStudies.ts`), never `getCollection` directly, so drafts and ordering stay consistent.
@@ -95,9 +109,10 @@ There is deliberately no contact form. Contact is LinkedIn (from `site.socials`)
 - `--color-accent` is **not** the same hex in both themes: the brand blue (`#4a93ba`) reads fine on the dark background but fails text contrast (~2.3:1) against the light background's `#d3d3d3`, so the light override uses a darkened same-hue shade (`#2e607a`) instead. If the brand blue ever changes, recheck contrast against both theme backgrounds before swapping the light-mode value too.
 - `--color-badge-bg` / `--color-badge-text` (brand red + white) are fixed in both themes — used only as a filled chip (the "Draft" badge), never as text color directly on the page background, so they don't need a light/dark variant.
 - `--color-heading-accent` is the brand red used as **text** (currently only the résumé's section headings, `src/pages/cv.astro`), so — unlike the badge — it does need a per-theme value: the literal brand red (`#b81b1b`) is only ~2.5:1 against the dark background, under the 3:1 large-text minimum, so the dark theme uses a lightened same-hue shade (`#e35b5b`, ~4.7:1) while the light theme uses the literal brand red unchanged (it already clears ~4.4:1 there). This is the mirror image of `--color-accent`'s situation — that one needed adjusting for light mode instead. Keep both in mind as separate cases if the brand colors ever change.
+- `--badge-hex-text` is a third fixed red: the numeral on the case study hero's hexagon badge. That badge sits over a photo with a dark fill baked into its SVG, so it doesn't follow the theme, and its red has to be the lightened one (`#e35b5b`) in both themes.
 - **A visitor can override the theme** with the toggle in the header (`components/ThemeToggle.astro`), regardless of their OS setting. The choice is written to `localStorage` (key `theme`) and re-applied as `data-theme="light"|"dark"` on `<html>` by a blocking inline script in `BaseLayout.astro`'s `<head>`, before first paint, so there's no flash of the wrong theme. The CSS variable blocks in `global.css` are guarded to respect this: the `prefers-color-scheme: light` block only applies when `data-theme` isn't explicitly `"dark"`, and a separate `:root[data-theme="light"]` block applies regardless of the OS setting. Keep those two light-value blocks in sync if the palette changes.
 - **The header itself doesn't follow the toggle.** It's locked to the dark palette at all times — a fixed brand element, by design — while the toggle switches everything else. It uses its own fixed `--header-*` tokens (`global.css`), not the theme-reactive `--color-*` ones; `Header.astro` and `ThemeToggle.astro` (which renders inside the header) are the only files that should ever reference `--header-*`. If the header ever needs to follow the theme instead, swap those references back to `--color-*` in both files rather than changing the token values themselves.
-- The typeface is **Urbanist** (matches the Figma designs), loaded from Google Fonts via `<link>` tags in `BaseLayout.astro`'s `<head>` (weights 400/500/600/700). `--font-body` / `--font-heading` in `global.css` list it first, with the system stack as a fallback while it loads or if the request fails — not a design default anymore. To change the typeface, swap both the Google Fonts `<link>` (or remove it, to go back to system fonts only) and the font name in `global.css`.
+- The typeface is **Urbanist** (matches the Figma designs), loaded from Google Fonts via `<link>` tags in `BaseLayout.astro`'s `<head>` (weights 400/500/600/700, plus 800 for the case study stat numbers and hexagon badge). `--font-body` / `--font-heading` in `global.css` list it first, with the system stack as a fallback while it loads or if the request fails — not a design default anymore. To change the typeface, swap both the Google Fonts `<link>` (or remove it, to go back to system fonts only) and the font name in `global.css`.
 - Component-specific layout uses scoped `<style>` blocks but must reference the variables, never hard-coded colors or font names.
 - Mobile-first and responsive with no JS for layout: grids use `auto-fill`/`minmax`, the nav wraps, the gallery uses CSS columns. Two small inline scripts are intentional progressive-enhancement exceptions: `EmailLink` (address deobfuscation) and `ThemeToggle` (theme override) — both degrade gracefully with JS off (plain "name [at] domain" text; toggle button hidden via `<noscript>`).
 
