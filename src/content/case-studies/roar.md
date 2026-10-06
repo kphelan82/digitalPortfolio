@@ -6,10 +6,8 @@ role: "UX/UI Designer"
 product: "Site wireframe and hi-fi prototype"
 summary: "Wireframes and a hi-fi prototype for a site and mobile app that lets customers explore Roar Bikes' three models, customize a build and place an order, created for a design certification."
 thumbnail: ../../assets/thumbnails/roar.png
-order: 2
+order: 3
 draft: true # TODO: set to false (or remove) once the images are in
-# TODO: add a "Project features" section (`features`: an image + caption each) with the
-# wireframes and hi-fi screens, and the prototype if it can be linked or embedded.
 sections:
   - title: "The client"
     paragraphs:
@@ -31,4 +29,12 @@ sections:
     paragraphs:
       - >-
         A custom site and mobile app that showcases the 3 bike models and displays various customization options before allowing customers to place orders.
+  # PLACEHOLDER images: swap each `image` for the real wireframes / hi-fi screens (and
+  # the prototype, if it can be linked or embedded).
+  - title: "Project features"
+    features:
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Wireframes"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Hi-fi prototype"
 ---

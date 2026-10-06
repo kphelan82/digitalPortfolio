@@ -6,7 +6,7 @@ role: "Interactive Art Director"
 product: "Facebook Canvas interactive ad unit and presentation"
 summary: "A proof-of-concept Facebook Canvas ad for IHOP, created at an agency hackathon by three art directors. Timed gestures and video turned the ad into shareable pancake-making mini games."
 thumbnail: ../../assets/thumbnails/canvashack.png
-order: 3
+order: 4
 draft: true # TODO: set to false (or remove) once the images are in
 sections:
   - title: "My role"
@@ -29,14 +29,19 @@ sections:
     paragraphs:
       - >-
         Although this did not ever run live, it was a great experience that influenced how I built another ad unit that did go live and perform really well a year later. Our internal teams were very happy with how it turned out and it was important for us because it gave us expertise in a new social ad format and I began to see the potential of creating multiple user flows for a single ad unit that offers different messaging or experience.
-  # TODO: swap `list` for `features` (an image + caption for each) once screenshots are in.
+  # PLACEHOLDER images: swap each `image` for a real screenshot.
   - title: "Project features"
-    list:
-      - "3D space"
-      - "4 different pathways"
-      - "Video overlays"
-      - "Stacked carousels"
-      - "Keeping interested"
+    features:
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "3D space"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "4 different pathways"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Video overlays"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Stacked carousels"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Keeping interested"
   - title: "Lessons learned"
     paragraphs:
       - >-

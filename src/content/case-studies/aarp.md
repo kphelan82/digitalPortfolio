@@ -6,7 +6,7 @@ role: "Interactive Art Director"
 product: "Website design"
 summary: "A scalable, tile-based website for AARP's medical bankruptcy campaign. A handful of filmed stories and motion design conveyed thousands of people affected and drove visitors to contact Congress."
 thumbnail: ../../assets/thumbnails/aarp.png
-order: 1
+order: 2
 draft: true # TODO: set to false (or remove) once the images are in
 sections:
   - title: "My role"
@@ -29,14 +29,19 @@ sections:
     paragraphs:
       - >-
         I don't recall if we ever really saw data on how many times the form was submitted or anything like that. That would have been great to know for sure, but shortly after this launched, we were thrust directly into some other huge projects. Our clients were happy with the site though, and it was certainly a little different than a typical site. I think the motion between tiles was really something fresh and new for the time, and it had a really simple look that made the people telling their stories the focus.
-  # TODO: swap `list` for `features` (an image + caption for each) once screenshots are in.
+  # PLACEHOLDER images: swap each `image` for a real screenshot.
   - title: "Project features"
-    list:
-      - "Tab-based navigation"
-      - "Text story"
-      - "Custom video player"
-      - "Custom form integration"
-      - "Tile edges"
+    features:
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Tab-based navigation"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Text story"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Custom video player"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Custom form integration"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Tile edges"
   - title: "Lessons learned"
     paragraphs:
       - >-

@@ -6,15 +6,17 @@ role: "Senior Art Director"
 product: "Full website redesign"
 summary: "A full redesign of the Bydureon consumer site, built from content modules to feel warmer and scale across AstraZeneca brands. Video, quizzes, FAQs and copay registration became reusable pieces."
 thumbnail: ../../assets/thumbnails/bydureon.png
-order: 4
+order: 5
 draft: true # TODO: set to false (or remove) once the images are in
 sections:
-  # TODO: this card also wants an image + caption: "Brainstorm sketch during early
-  # concept stage for hero space." (the sketch isn't in the project yet)
   - title: "My role"
     paragraphs:
       - >-
         I was the Senior Art Director for the project and was heavily involved in both preliminary concept generation, lead interaction design and visual layout for the modular content and experience states, which included video players, interactive forms and quizzes, and FAQs.
+    # PLACEHOLDER image: swap for the early-concept brainstorm sketch.
+    features:
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Brainstorm sketch during early concept stage for hero space"
   - title: "The problem"
     paragraphs:
       - >-
@@ -33,14 +35,27 @@ sections:
     paragraphs:
       - >-
         This site launched in early fall 2019 and was a big success. This was the first attempt at using a modular build strategy. Because AZ has their own internal Dev teams, we knew that applying this structure and some solid UX principles would scale really well and will lead to shifts in content organization for multiple brands in the future, which will allow people to find the information they need faster.
-  # TODO: swap `list` for `features` (an image + caption for each) once screenshots are in.
+    # PLACEHOLDER stats: replace with real results (and icons) or delete this block.
+    stats:
+      - value: "00%"
+        label: "metric label"
+        icon: ../../assets/icons/stats/trend.svg
+      - value: "0,000"
+        label: "metric label"
+        icon: ../../assets/icons/stats/people.svg
+  # PLACEHOLDER images: swap each `image` for a real screenshot.
   - title: "Project features"
-    list:
-      - "Adaptive FAQ"
-      - "A modular, friendly experience"
-      - "Interactive quiz module"
-      - "Savings registration"
-      - "Video module"
+    features:
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Adaptive FAQ"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "A modular, friendly experience"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Interactive quiz module"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Savings registration"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Video module"
   - title: "Lessons learned"
     paragraphs:
       - >-

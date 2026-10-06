@@ -6,7 +6,7 @@ role: "Senior Art Director"
 product: "Facebook Canvas interactive ad unit"
 summary: "A choose-your-own-adventure Facebook Canvas ad that put IHOP's food on customers' phones to drive morning and late-night visits. It reached 25% engagement, 196% of Facebook's Canvas benchmark."
 thumbnail: ../../assets/thumbnails/ihop.png
-order: 6
+order: 1
 draft: true # TODO: set to false (or remove) once the images are in
 sections:
   - title: "My role"
@@ -31,14 +31,27 @@ sections:
     paragraphs:
       - >-
         This was very well received by our clients, and a great exercise for us to get more experience not just using the canvas format, but using it in innovative ways that give users a choose-your-own-adventure type of story. Although this only ran for the length of the current promotional window that year, the numbers speak for themselves. This unit had 25% engagement, which is very high with today's scrolling and short attention spans. Also, it performed at 196% of Facebook's benchmark performance numbers for Canvas ads.
-  # TODO: swap `list` for `features` (an image + caption for each) once screenshots are in.
+    # Icons are reused from the USAF set until there are IHOP-specific ones.
+    stats:
+      - value: "25%"
+        label: "engagement"
+        icon: ../../assets/icons/stats/people.svg
+      - value: "196%"
+        label: "of Facebook's Canvas benchmark"
+        icon: ../../assets/icons/stats/trend.svg
+  # PLACEHOLDER images: swap each `image` for a real screenshot.
   - title: "Project features"
-    list:
-      - "Full screen and beyond"
-      - "A dual experience"
-      - "What's the occasion?"
-      - "Upside down?"
-      - "User flow"
+    features:
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Full screen and beyond"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "A dual experience"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "What's the occasion?"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Upside down?"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "User flow"
   - title: "Lessons learned"
     paragraphs:
       - >-

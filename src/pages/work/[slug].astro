@@ -276,9 +276,14 @@ const meta = [
     margin-top: 0.25em;
   }
 
-  /* Stats row inside a card: hexagon icon, big red number, label. */
+  /* Stats row inside a card: hexagon icon, big red number, label. A centered,
+     wrapping row rather than a fixed 4-column grid, so any number of stats
+     (1 to 4+) looks balanced: each takes a quarter of the row on wide screens,
+     half on tablet, the full width on phones, and leftovers sit in the middle. */
   .stats {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-3) 1.5rem;
     margin: 1.5rem 0 0;
     padding: 0;
@@ -286,6 +291,8 @@ const meta = [
   }
   .stats li {
     display: flex;
+    flex: 0 0 100%;
+    min-width: 0;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -320,13 +327,13 @@ const meta = [
     font-weight: 700;
   }
   @media (min-width: 40rem) {
-    .stats {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .stats li {
+      flex-basis: calc((100% - 1.5rem) / 2);
     }
   }
   @media (min-width: 60rem) {
-    .stats {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+    .stats li {
+      flex-basis: calc((100% - 3 * 1.5rem) / 4);
     }
   }
 

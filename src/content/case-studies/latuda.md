@@ -6,7 +6,7 @@ role: "Senior Art Director"
 product: "Website redesign"
 summary: "A patient-first redesign of Latuda.com that segmented visitors into three pathways and used progressive disclosure to surface the right information faster, with almost no new content."
 thumbnail: ../../assets/thumbnails/latuda.png
-order: 5
+order: 6
 draft: true # TODO: set to false (or remove) once the images are in
 sections:
   - title: "My role"
@@ -29,14 +29,27 @@ sections:
     paragraphs:
       - >-
         This site launched in November 2019 and our clients are extremely happy with it. We hope to see big jumps in ad performance and traffic. In addition to the site, we have also launched a corresponding digital campaign to support, including display, social media, and custom email streams. It not only looks like a huge upgrade from where it was, the information is far more organized than ever before, and we expect consumers to get information much faster.
-  # TODO: swap `list` for `features` (an image + caption for each) once screenshots are in.
+    # PLACEHOLDER stats: replace with real results (and icons) or delete this block.
+    stats:
+      - value: "00%"
+        label: "metric label"
+        icon: ../../assets/icons/stats/trend.svg
+      - value: "0,000"
+        label: "metric label"
+        icon: ../../assets/icons/stats/people.svg
+  # PLACEHOLDER images: swap each `image` for a real screenshot.
   - title: "Project features"
-    list:
-      - "Audience segmentation"
-      - "Patient video libraries"
-      - "Interactive questionnaires"
-      - "Adaptive FAQ"
-      - "Streamlined resources"
+    features:
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Audience segmentation"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Patient video libraries"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Interactive questionnaires"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Adaptive FAQ"
+      - image: ../../assets/placeholders/screenshot.svg
+        caption: "Streamlined resources"
   - title: "Lessons learned"
     paragraphs:
       - >-

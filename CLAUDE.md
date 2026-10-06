@@ -67,9 +67,13 @@ Each case study is a Markdown file in `src/content/case-studies/`. The filename 
 When a case study has `sections`, `work/[slug].astro` renders the Figma card layout: title and summary, hero with the hexagon badge, a Client/Year/Role/Product strip, then one card per section. See `usaf-switching-seats.md` for a complete example (it has stats and a feature grid); the others show the plainer text-and-list cards. Each section is `{ title, paragraphs?, list?, stats?, features? }`:
 
 - `paragraphs`: a list of strings, one `<p>` each.
-- `list`: plain bullets. The other six case studies use it for "Project features" as a stand-in until they have screenshots; swap it for `features` when they do (each has a TODO comment saying so).
-- `stats`: `{ value, label, icon }` entries, drawn as a hexagon icon, a big red number and a label (4 across on desktop, 2 on tablet, 1 on phones). `icon` is just the glyph SVG (e.g. `../../assets/icons/stats/people.svg`); the template draws the hexagon behind it, in the theme's page-background color, via a CSS mask.
-- `features`: `{ image, caption, alt? }` entries, a grid of square screenshots with captions (3 / 2 / 1 across). Images are shown at 300px square; `alt` defaults to empty because the caption names the image.
+- `list`: plain bullets. Not used by any case study right now; handy for a card that has a list but no screenshots.
+- `stats`: `{ value, label, icon }` entries, drawn as a hexagon icon, a big red number and a label. Any number works: each takes a quarter of the row on wide screens, a half on tablet and the full width on phones, and a short or odd last row is centered. `icon` is just the glyph SVG (e.g. `../../assets/icons/stats/people.svg`); the template draws the hexagon behind it, in the theme's page-background color, via a CSS mask. Only add stats a project actually has results for.
+- `features`: `{ image, caption, alt? }` entries, a grid of square screenshots with captions (3 / 2 / 1 across). Images are shown at 300px square; `alt` defaults to empty because the caption names the image. It works on any card, not only "Project features" (Bydureon uses one tile in its role card for a sketch).
+
+**Placeholders.** Missing screenshots use the shared tile `src/assets/placeholders/screenshot.svg`; missing stats use obvious dummy values (`00%`, `metric label`). Each is marked with a `# PLACEHOLDER` comment in the frontmatter. **Before flipping a case study to `draft: false`, search its file for `PLACEHOLDER`** and replace or delete every one; the template doesn't distinguish placeholders from real content.
+
+**Order = how featured.** `order` sets the home-grid order and the numbered badge, so put the best-substantiated work (real results) first. IHOP sits at 02 because it has hard numbers.
 
 A section can have any combination, so case studies can use different card sets (add an Audience card, drop Lessons, and so on). Card colors are the same tokens the résumé cards use (`--color-surface`, `--color-border`); red text uses `--color-heading-accent`, which is the lightened red in dark mode (on `--color-surface` it reaches ~4:1; the literal brand red or a lighter-gray card like Figma's `#444` would not).
 
