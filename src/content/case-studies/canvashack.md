@@ -1,13 +1,13 @@
 ---
 title: "Facebook Canvas Hack"
 client: "Facebook / IHOP"
-year: 2000 # TODO: replace with the real year
+year: 2016
 role: "Interactive Art Director"
 product: "Facebook Canvas interactive ad unit and presentation"
 summary: "A proof-of-concept Facebook Canvas ad for IHOP, created at an agency hackathon by three art directors. Timed gestures and video turned the ad into shareable pancake-making mini games."
 thumbnail: ../../assets/thumbnails/canvashack.png
 order: 3
-draft: true # TODO: set to false (or remove) once the year and images are in
+draft: true # TODO: set to false (or remove) once the images are in
 sections:
   - title: "My role"
     paragraphs:

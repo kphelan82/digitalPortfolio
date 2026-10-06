@@ -1,13 +1,13 @@
 ---
 title: "IHOP Facebook Canvas Ad"
 client: "IHOP"
-year: 2000 # TODO: replace with the real year
+year: 2017
 role: "Interactive Art Director" # TODO: confirm the title to show
 product: "Facebook Canvas interactive ad unit"
 summary: "A choose-your-own-adventure Facebook Canvas ad that put IHOP's food on customers' phones to drive morning and late-night visits. It reached 25% engagement, 196% of Facebook's Canvas benchmark."
 thumbnail: ../../assets/thumbnails/ihop.png
 order: 6
-draft: true # TODO: set to false (or remove) once the year and images are in
+draft: true # TODO: set to false (or remove) once the images are in
 sections:
   - title: "My role"
     paragraphs:

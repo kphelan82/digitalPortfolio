@@ -1,13 +1,13 @@
 ---
 title: "Roar Bikes"
 client: "Roar Bikes"
-year: 2000 # TODO: replace with the real year
+year: 2020
 role: "UX/UI Designer"
 product: "Site wireframe and hi-fi prototype"
 summary: "Wireframes and a hi-fi prototype for a site and mobile app that lets customers explore Roar Bikes' three models, customize a build and place an order, created for a design certification."
 thumbnail: ../../assets/thumbnails/roar.png
 order: 2
-draft: true # TODO: set to false (or remove) once the year and images are in
+draft: true # TODO: set to false (or remove) once the images are in
 # TODO: add a "Project features" section (`features`: an image + caption each) with the
 # wireframes and hi-fi screens, and the prototype if it can be linked or embedded.
 sections:

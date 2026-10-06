@@ -1,13 +1,13 @@
 ---
 title: "AARP Medical Bankruptcy Campaign"
 client: "AARP"
-year: 2000 # TODO: replace with the real year
+year: 2008
 role: "Interactive Art Director"
 product: "Website design"
 summary: "A scalable, tile-based website for AARP's medical bankruptcy campaign. A handful of filmed stories and motion design conveyed thousands of people affected and drove visitors to contact Congress."
 thumbnail: ../../assets/thumbnails/aarp.png
 order: 1
-draft: true # TODO: set to false (or remove) once the year and images are in
+draft: true # TODO: set to false (or remove) once the images are in
 sections:
   - title: "My role"
     paragraphs:
