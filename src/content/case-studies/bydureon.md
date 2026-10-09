@@ -5,7 +5,7 @@ year: 2019
 role: "Senior Art Director"
 product: "Full website redesign"
 summary: "A full redesign of the Bydureon consumer site, built from content modules to feel warmer and scale across AstraZeneca brands. Video, quizzes, FAQs and copay registration became reusable pieces."
-thumbnail: ../../assets/thumbnails/bydureon.png
+thumbnail: ../../assets/thumbnails/bydureon-hero.png
 order: 5
 draft: true # TODO: set to false (or remove) once the images are in
 sections:
@@ -43,19 +43,21 @@ sections:
       - value: "0,000"
         label: "metric label"
         icon: ../../assets/icons/stats/people.svg
-  # PLACEHOLDER images: swap each `image` for a real screenshot.
   - title: "Project features"
     features:
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "Adaptive FAQ"
-      - image: ../../assets/placeholders/screenshot.svg
+      - image: ../../assets/case-studies/bydureon/feature-modular-home.webp
         caption: "A modular, friendly experience"
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "Interactive quiz module"
-      - image: ../../assets/placeholders/screenshot.svg
+        wide: true
+      - image: ../../assets/case-studies/bydureon/feature-savings.webp
         caption: "Savings registration"
-      - image: ../../assets/placeholders/screenshot.svg
+      - image: ../../assets/case-studies/bydureon/feature-video.webp
         caption: "Video module"
+      - image: ../../assets/case-studies/bydureon/feature-quiz.webp
+        caption: "Interactive quiz module"
+        wide: true
+      - image: ../../assets/case-studies/bydureon/feature-faq.webp
+        caption: "Adaptive FAQ"
+        wide: true
   - title: "Lessons learned"
     paragraphs:
       - >-

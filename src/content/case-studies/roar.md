@@ -1,18 +1,18 @@
 ---
-title: "Roar Bikes"
-client: "Roar Bikes"
+title: "Roar Cycles"
+client: "Roar Cycles"
 year: 2020
 role: "UX/UI Designer"
 product: "Site wireframe and hi-fi prototype"
-summary: "Wireframes and a hi-fi prototype for a site and mobile app that lets customers explore Roar Bikes' three models, customize a build and place an order, created for a design certification."
-thumbnail: ../../assets/thumbnails/roar.png
+summary: "Wireframes and a hi-fi prototype for a site and mobile app that lets customers explore Roar Cycles' three models, customize a build and place an order, created for a design certification."
+thumbnail: ../../assets/thumbnails/roar-hero-v2.png
 order: 3
 draft: true # TODO: set to false (or remove) once the images are in
 sections:
   - title: "The client"
     paragraphs:
       - >-
-        Roar Bikes is a manufacturer of small-run, contemporary bicycles sold exclusively from their own website.
+        Roar Cycles is a manufacturer of small-run, contemporary bicycles sold exclusively from their own website.
   - title: "My role"
     paragraphs:
       - >-
@@ -29,12 +29,26 @@ sections:
     paragraphs:
       - >-
         A custom site and mobile app that showcases the 3 bike models and displays various customization options before allowing customers to place orders.
-  # PLACEHOLDER images: swap each `image` for the real wireframes / hi-fi screens (and
-  # the prototype, if it can be linked or embedded).
   - title: "Project features"
     features:
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "Wireframes"
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "Hi-fi prototype"
+      - image: ../../assets/case-studies/roar/feature-product-page-hd.webp
+        caption: "Bike page with color customizer"
+        wide: true
+      - image: ../../assets/case-studies/roar/feature-hifi-desktop.webp
+        caption: "Desktop hi-fi screens"
+      - image: ../../assets/case-studies/roar/feature-mobile-flow.webp
+        caption: "Mobile bike page and shop"
+      - image: ../../assets/case-studies/roar/feature-shop-hd.webp
+        caption: "Merch shop"
+        wide: true
+      - image: ../../assets/case-studies/roar/feature-dealers-hd.webp
+        caption: "Dealer finder"
+        wide: true
+      - image: ../../assets/case-studies/roar/feature-wireframes-desktop.webp
+        caption: "Desktop wireframes"
+      - image: ../../assets/case-studies/roar/feature-wireframes-mobile.webp
+        caption: "Mobile wireframes"
+      - image: ../../assets/case-studies/roar/feature-checkout-hd.webp
+        caption: "Order checkout flow"
+        wide: true
 ---

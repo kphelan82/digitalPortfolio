@@ -29,19 +29,18 @@ sections:
     paragraphs:
       - >-
         Although this did not ever run live, it was a great experience that influenced how I built another ad unit that did go live and perform really well a year later. Our internal teams were very happy with how it turned out and it was important for us because it gave us expertise in a new social ad format and I began to see the potential of creating multiple user flows for a single ad unit that offers different messaging or experience.
-  # PLACEHOLDER images: swap each `image` for a real screenshot.
   - title: "Project features"
     features:
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "3D space"
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "4 different pathways"
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "Video overlays"
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "Stacked carousels"
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "Keeping interested"
+      - image: ../../assets/case-studies/canvashack/feature-news-feed-ad.webp
+        caption: "The hook in the News Feed"
+      - image: ../../assets/case-studies/canvashack/feature-choose-flavor.webp
+        caption: "Choose your flavor"
+      - image: ../../assets/case-studies/canvashack/feature-flip.webp
+        caption: "Timed tap-to-flip"
+      - image: ../../assets/case-studies/canvashack/feature-mix-match.webp
+        caption: "Mix and match syrups"
+      - image: ../../assets/case-studies/canvashack/feature-result.webp
+        caption: "Share your stack"
   - title: "Lessons learned"
     paragraphs:
       - >-

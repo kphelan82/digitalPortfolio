@@ -37,19 +37,22 @@ sections:
       - value: "0,000"
         label: "metric label"
         icon: ../../assets/icons/stats/people.svg
-  # PLACEHOLDER images: swap each `image` for a real screenshot.
   - title: "Project features"
     features:
-      - image: ../../assets/placeholders/screenshot.svg
+      - image: ../../assets/case-studies/latuda/feature-home-pathways.webp
         caption: "Audience segmentation"
-      - image: ../../assets/placeholders/screenshot.svg
+        wide: true
+      - image: ../../assets/case-studies/latuda/feature-stories.webp
         caption: "Patient video libraries"
-      - image: ../../assets/placeholders/screenshot.svg
+      - image: ../../assets/case-studies/latuda/feature-questionnaire.webp
         caption: "Interactive questionnaires"
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "Adaptive FAQ"
-      - image: ../../assets/placeholders/screenshot.svg
+      - image: ../../assets/case-studies/latuda/feature-resources.webp
         caption: "Streamlined resources"
+        wide: true
+      - image: ../../assets/case-studies/latuda/feature-faq.webp
+        caption: "Adaptive FAQ"
+      - image: ../../assets/case-studies/latuda/feature-savings.webp
+        caption: "Savings sign-up"
   - title: "Lessons learned"
     paragraphs:
       - >-
