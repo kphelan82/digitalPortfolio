@@ -41,7 +41,7 @@ public/                     favicon and other files served as-is
 | `/bio` | `src/pages/bio.astro` |
 | `/cv` | `src/pages/cv.astro` (résumé) |
 
-The résumé is at `/cv` (not `/resume`) because `/resume` is an old URL that redirects here. Edit its content in `src/data/resume.ts`, not in the page. The bio text is written directly in `src/pages/bio.astro`.
+The résumé is at `/cv` (not `/resume`) because `/resume` is an old URL that redirects here. Edit its content in `src/data/resume.ts`, not in the page. The bio text is written directly in `src/pages/bio.astro`. The bio is a stack of cards in the same style as the résumé (56rem wide, red headings). Photos are optional and live in `src/assets/bio/`: `portrait.<ext>` appears beside the first paragraph (4:5 on tablet and up, square on phones), and any files named `interests-<n>-<description>.<ext>` become a square photo grid under the interests list, in filename order. The description becomes the alt text, and each photo opens in the lightbox. With no files the cards are text only.
 
 Education/Certifications/Affiliations render as three cards above the experience section, each with an icon from `src/assets/icons/` (`education_icon.svg`, `certifications_icon.svg`, `affiliations_icon.svg`). Those icons are fixed-color assets — a dark hexagon badge (matching the logo's hexagon motif) with a light glyph, `fill` baked into the SVG paths, not `currentColor` — so like the logo, they don't adapt to the theme toggle. The hexagon's fill (`#1e1e1e`) is the exact same hex as the dark theme's page background, so the cards deliberately sit on `--color-surface` rather than the raw page background — on the page background directly, the badge would visually disappear.
 
