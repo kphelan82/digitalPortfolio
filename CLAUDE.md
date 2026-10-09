@@ -24,7 +24,7 @@ src/data/resume.ts          résumé content (rendered by pages/cv.astro)
 src/lib/caseStudies.ts      getCaseStudies(): draft filtering + sort order
 src/assets/thumbnails/      case study thumbnails
 src/assets/gallery/         gallery images (auto-read)
-src/components/             Header, Footer, ContactLinks, EmailLink, CaseStudyCard
+src/components/             Header, Footer, ContactLinks, EmailLink, CaseStudyCard, Lightbox
 src/layouts/BaseLayout.astro
 src/pages/                  index, bio, cv, gallery, work/[slug], 404
 src/styles/global.css       design tokens + base styles
@@ -83,6 +83,8 @@ A section can have any combination, so case studies can use different card sets 
 
 All seven case studies now have `sections`, so the Markdown body is unused (the files are frontmatter only). Case studies **without** `sections` would still fall back to rendering their Markdown body in the older layout, but nothing uses that now — it can be deleted (the `legacy-*` branch in `work/[slug].astro`) once the new layout is signed off. Order of cards on the migrated pages follows the Figma frames: role, problem, audience, solution, impact, features, lessons (the old pages had features before the outcome).
 
+**Lightbox on feature tiles.** A feature tile opens in the lightbox only if its source image is at least 1000px wide (`ZOOM_MIN_WIDTH` in `work/[slug].astro`); smaller or softer sources stay plain tiles instead of enlarging into a blur. The lightbox shows the whole uncropped image with its caption, and steps through the tiles of the same card with the arrow buttons or keys. So there's no per-tile setting: export a bigger image and it becomes clickable. Without JS a zoomable tile is a plain link to the full image.
+
 - To add a field: edit the schema in `src/content.config.ts`, then use it in `CaseStudyCard.astro` / `work/[slug].astro`.
 - Always load case studies through `getCaseStudies()` (`src/lib/caseStudies.ts`), never `getCollection` directly, so drafts and ordering stay consistent.
 - Images inside a case study body: put the file in `src/assets/` and reference it relatively (`![Alt](../../assets/foo.png)`); Astro optimizes it.
@@ -110,6 +112,10 @@ There is deliberately no contact form. Contact is LinkedIn (from `site.socials`)
 ## Gallery
 
 `gallery.astro` reads every image in `src/assets/gallery/` via `import.meta.glob` (jpg, jpeg, png, webp, avif, gif, svg). Order is by filename (numeric-aware), so prefix files with `01-`, `02-`, … to control it. Alt text is generated from the filename with the number prefix and extension stripped, so name files descriptively (`04-packaging-redesign.jpg`).
+
+Use three-digit prefixes (`010-`, `020-`) so a new piece can be slotted in (`015-`) without renaming. Logos with transparent backgrounds should be flattened onto white before they go in (the page is dark by default, and navy or black artwork disappears). Remove people's names and avatars from social-post screenshots before adding them.
+
+Every gallery image opens in the lightbox (`components/Lightbox.astro`), at its original width capped at 2000px — a small source is never upscaled.
 
 ## Styling
 

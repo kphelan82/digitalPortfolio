@@ -1,7 +1,8 @@
 ---
 import { render } from 'astro:content';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Lightbox from '../../components/Lightbox.astro';
 import { getCaseStudies } from '../../lib/caseStudies';
 import hexagon from '../../assets/icons/stats/hexagon.svg';
 import hexagonBadge from '../../assets/icons/hexagon-badge.svg';
@@ -31,16 +32,31 @@ const hexMask = `--hex: url('${hexagon.src}')`;
 // Staggered feature rows: every second wide tile in a card is flipped to the
 // right-hand side, so the wide tile alternates left, right, left... down the grid.
 // It's a rule rather than a layout, so a case study only chooses which tiles are wide.
-const cards = sections?.map((section) => {
-  let wides = 0;
-  return {
-    ...section,
-    features: section.features?.map((feature) => ({
-      ...feature,
-      flip: feature.wide ? wides++ % 2 === 1 : false,
-    })),
-  };
-});
+// A tile only opens in the lightbox when its source is big enough to be worth enlarging
+// (so small or soft sources stay plain tiles instead of blowing up blurry). The enlarged
+// version is the whole, uncropped image, capped at the source's own width.
+const ZOOM_MIN_WIDTH = 1000;
+const ZOOM_MAX_WIDTH = 2000;
+
+const cards = sections
+  ? await Promise.all(
+      sections.map(async (section) => {
+        let wides = 0;
+        const features = section.features
+          ? await Promise.all(
+              section.features.map(async (feature) => {
+                const zoomable = feature.image.width >= ZOOM_MIN_WIDTH;
+                const full = zoomable
+                  ? (await getImage({ src: feature.image, width: Math.min(ZOOM_MAX_WIDTH, feature.image.width) })).src
+                  : undefined;
+                return { ...feature, full, flip: feature.wide ? wides++ % 2 === 1 : false };
+              }),
+            )
+          : undefined;
+        return { ...section, features };
+      }),
+    )
+  : undefined;
 
 const meta = [
   { label: 'Client', value: client },
@@ -76,7 +92,7 @@ const meta = [
         </dl>
 
         <div class="cs-cards">
-          {cards?.map((section) => (
+          {cards?.map((section, sectionIndex) => (
             <section class="cs-card">
               <h2>{section.title}</h2>
               {section.paragraphs.map((text) => (
@@ -110,14 +126,34 @@ const meta = [
                   {section.features.map((feature) => (
                     <li class:list={{ wide: feature.wide, flip: feature.flip }}>
                       <figure>
-                        <Image
-                          src={feature.image}
-                          alt={feature.alt}
-                          width={feature.wide ? 700 : 300}
-                          height={feature.wide ? 337 : 300}
-                          densities={[1, 2]}
-                          loading="lazy"
-                        />
+                        {feature.full ? (
+                          <a
+                            class="zoom"
+                            href={feature.full}
+                            data-lightbox={`cs-${sectionIndex}`}
+                            data-caption={feature.caption}
+                            data-alt={feature.alt || feature.caption}
+                            aria-label={`Enlarge: ${feature.caption}`}
+                          >
+                            <Image
+                              src={feature.image}
+                              alt={feature.alt}
+                              width={feature.wide ? 700 : 300}
+                              height={feature.wide ? 337 : 300}
+                              densities={[1, 2]}
+                              loading="lazy"
+                            />
+                          </a>
+                        ) : (
+                          <Image
+                            src={feature.image}
+                            alt={feature.alt}
+                            width={feature.wide ? 700 : 300}
+                            height={feature.wide ? 337 : 300}
+                            densities={[1, 2]}
+                            loading="lazy"
+                          />
+                        )}
                         <figcaption>{feature.caption}</figcaption>
                       </figure>
                     </li>
@@ -127,6 +163,7 @@ const meta = [
             </section>
           ))}
         </div>
+        <Lightbox />
       </article>
     ) : (
       <article>
@@ -390,6 +427,11 @@ const meta = [
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
+    border-radius: var(--radius);
+  }
+  .features a.zoom {
+    display: block;
+    cursor: zoom-in;
     border-radius: var(--radius);
   }
   .features figcaption {

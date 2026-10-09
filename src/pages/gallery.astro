@@ -1,36 +1,51 @@
 ---
 // Drop images into src/assets/gallery/ — they appear here automatically, sorted by filename.
 // Prefix filenames with numbers to control order; the rest of the name becomes the alt text.
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Lightbox from '../components/Lightbox.astro';
 
 const modules = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/gallery/*.{jpg,jpeg,png,webp,avif,gif,svg}',
   { eager: true },
 );
 
-const images = Object.entries(modules)
-  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
-  .map(([path, mod]) => {
-    const file = path.split('/').pop() ?? '';
-    const alt = file
-      .replace(/\.[^.]+$/, '') // extension
-      .replace(/^\d+[-_ ]*/, '') // leading sort number
-      .replace(/[-_]+/g, ' ')
-      .trim();
-    return { src: mod.default, alt };
-  });
+// The enlarged version is capped at the original's width, so a small source is never
+// upscaled into mush.
+const FULL_WIDTH = 2000;
+
+const images = await Promise.all(
+  Object.entries(modules)
+    .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+    .map(async ([path, mod]) => {
+      const file = path.split('/').pop() ?? '';
+      const alt = file
+        .replace(/\.[^.]+$/, '') // extension
+        .replace(/^\d+[-_ ]*/, '') // leading sort number
+        .replace(/[-_]+/g, ' ')
+        .trim();
+      const full = await getImage({ src: mod.default, width: Math.min(FULL_WIDTH, mod.default.width) });
+      return { src: mod.default, alt, full: full.src };
+    }),
+);
 ---
 
 <BaseLayout title="Gallery" description="A collection of design work and explorations.">
   <h1 class="page-title">Gallery</h1>
+  <p class="gallery-intro">
+    A broader look at my work beyond the case studies: posters and flyers, packaging, logos,
+    magazine layouts and social media creative from across my career, plus a few of my own
+    photographs.
+  </p>
 
   {
     images.length > 0 ? (
       <ul class="gallery">
-        {images.map(({ src, alt }) => (
+        {images.map(({ src, alt, full }) => (
           <li>
-            <Image src={src} alt={alt} width={900} loading="lazy" />
+            <a href={full} data-lightbox="gallery" aria-label={`Enlarge: ${alt}`}>
+              <Image src={src} alt={alt} width={900} loading="lazy" />
+            </a>
           </li>
         ))}
       </ul>
@@ -38,10 +53,15 @@ const images = Object.entries(modules)
       <p class="muted">No images yet. Add files to src/assets/gallery/.</p>
     )
   }
+  <Lightbox />
 </BaseLayout>
 
 <style>
   /* Masonry-style columns: as many ~16rem columns as fit. */
+  .gallery-intro {
+    max-width: var(--content-width);
+    margin-bottom: var(--space-3);
+  }
   .gallery {
     column-width: 16rem;
     column-gap: var(--space-2);
@@ -52,6 +72,11 @@ const images = Object.entries(modules)
   .gallery li {
     break-inside: avoid;
     margin-bottom: var(--space-2);
+  }
+  .gallery a {
+    display: block;
+    cursor: zoom-in;
+    border-radius: var(--radius);
   }
   .gallery :global(img) {
     width: 100%;
