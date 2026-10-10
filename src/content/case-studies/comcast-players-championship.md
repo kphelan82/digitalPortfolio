@@ -13,49 +13,26 @@ sections:
   - title: "My role"
     paragraphs:
       - >-
-        I was directly responsible for the design of the campaign's landing page, the digital destination that pulled the rest of the campaign together.
-      - >-
-        TODO: add who you worked with (content, marketing, development, the PGA TOUR and event teams) and how the design process went.
-  - title: "The campaign"
+        I led UX and design on this series of landing pages highlighting the Comcast Business sponsored experience during the Players Championship at TPC Sawgrass. Working with Marketing and PGA partners, I built 3 variations that gave users a look at robust highlights with virtual event registration, videos, and a custom photo gallery component. 
+  - title: "The problem"
     paragraphs:
       - >-
-        Comcast Business was a Proud Partner of THE PLAYERS Championship, the PGA TOUR's flagship golf tournament, for the second year running. The campaign ran across broadcast, social, digital and onsite activations, and it needed a home on the Comcast Business website.
-  - title: "The goal"
-    paragraphs:
-      - >-
-        The page had to complement, extend and scale the onsite experience, and bring the best of it to a much wider audience. It also had to promote a virtual executive forum, so that the thought leadership shared onsite could keep generating leads.
+        As a proud partner of the PGA for the Players Championship, Comcast Business ran a campaign with tactics across broadcast, social, digital and onsite activations, and it needed a home on the Comcast Business website. The goal of the landing page was to promote the virtual executive forum, so that the thought leadership shared onsite could keep generating leads, as well as extend to a wider virtual audience.
   - title: "The solution"
     paragraphs:
       - >-
-        The landing page presents our partnership with the PGA TOUR, the solutions powering connectivity at the tournament, and our expertise in helping enterprises deliver engaging experiences to their own customers. It's built as a set of modules, each with its own job:
-    list:
-      - "A hero and sub-navigation that anchor the page and link to the forum, highlights and a consultation request"
-      - "A video case study showing how Comcast Business supports the PGA TOUR"
-      - "Four cards for the core onsite experiences: Game the Green, high-capacity connectivity and integrated networking, TOURCAST and PGA TOUR Studios"
-      - "A registration module for the virtual executive forum, with the host and the four sessions"
-      - "Solutions that power possibilities beyond the tournament"
-      - "A photo carousel, the Comcast Business TOUR Top 10 partnership and a quote from the tournament's executive director"
-  - title: "A page for every phase"
-    paragraphs:
-      - >-
-        The page changed over the life of the event. Before the tournament it promoted the onsite experiences and registration for the virtual forum. After it, the lead module became a replay of the forum, so the page kept generating leads instead of going stale.
-  - title: "The experiences it promoted"
-    paragraphs:
-      - >-
-        Game the Green was a real-time prediction game that simulated the “Island Green” 17th hole at TPC Sawgrass. Fans onsite predicted each shot's landing spot on tablets and mobile devices, and the best predictors ranked on a leaderboard and won prizes. We featured a video of it on the page for people who weren't there.
-      - >-
-        The virtual executive forum, held April 15, 2025, extended the three-day onsite forum to a digital audience with highlights from the onsite conversations, live sessions and Q&A. A recorded version stays on the site.
+        The landing page series presents our partnership with the PGA TOUR, the solutions powering connectivity at the tournament, and our expertise in helping enterprises deliver engaging experiences to their own customers. Content and order shifted before, during, and after the event to keep driving leads live and then later, with replay registrations for the forum. An additional highlight was Game the Green, a shot prediction game that simulated the 17th hole green at TPC Sawgrass, where spectators could use tablet kiosks and their mobile devices to play and win prizes.
   - title: "The impact"
     paragraphs:
       - >-
-        The week before the tournament, traffic to the destination was 5x what it was in 2024, and engaged traffic also grew 5x. Across the campaign, the page drove 2x the traffic of the previous year and the virtual forum produced 10x the digital leads.
-    # PLACEHOLDER stats: the 5x figure comes from the Drum Awards write-up (week before the event) and the 2x / 10x / 1,500+ figures from the later W3 write-up. Confirm they should sit side by side, and swap the stand-in icons if you want.
+        The first, pre-event version of the page drew 5x the traffic of 2024 in the week before the tournament, and 5x the engaged traffic. Across the whole campaign, the digital destination drew 2x the traffic of 2024, and the virtual forum it promoted produced 10x the digital leads.
+    # PLACEHOLDER stat icons: these reuse generic glyphs; swap in matching icons if you want. The 5x is from the Drum Awards write-up (pre-event page); 2x / 10x / 1,500+ are from the later W3 write-up.
     stats:
       - value: "5x"
-        label: "traffic to the page the week before the event, compared to 2024"
+        label: "traffic to the pre-event version of the page in the week before the tournament, compared to 2024"
         icon: ../../assets/icons/stats/trend.svg
       - value: "2x"
-        label: "traffic to the digital destination compared to 2024"
+        label: "traffic to the digital destination overall, compared to 2024"
         icon: ../../assets/icons/stats/windows.svg
       - value: "10x"
         label: "digital leads from the virtual forum compared to 2024"
@@ -79,4 +56,8 @@ sections:
       - image: ../../assets/case-studies/comcast-players-championship/feature-landing-page.webp
         caption: "The page before, during and after the event"
         wide: true
+  - title: "Lessons learned"
+    paragraphs:
+      - >-
+        This was a lot of fun to do, mostly because there was such a wealth of great content to work with, which makes creating a nice user journey a little easier. I had access to these great video case studies and a full gallery of official PGA photography. I really enjoyed building out the photo gallery component, which was new for this page and it felt like the initial version of the page came together very quickly, and then we could really focus on the goals and how they dictated the hierarchy on the page. Of course I'm  always proud to win a few awards along the way too.
 ---

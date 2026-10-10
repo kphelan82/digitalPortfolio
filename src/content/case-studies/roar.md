@@ -29,6 +29,18 @@ sections:
     paragraphs:
       - >-
         A custom site and mobile app that showcases the 3 bike models and displays various customization options before allowing customers to place orders.
+  - title: "At a glance"
+    # Facts about the scope of the work, not results. Each comes from this case study's own copy. (The checkout step count is from the screens.)
+    stats:
+      - value: "3"
+        label: "bike models, each customizable"
+        icon: ../../assets/icons/stats/windows.svg
+      - value: "2"
+        label: "platforms: a website and a mobile app"
+        icon: ../../assets/icons/stats/windows.svg
+      - value: "3"
+        label: "steps in the checkout: order, shipping, payment"
+        icon: ../../assets/icons/stats/trend.svg
   - title: "Project features"
     features:
       - image: ../../assets/case-studies/roar/feature-product-page-hd.webp

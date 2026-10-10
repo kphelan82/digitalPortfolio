@@ -25,18 +25,16 @@ sections:
     paragraphs:
       - >-
         A full site overhaul that put the people first. We were able to focus on leveraging existing patient testimonial stories and segment visitors into three pathways: those who were not yet diagnosed, those currently on Latuda, and people who needed specific support materials. Because of these three user flows, we were able to use progressive disclosure to only offer consumers the information they needed at that particular time in their journeys rather than hit them with the whole kitchen sink at one time and overwhelm them, which is a mistake that a lot of pharmaceutical brands will often make.
+  - title: "At a glance"
+    # Facts about the scope of the work, not results. Each comes from this case study's own copy.
+    stats:
+      - value: "3"
+        label: "audience pathways, so each visitor sees only what they need"
+        icon: ../../assets/icons/stats/people.svg
   - title: "The impact"
     paragraphs:
       - >-
         This site launched in November 2019 and our clients are extremely happy with it. We hope to see big jumps in ad performance and traffic. In addition to the site, we have also launched a corresponding digital campaign to support, including display, social media, and custom email streams. It not only looks like a huge upgrade from where it was, the information is far more organized than ever before, and we expect consumers to get information much faster.
-    # PLACEHOLDER stats: replace with real results (and icons) or delete this block.
-    stats:
-      - value: "00%"
-        label: "metric label"
-        icon: ../../assets/icons/stats/trend.svg
-      - value: "0,000"
-        label: "metric label"
-        icon: ../../assets/icons/stats/people.svg
   - title: "Project features"
     features:
       - image: ../../assets/case-studies/latuda/feature-home-pathways.webp

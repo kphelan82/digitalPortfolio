@@ -12,7 +12,7 @@ sections:
   - title: "My role"
     paragraphs:
       - >-
-        I was the Senior Art Director for the project and was heavily involved in both preliminary concept generation, lead interaction design and visual layout for the modular content and experience states, which included video players, interactive forms and quizzes, and FAQs.
+        I was the Senior Art Director for the project and was heavily involved in both preliminary concept generation, lead interaction design, and visual layout for the modular content and experience states. Components included a video player, interactive quiz, FAQ's, and patient registration form.
     # PLACEHOLDER image: swap for the early-concept brainstorm sketch.
     features:
       - image: ../../assets/placeholders/screenshot.svg
@@ -20,29 +20,23 @@ sections:
   - title: "The problem"
     paragraphs:
       - >-
-        The Bydureon team needed to redesign the consumer website to sync with a recently filmed new TV commercial. The overall feeling was that the old site was too cold and clinical. In addition, we were tasked with building the entire site from content modules so that it was fully scalable across AZ brands and would allow for very specific media targeting and metrics.
-  - title: "The audience"
-    paragraphs:
-      - >-
-        Bydureon BCise patients have type 2 diabetes and have trouble keeping it under control with diet, exercise, and oral medicines. Like most people, they are busy and always on the go, so a once-a-week injection to regulate blood sugar suits their lifestyle better than a daily injection.
+        The Bydureon team needed to redesign the consumer website for patients with type 2 diabetes.  They had recently filmed new TV commercial, and wanted their web presence to align with the new messaging. The overall feeling was that the old site was too cold and clinical.
   - title: "The solution"
     paragraphs:
       - >-
-        Based on the new videos, we knew that this brand should take on a more friendly tone both from a visual and copy standpoint. We were able to start from scratch making mood boards, refreshing the color palette and typography, and simplify the information for users.
+        Based on the new videos, we knew that this brand should take on a more friendly tone both from a visual and copy standpoint. We were able to start from scratch making mood boards, refreshing the color palette, typography, and hierarchy of information for the patients. Using a component-based design system was required, as scalability across AZ brands and specific media targeting and metrics were things the clients specifically called out in the design brief.
       - >-
-        The modular build allowed us to make important adjustments to the organization of content across multiple pages and streamline the user experience. Specifically, we used animation to emphasize high-value actions without disrupting the user's scroll down the page, provided contextual FAQ answers, introduced interactive quiz modules, and added inline copay registration.
+        The modular build allowed my team and I to make important adjustments to the organization of content across multiple pages and streamline the user experience. Specifically, I wanted to use animation to emphasize high-value actions without disrupting the user's scroll down the page. For example, I built interactive quiz and FAQ modules for multiple pages, which helped users based on the context of each page rather than something at the bottom that encompassed all the information on the entire site. Our goal was to meet the patient wherever the were at, at that time in the journey.
+  - title: "At a glance"
+    # Facts about the scope of the work, not results. Each comes from this case study's own copy.
+    stats:
+      - value: "4"
+        label: "reusable components: video player, quiz, FAQ and registration form"
+        icon: ../../assets/icons/stats/windows.svg
   - title: "The impact"
     paragraphs:
       - >-
-        This site launched in early fall 2019 and was a big success. This was the first attempt at using a modular build strategy. Because AZ has their own internal Dev teams, we knew that applying this structure and some solid UX principles would scale really well and will lead to shifts in content organization for multiple brands in the future, which will allow people to find the information they need faster.
-    # PLACEHOLDER stats: replace with real results (and icons) or delete this block.
-    stats:
-      - value: "00%"
-        label: "metric label"
-        icon: ../../assets/icons/stats/trend.svg
-      - value: "0,000"
-        label: "metric label"
-        icon: ../../assets/icons/stats/people.svg
+        This site launched in early fall 2019 and was a big success, according to our clients. Because AZ has their own internal Dev teams, we knew that applying this structure and some solid UX principles would scale really well and will lead to shifts in content organization for multiple brands in the future, which will allow people to find the information they need faster. Unfortunately, this drug was later discontinued and the site is no longer live. As was the case with some previous projects, we were not always made aware of performance data after handing off designs.
   - title: "Project features"
     features:
       - image: ../../assets/case-studies/bydureon/feature-modular-home.webp
@@ -61,5 +55,5 @@ sections:
   - title: "Lessons learned"
     paragraphs:
       - >-
-        This was the first time I'd ever worked on a pharmaceutical brand site knowing that modular design was one of the goals we were aiming for. It wasn't my first time collaborating on a project like this, but it was one of the more complex systems due to all of the variation in content and types of modules needed. However, with the exception of a few hiccups, the process was fairly simple looking back and I think that was due to organization. We knew from the start what kinds of content we had and what type of module it would need to be placed in. Sure, there were times when we changed the order of things on a page or moved something, but because it was a module, we could do it easily. I can only imagine how much better it would have been working directly with a Dev team on site, but now that this structure is solidified, future adjustments will be even easier.
+        Prior to this, every other site build I'd been involved with was completely custom-built, and clients seemed to want bespoke design rather than a true scaling system. At this stage in my career, I had started to take some UX courses on the side, and this couldn't have come at a better time. It was a great opportunity for me to hone skills and focus on perfecting components and then focusing on content organization and order. I didn't know it at the time, but this was setting me up with a great foundation for later, as modular design is essential these days. The only downside here was that we were still working on these things exclusively in Photoshop, so I'm very glad to have dedicated software now.
 ---

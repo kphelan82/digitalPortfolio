@@ -12,25 +12,19 @@ sections:
   - title: "My role"
     paragraphs:
       - >-
-        Given my previous experience with the Facebook Canvas ad format, I was essentially given full creative control over this project. I came up with the UX flow, visual design, handled some video editing and animation, and oversaw the asset handoff and launch when the ad went live.
+        Given my previous experience with the Facebook Canvas ad format, I was essentially given full creative control over the end-to-end process. I came up with the UX flow, visual design, handled some video editing and animation, and oversaw the asset handoff and launch when the ad went live.
   - title: "The problem"
     paragraphs:
       - >-
-        IHOP asked us to help them launch a new digital campaign that entices customers to come in to their favorite location in the morning or at night. The goal was to increase traffic throughout the day so that they would stay busy, as most locations are open late.
-  - title: "The audience"
-    paragraphs:
-      - >-
-        This audience is fairly active on social media, and we had developed social content for IHOP for a few years. This gave us great insight into what they responded to the most, which was close-up photography, and highlighted the fact that we had an opportunity to reach them on the go with their phones, which is ideal for convincing them to stop in for a bite any time.
+        IHOP asked us to help them launch a new digital campaign that entices customers to come in to their favorite location in the morning or at night. The goal was to increase traffic and specifically at night, when people are traditionally not thinking of breakfast and may not even be aware IHOP is open late. IHOP had a very active social media audience that MRM had worked with for years, and having seen my previous hackathon work, they were very interested in the Canvas format.
   - title: "The solution"
     paragraphs:
       - >-
-        We knew that the best chance to draw the most attention would be to get the delicious food they love in front of them on their phones. We decided to build an interactive Facebook Canvas mobile ad unit to complement other digital tactics and hopefully make a user want to stop in at a location.
-  # The 25% engagement and 196% of benchmark figures here would suit a `stats` row once
-  # there are icons for them.
+        We knew that the best chance to draw the most attention would be to get the delicious food they love in front of them on their phones. Lucky for me, there was plenty of b-roll video and great food photography to choose from. My past experience with building a Canvas with multiple user pathways made the day/night messaging split a no brainer.
   - title: "The impact"
     paragraphs:
       - >-
-        This was very well received by our clients, and a great exercise for us to get more experience not just using the canvas format, but using it in innovative ways that give users a choose-your-own-adventure type of story. Although this only ran for the length of the current promotional window that year, the numbers speak for themselves. This unit had 25% engagement, which is very high with today's scrolling and short attention spans. Also, it performed at 196% of Facebook's benchmark performance numbers for Canvas ads.
+        This was very well received by our clients, and a great exercise for me to get more experience not just using the Canvas format, but using it in innovative ways that give users a choose-your-own-adventure type of story. Although this only ran for the length of the current promotional window that year, the numbers speak for themselves. This unit had 25% engagement, which is very high with today's scrolling and short attention spans. Also, it performed at 196% of Facebook's benchmark performance numbers for Canvas ads.
     # Icons are reused from the USAF set until there are IHOP-specific ones.
     stats:
       - value: "25%"
@@ -55,5 +49,5 @@ sections:
   - title: "Lessons learned"
     paragraphs:
       - >-
-        I think the main thing to take from this project is that you can keep an experience very simple and still have it be effective. We had only b-roll footage to work with and not much of a story to tell. Under normal circumstances, IHOP would have been promoting new styles of pancakes or a specific new theme, but this was going completely back to basics based on the goal. Using some careful editing, we were able to show off a few of IHOP's more popular meals and items and offer up something pretty robust in people's news feeds and it resonated with the audience.
+        I think the main thing to take from this project is that you can keep an experience very simple and still have it be effective. Under normal circumstances, IHOP would have been promoting new styles of pancakes or a specific new theme, but this was going completely back to basics. Using some careful editing, we were able to show off a few of IHOP's most popular classics and serve up something pretty delicious in people's news feeds. Food almost always resonates with the audience.
 ---

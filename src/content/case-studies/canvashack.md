@@ -12,23 +12,28 @@ sections:
   - title: "My role"
     paragraphs:
       - >-
-        I was one of three Interactive Art Directors that teamed up on this project. Each of us handled various aspects of visual design, user experience, testing, and video editing for the final presentation in a true collaborative effort. With a strong animation background, I tended to handle most of the motion design.
+        I was one of three Interactive Art Directors that teamed up on this project. Each of us handled various aspects of visual design, user experience, testing/QA, and video editing for the final presentation in a true collaborative effort. With a strong animation background, I tended to handle most of the motion design.
   - title: "The problem"
     paragraphs:
       - >-
-        Facebook invited teams of three from several different ad agencies to come in and "hack" the new ad format. For the proof of concept, we were able to choose any client based on their social media presence and we chose IHOP since they were one of our most active clients on social media. We were given a crash course on basic features of the ad unit and then asked to think outside the box and create an experience that pushed beyond the standard delivery of information.
-  - title: "The audience"
-    paragraphs:
-      - >-
-        It quickly became apparent that we would be presenting our concepts to the Facebook team, Chief Creative Officers from several competing agencies, and our peers on the other teams, so we knew in this case that we needed to really push boundaries, because something that might be exciting to a normal user may not be as exciting to this crowd. We also knew that Facebook was rolling out these new ad units with the hope that users would interact and spend time with them, more so than any other ad format they run.
+        Facebook invited teams of three from several ad agencies to come in and "hack" their new Canvas ad format. For the proof of concept, we were able to choose any of our clients based on their social media presence and we chose IHOP since they were one of our most active on social media. We were given a crash course on basic features of the ad unit and then asked to think outside the box and create an experience that pushed beyond the standard delivery of information.
   - title: "The solution"
     paragraphs:
       - >-
-        We knew that we wanted something highly interactive, so we decided as a team that recognizing device interfaces and gestures as part of the experience would elevate it beyond just a video or photo gallery. We combined this thinking with the available canvas features to encourage customers to "play with their food" while they wait for their orders. The "hacks" we came up with all involved using timed instructions together with video content to simulate different mini games that took users through an experience of making different flavors of pancakes that could ultimately be shared on their news feeds.
+        Each agency was given 10 mins to present to a panel of Executive Creative Directors and our peer groups. In order to elevate our presentation, we decided as a team that recognizing device interfaces and gestures as part of the experience would take it beyond the standard set of components Facebook was working with. Our idea was to encourage customers to "play with their food" while they wait for their orders at local IHOP restaurants. The "hacks" we came up with all involved using timed instructions together with video content to simulate different mini games. The end result of these would be to create a stack of pancakes, share to their Facebook feeds, and ultimately find a local IHOP to turn it into reality.
+  - title: "At a glance"
+    # Facts about the scope of the work, not results. Each comes from this case study's own copy.
+    stats:
+      - value: "10"
+        label: "minutes to present to a panel of creative directors"
+        icon: ../../assets/icons/stats/clock.svg
+      - value: "3"
+        label: "art directors on the team"
+        icon: ../../assets/icons/stats/people.svg
   - title: "The impact"
     paragraphs:
       - >-
-        Although this did not ever run live, it was a great experience that influenced how I built another ad unit that did go live and perform really well a year later. Our internal teams were very happy with how it turned out and it was important for us because it gave us expertise in a new social ad format and I began to see the potential of creating multiple user flows for a single ad unit that offers different messaging or experience.
+        Our presentation was well received, and although this wasn't published live, it was a  great experience. This practice run gave me foundational knowledge to lead UX and design for an award-winning Canvas unit for IHOP a year later. The thing I found most interesting about the format was, the idea of users choosing different pathways and how multiple messages could be served in a single ad unit.
   - title: "Project features"
     features:
       - image: ../../assets/case-studies/canvashack/feature-news-feed-ad.webp
@@ -44,5 +49,5 @@ sections:
   - title: "Lessons learned"
     paragraphs:
       - >-
-        My favorite part of this project was definitely the philosophy that the user experience was the key. Sure, the base media types and format were the same across all of the teams, but each group created entirely different ways to use them and no two experiences were the same. While it was competitive, it really felt like the groups were excited about what everyone was coming up with. Being part of that process was important for me because it showed me that even if formats or rules feel a little bit restrictive at first, I could apply little details that made it feel different. Also, any chance that I had to be part of presentations, especially in this case, was important because that is rare in my main day-to-day at the office.
+        My favorite part of this project was definitely the freedom to explore any user journey we wanted. Sure, the base media types and format were the same across all of the teams, but each group created entirely different ways to use them and no two experiences were the same. While it was competitive, it really felt like the groups were excited about what everyone was coming up with. Also, at that point in my career I rarely got exposure with senior leadership or got to be part of presentations, so that absolutely helped me in the long run.
 ---
