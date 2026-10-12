@@ -26,10 +26,10 @@ sections:
     stats:
       - value: "10–12"
         label: "filmed stories, presented to feel like hundreds"
-        icon: ../../assets/icons/stats/people.svg
+        icon: ../../assets/icons/stats/video-library.svg
       - value: "1"
         label: "tile template that scales to any number of stories"
-        icon: ../../assets/icons/stats/windows.svg
+        icon: ../../assets/icons/stats/brick.svg
   - title: "The impact"
     paragraphs:
       - >-

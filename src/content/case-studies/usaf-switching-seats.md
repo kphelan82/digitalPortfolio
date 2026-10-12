@@ -28,7 +28,7 @@ sections:
         icon: ../../assets/icons/stats/trend.svg
       - value: "106 MM"
         label: "impressions"
-        icon: ../../assets/icons/stats/windows.svg
+        icon: ../../assets/icons/stats/preview.svg
       - value: "5+ mins"
         label: "engagement/visit"
         icon: ../../assets/icons/stats/clock.svg

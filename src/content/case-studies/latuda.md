@@ -30,7 +30,7 @@ sections:
     stats:
       - value: "3"
         label: "audience pathways, so each visitor sees only what they need"
-        icon: ../../assets/icons/stats/people.svg
+        icon: ../../assets/icons/stats/fork-left.svg
   - title: "The impact"
     paragraphs:
       - >-

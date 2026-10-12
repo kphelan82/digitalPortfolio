@@ -13,10 +13,6 @@ sections:
     paragraphs:
       - >-
         I was the Senior Art Director for the project and was heavily involved in both preliminary concept generation, lead interaction design, and visual layout for the modular content and experience states. Components included a video player, interactive quiz, FAQ's, and patient registration form.
-    # PLACEHOLDER image: swap for the early-concept brainstorm sketch.
-    features:
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "Brainstorm sketch during early concept stage for hero space"
   - title: "The problem"
     paragraphs:
       - >-
@@ -32,7 +28,7 @@ sections:
     stats:
       - value: "4"
         label: "reusable components: video player, quiz, FAQ and registration form"
-        icon: ../../assets/icons/stats/windows.svg
+        icon: ../../assets/icons/stats/widgets.svg
   - title: "The impact"
     paragraphs:
       - >-

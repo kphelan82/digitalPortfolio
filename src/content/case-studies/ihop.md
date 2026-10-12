@@ -29,7 +29,7 @@ sections:
     stats:
       - value: "25%"
         label: "engagement"
-        icon: ../../assets/icons/stats/people.svg
+        icon: ../../assets/icons/stats/ads-click.svg
       - value: "196%"
         label: "of Facebook's Canvas benchmark"
         icon: ../../assets/icons/stats/trend.svg

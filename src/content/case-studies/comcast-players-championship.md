@@ -36,10 +36,10 @@ sections:
         icon: ../../assets/icons/stats/windows.svg
       - value: "10x"
         label: "digital leads from the virtual forum compared to 2024"
-        icon: ../../assets/icons/stats/trend.svg
+        icon: ../../assets/icons/stats/filter-alt.svg
       - value: "1,500+"
         label: "virtual executive forum registrants"
-        icon: ../../assets/icons/stats/people.svg
+        icon: ../../assets/icons/stats/how-to-reg.svg
   # PLACEHOLDER images: crops from the Drum Awards PDF. Replace with full-size exports from Figma (or the live page).
   - title: "Project features"
     features:
