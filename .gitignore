@@ -6,3 +6,9 @@ dist/
 .DS_Store
 npm-debug.log*
 *~lock~
+
+# Affinity source files: keep these outside the site; export PNG/WebP into src/assets instead
+*.af
+*.afdesign
+*.afphoto
+*.afpub
