@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Palettes — alternates to the default look in global.css, for comparing colors.
+
+   Each palette sets the same tokens as global.css, in dark and light, selected by
+   <html data-palette="id">. With no data-palette the default palette (global.css) is used.
+   The dev-only switcher (components/PaletteSwitcher.astro) sets the attribute, so none of
+   this is active for visitors. To add a palette: copy a block below, rename the id, change
+   the hex values, and add { id, label } to src/data/palettes.ts. To adopt one for good, copy
+   its values into the :root blocks in global.css.
+
+   Three blocks per palette, mirroring global.css's theme logic:
+     1. :root[data-palette]               dark values, plus the header's locked-dark tokens
+     2. @media light + :not([data-theme='dark'])   light values when the OS asks for light
+     3. [data-theme='light']              light values when the toggle says light
+   Keep 2 and 3 identical. Not recolored by a palette: the logo and favicons (red/blue baked
+   in), the résumé card icons, and the hexagon badge's dark fill.
+   ========================================================================== */
+
+/* Moss & amber */
+:root[data-palette='moss-amber'] {
+  --color-bg: #1a1f1b;
+  --color-surface: #242b26;
+  --color-text: #eef1ea;
+  --color-muted: #a8b1a5;
+  --color-border: #38423a;
+  --color-accent: #e2b04f;
+  --color-heading-accent: #f0b95a;
+  --badge-hex-text: #f0b95a;
+  --header-bg: #1a1f1b;
+  --header-surface: #242b26;
+  --header-text: #eef1ea;
+  --header-muted: #a8b1a5;
+  --header-border: #38423a;
+  --header-accent: #e2b04f;
+  --header-brand-red: #f0b95a;
+}
+@media (prefers-color-scheme: light) {
+  :root[data-palette='moss-amber']:not([data-theme='dark']) {
+  --color-bg: #e4e6dc;
+  --color-surface: #d6d9cc;
+  --color-text: #171b16;
+  --color-muted: #565e52;
+  --color-border: #b9bfae;
+  --color-accent: #7a5300;
+  --color-heading-accent: #8a4b00;
+  }
+}
+:root[data-palette='moss-amber'][data-theme='light'] {
+  --color-bg: #e4e6dc;
+  --color-surface: #d6d9cc;
+  --color-text: #171b16;
+  --color-muted: #565e52;
+  --color-border: #b9bfae;
+  --color-accent: #7a5300;
+  --color-heading-accent: #8a4b00;
+}
+
+/* Indigo & coral */
+:root[data-palette='indigo-coral'] {
+  --color-bg: #1b1b27;
+  --color-surface: #262637;
+  --color-text: #f1f0f8;
+  --color-muted: #a9a8bd;
+  --color-border: #3b3b52;
+  --color-accent: #a3adff;
+  --color-heading-accent: #ff917c;
+  --badge-hex-text: #ff917c;
+  --header-bg: #1b1b27;
+  --header-surface: #262637;
+  --header-text: #f1f0f8;
+  --header-muted: #a9a8bd;
+  --header-border: #3b3b52;
+  --header-accent: #a3adff;
+  --header-brand-red: #ff917c;
+}
+@media (prefers-color-scheme: light) {
+  :root[data-palette='indigo-coral']:not([data-theme='dark']) {
+  --color-bg: #e3e2ee;
+  --color-surface: #d5d4e6;
+  --color-text: #16162a;
+  --color-muted: #55546c;
+  --color-border: #b7b6d1;
+  --color-accent: #3640b4;
+  --color-heading-accent: #b8402a;
+  }
+}
+:root[data-palette='indigo-coral'][data-theme='light'] {
+  --color-bg: #e3e2ee;
+  --color-surface: #d5d4e6;
+  --color-text: #16162a;
+  --color-muted: #55546c;
+  --color-border: #b7b6d1;
+  --color-accent: #3640b4;
+  --color-heading-accent: #b8402a;
+}
+
+/* Graphite & lime */
+:root[data-palette='graphite-lime'] {
+  --color-bg: #121212;
+  --color-surface: #1d1d1d;
+  --color-text: #ffffff;
+  --color-muted: #b4b4b4;
+  --color-border: #343434;
+  --color-accent: #c8f53a;
+  --color-heading-accent: #c8f53a;
+  --badge-hex-text: #c8f53a;
+  --header-bg: #121212;
+  --header-surface: #1d1d1d;
+  --header-text: #ffffff;
+  --header-muted: #b4b4b4;
+  --header-border: #343434;
+  --header-accent: #c8f53a;
+  --header-brand-red: #c8f53a;
+}
+@media (prefers-color-scheme: light) {
+  :root[data-palette='graphite-lime']:not([data-theme='dark']) {
+  --color-bg: #f1f1ec;
+  --color-surface: #e5e5de;
+  --color-text: #101010;
+  --color-muted: #555550;
+  --color-border: #c9c9c0;
+  --color-accent: #476400;
+  --color-heading-accent: #476400;
+  }
+}
+:root[data-palette='graphite-lime'][data-theme='light'] {
+  --color-bg: #f1f1ec;
+  --color-surface: #e5e5de;
+  --color-text: #101010;
+  --color-muted: #555550;
+  --color-border: #c9c9c0;
+  --color-accent: #476400;
+  --color-heading-accent: #476400;
+}

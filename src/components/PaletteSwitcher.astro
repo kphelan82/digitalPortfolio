@@ -1,0 +1,175 @@
+---
+// Dev-only palette comparison tool. Rendered by BaseLayout only when `import.meta.env.DEV`, so it
+// never ships. Picks a palette from src/data/palettes.ts, sets <html data-palette>, remembers the
+// choice, and shows the contrast ratio of each key text/background pair for the active palette and
+// theme (WCAG: 7 = AAA body text, 4.5 = AA body text, 3 = AA large/bold text).
+import { palettes } from '../data/palettes';
+
+// [label, foreground token, background token, minimum ratio]
+const pairs = [
+  ['Text on page', '--color-text', '--color-bg', 7],
+  ['Text on card', '--color-text', '--color-surface', 4.5],
+  ['Muted on page', '--color-muted', '--color-bg', 4.5],
+  ['Muted on card', '--color-muted', '--color-surface', 4.5],
+  ['Accent on page', '--color-accent', '--color-bg', 4.5],
+  ['Accent on card', '--color-accent', '--color-surface', 4.5],
+  ['Headings on page', '--color-heading-accent', '--color-bg', 3],
+  ['Headings on card', '--color-heading-accent', '--color-surface', 3],
+  ['Header text', '--header-text', '--header-bg', 4.5],
+  ['Header accent', '--header-accent', '--header-bg', 4.5],
+  ['Site name (header)', '--header-brand-red', '--header-bg', 3],
+];
+---
+
+<aside class="palette-switcher" aria-label="Palette comparison (dev only)" data-pairs={JSON.stringify(pairs)}>
+  <button type="button" class="ps-toggle" aria-expanded="false">Palette</button>
+  <div class="ps-panel" hidden>
+    <label>
+      <span>Palette</span>
+      <select class="ps-select">
+        {palettes.map((p) => <option value={p.id}>{p.label}</option>)}
+      </select>
+    </label>
+    <p class="ps-mode"></p>
+    <table class="ps-table"><tbody></tbody></table>
+  </div>
+</aside>
+
+<script>
+  const root = document.documentElement;
+  const box = document.querySelector<HTMLElement>('.palette-switcher');
+  if (box) {
+    const toggle = box.querySelector<HTMLButtonElement>('.ps-toggle')!;
+    const panel = box.querySelector<HTMLElement>('.ps-panel')!;
+    const select = box.querySelector<HTMLSelectElement>('.ps-select')!;
+    const body = box.querySelector('tbody')!;
+    const modeLabel = box.querySelector('.ps-mode')!;
+    const pairs: [string, string, string, number][] = JSON.parse(box.dataset.pairs ?? '[]');
+
+    const parse = (value: string): [number, number, number] | null => {
+      const v = value.trim();
+      if (v.startsWith('#')) {
+        const h = v.length === 4 ? [...v.slice(1)].map((c) => c + c).join('') : v.slice(1);
+        return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16)) as [number, number, number];
+      }
+      const m = v.match(/[\d.]+/g);
+      return m ? ([+m[0], +m[1], +m[2]] as [number, number, number]) : null;
+    };
+    const luminance = ([r, g, b]: number[]) => {
+      const f = (c: number) => ((c /= 255) <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+      return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+    };
+    const ratio = (a: number[], b: number[]) => {
+      const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+      return (hi + 0.05) / (lo + 0.05);
+    };
+
+    const render = () => {
+      const style = getComputedStyle(root);
+      const explicit = root.dataset.theme;
+      const dark = explicit ? explicit === 'dark' : !matchMedia('(prefers-color-scheme: light)').matches;
+      modeLabel.textContent = `Showing ${dark ? 'dark' : 'light'} theme${explicit ? '' : ' (from your OS)'} — header is always dark`;
+      body.innerHTML = '';
+      for (const [label, fg, bg, min] of pairs) {
+        const a = parse(style.getPropertyValue(fg));
+        const b = parse(style.getPropertyValue(bg));
+        const r = a && b ? ratio(a, b) : 0;
+        const tr = document.createElement('tr');
+        tr.className = r >= min ? 'pass' : 'fail';
+        tr.innerHTML = `<td>${label}</td><td>${r.toFixed(1)}</td><td>${r >= min ? '✓' : '✗'} ${min}</td>`;
+        body.append(tr);
+      }
+    };
+
+    const apply = (id: string) => {
+      if (id === 'default') root.removeAttribute('data-palette');
+      else root.setAttribute('data-palette', id);
+      try {
+        localStorage.setItem('palette', id);
+      } catch {}
+      select.value = id;
+      render();
+    };
+
+    select.value = root.getAttribute('data-palette') ?? 'default';
+    select.addEventListener('change', () => apply(select.value));
+    toggle.addEventListener('click', () => {
+      const open = panel.hidden;
+      panel.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+      if (open) render();
+    });
+    // The theme toggle and the OS setting both change which values apply.
+    new MutationObserver(render).observe(root, { attributes: true, attributeFilter: ['data-theme', 'data-palette'] });
+    matchMedia('(prefers-color-scheme: light)').addEventListener('change', render);
+    render();
+  }
+</script>
+
+<style>
+  /* Fixed neutral colors on purpose: the tool has to stay readable on every palette. */
+  .palette-switcher {
+    position: fixed;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    z-index: 2147483000;
+    font: 13px/1.4 system-ui, sans-serif;
+    color: #f2f2f2;
+  }
+  .ps-toggle {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #555;
+    border-radius: 999px;
+    background: #111;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+  }
+  .ps-panel {
+    position: absolute;
+    bottom: 2.4rem;
+    left: 0;
+    width: 17.5rem;
+    padding: 0.75rem;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background: #111;
+    box-shadow: 0 6px 24px rgb(0 0 0 / 0.5);
+  }
+  .ps-panel label {
+    display: grid;
+    gap: 0.25rem;
+  }
+  .ps-select {
+    padding: 0.35rem;
+    border: 1px solid #555;
+    border-radius: 6px;
+    background: #222;
+    color: inherit;
+    font: inherit;
+  }
+  .ps-mode {
+    margin: 0.5rem 0;
+    color: #aaa;
+    font-size: 12px;
+  }
+  .ps-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .ps-table :global(td) {
+    padding: 0.15rem 0.25rem;
+    border-top: 1px solid #2a2a2a;
+  }
+  .ps-table :global(td:nth-child(n + 2)) {
+    text-align: right;
+    white-space: nowrap;
+  }
+  .ps-table :global(tr.pass td:last-child) {
+    color: #7bd88f;
+  }
+  .ps-table :global(tr.fail td:last-child),
+  .ps-table :global(tr.fail td:nth-child(2)) {
+    color: #ff8a80;
+  }
+</style>

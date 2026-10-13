@@ -1,9 +1,11 @@
 ---
 import '../styles/global.css';
+import '../styles/palettes.css';
 import { site } from '../data/site';
 import { url } from '../lib/url';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PaletteSwitcher from '../components/PaletteSwitcher.astro';
 
 interface Props {
   title?: string;
@@ -32,6 +34,17 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefin
         }
       })();
     </script>
+    {
+      import.meta.env.DEV && (
+        <script is:inline>
+          {`// Dev only: re-apply the palette chosen in the switcher before first paint.
+          try {
+            var p = localStorage.getItem('palette');
+            if (p && p !== 'default') document.documentElement.setAttribute('data-palette', p);
+          } catch (e) {}`}
+        </script>
+      )
+    }
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
@@ -58,5 +71,6 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefin
       <slot />
     </main>
     <Footer />
+    {import.meta.env.DEV && <PaletteSwitcher />}
   </body>
 </html>

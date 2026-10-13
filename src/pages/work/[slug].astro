@@ -113,7 +113,7 @@ const meta = [
                   {section.stats.map((stat) => (
                     <li>
                       <div class="stat-icon" style={hexMask}>
-                        <Image src={stat.icon} alt="" />
+                        <span class="stat-glyph" style={`--glyph: url('${stat.icon.src}')`} aria-hidden="true" />
                       </div>
                       {stat.value && <span class:list={['stat-value', { 'stat-text': !/\d/.test(stat.value) || stat.value.length > 8 }]}>{stat.value}</span>}
                       <span class="stat-label">{stat.label}</span>
@@ -373,8 +373,15 @@ const meta = [
     -webkit-mask: var(--hex) center / contain no-repeat;
     mask: var(--hex) center / contain no-repeat;
   }
-  .stat-icon :global(img) {
+  /* The glyph is the icon file used as a mask over the accent color, so it follows the theme
+     and any palette instead of keeping the blue baked into the SVG. */
+  .stat-glyph {
     position: relative;
+    width: 70px;
+    height: 70px;
+    background: var(--color-accent);
+    -webkit-mask: var(--glyph) center / contain no-repeat;
+    mask: var(--glyph) center / contain no-repeat;
   }
   .stat-value {
     font-size: clamp(1.75rem, 1.2rem + 1.8vw, 2.625rem);
