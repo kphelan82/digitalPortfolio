@@ -114,7 +114,7 @@ const meta = [
                       <div class="stat-icon" style={hexMask}>
                         <Image src={stat.icon} alt="" />
                       </div>
-                      <span class="stat-value">{stat.value}</span>
+                      {stat.value && <span class:list={['stat-value', { 'stat-text': !/\d/.test(stat.value) || stat.value.length > 8 }]}>{stat.value}</span>}
                       <span class="stat-label">{stat.label}</span>
                     </li>
                   ))}
@@ -383,6 +383,13 @@ const meta = [
   }
   .stat-label {
     font-weight: 700;
+  }
+  /* A red headline that isn't a number ("Spotlight Cards"): same color and weight, smaller
+     so a word fits a quarter-width tile. */
+  .stat-value.stat-text {
+    font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem);
+    line-height: 1.25;
+    overflow-wrap: anywhere;
   }
   @media (min-width: 40rem) {
     .stats li {

@@ -77,9 +77,11 @@ When a case study has `sections`, `work/[slug].astro` renders the Figma card lay
 
 **Results vs. scope.** Keep the two kinds of number apart. Real results (engagement, traffic, leads) go in a stat row on "The impact" card. When there are no results, don't invent any: use an "At a glance" card (placed after "The solution") with the same stat component for facts about the scope of the work (e.g. "3 audience pathways", "4 reusable components"). Every fact must come from the case study's own copy, and a trivial one ("1 designer") isn't worth a tile. The card title is what tells the reader these are scope, not outcomes.
 
+**Qualitative tiles.** A stat's `value` is optional and can be words, not a number ("Spotlight Cards" with the label "Offers arranged by brand"): a value with no digit, or longer than 8 characters ("3 bike models"), renders in the same red but smaller, so words fit a quarter-width tile. Use it for "At a glance" tiles. Leave `value` out entirely for an icon-and-label tile.
+
 **Placeholders.** Missing screenshots use the shared tile `src/assets/placeholders/screenshot.svg`; missing stats use obvious dummy values (`00%`, `metric label`). Each is marked with a `# PLACEHOLDER` comment in the frontmatter. **Before flipping a case study to `draft: false`, search its file for `PLACEHOLDER`** and replace or delete every one; the template doesn't distinguish placeholders from real content.
 
-**Order = how featured.** `order` sets the home-grid order and the numbered badge, so put the best-substantiated work (real results) first. IHOP sits at 02 because it has hard numbers.
+**Order = newest to oldest.** The home grid is chronological, so `order` is set by project year, newest first (Mobile deals 1, PLAYERS 2, Front door 3 … AARP 10); `order` also sets the numbered badge. Give every new case study a unique `order` and renumber the others to slot it in; where two share a year, the later launch goes first (Latuda before Bydureon, both 2019).
 
 A section can have any combination, so case studies can use different card sets (add an Audience card, drop Lessons, and so on). Card colors are the same tokens the résumé cards use (`--color-surface`, `--color-border`); red text uses `--color-heading-accent`, which is the lightened red in dark mode (on `--color-surface` it reaches ~4:1; the literal brand red or a lighter-gray card like Figma's `#444` would not).
 

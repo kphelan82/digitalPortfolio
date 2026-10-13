@@ -27,9 +27,9 @@ export interface SiteConfig {
 
 export const site: SiteConfig = {
   name: 'Kevin Phelan',
-  tagline: 'Product designer making complicated things feel simple.',
+  tagline: 'Hybrid digital experience and visual designer, focused on building streamlined customer experiences.',
   brandTagline: 'Digital experience & visual design',
-  description: 'Portfolio of Kevin Phelan, product designer. Selected case studies, gallery, bio and résumé.',
+  description: 'Portfolio of Kevin Phelan, hybrid digital experience and visual designer. Selected case studies, gallery, bio and résumé.',
 
   email: 'kphelandesign@gmail.com',
 

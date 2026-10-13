@@ -33,7 +33,7 @@ export const resume: Resume = {
 
   experience: [
     {
-      title: 'Senior UX Designer',
+      title: 'Senior UX Designer (contractor to full time)',
       company: 'Comcast Business',
       location: 'Philadelphia, PA',
       dates: 'Jul. 2021 – Present',
@@ -42,7 +42,8 @@ export const resume: Resume = {
       highlightsLabel: 'Key highlights',
       highlights: [
         'Lead UI design for Comcast Business Mobile learn content.',
-        'Selected as a 2026 AI Champion, using AI tools to rapid prototype designs and automate workflows.',
+        '2026 AI Champion: using AI tools to rapid prototype designs and automate workflows, and drive adoption.',
+        '2026 Circle of Success nominee - for CX work on the Comcast Business Mobile Digital Experience Team.',
       ],
     },
     {

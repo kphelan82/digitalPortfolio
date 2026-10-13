@@ -6,8 +6,9 @@ const caseStudies = defineCollection({
   schema: ({ image }) => {
     // A headline number with a label and a glyph, e.g. "4,000+" / "recruitment leads".
     // The glyph is just the icon; the hexagon behind it is drawn by the template.
+    // `value` is optional: leave it out for a qualitative "At a glance" tile (icon + label only).
     const stat = z.object({
-      value: z.string(),
+      value: z.string().optional(),
       label: z.string(),
       icon: image(),
     });

@@ -34,7 +34,7 @@ const snapshots = await Promise.all(
 ---
 
 <BaseLayout title="Bio" description={`About ${site.name}: 20+ years designing across digital, print and UX.`}>
-  <h1 class="page-title">Bio</h1>
+  <h1 class="page-title">bio</h1>
 
   <div class="cards">
     <section class:list={['card', 'story', { 'has-photo': portrait }]}>
@@ -139,9 +139,6 @@ const snapshots = await Promise.all(
   .card h2 {
     margin-bottom: 0;
     color: var(--color-heading-accent);
-  }
-  .card p {
-    font-size: var(--text-lg);
   }
 
   /* Portrait beside the first paragraph from tablet up; on top (and square) on phones. */
