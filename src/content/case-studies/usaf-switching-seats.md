@@ -6,8 +6,8 @@ role: "Interactive Art Director"
 product: "Interactive micro-site"
 summary: "A 360° interactive micro-site supporting the U.S. Air Force's NASCAR sponsorship, showcasing USAF Airmen swapping places with the pit crew in various roles."
 thumbnail: ../../assets/thumbnails/usaf-switching-seats.png
-order: 0
-draft: true # flip to false (or remove) to publish
+order: 9
+draft: false
 sections:
   - title: "The problem"
     paragraphs:

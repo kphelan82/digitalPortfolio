@@ -6,8 +6,8 @@ role: "Senior Art Director"
 product: "Facebook Canvas interactive ad unit"
 summary: "A choose-your-own-adventure Facebook Canvas ad that put IHOP's food on customers' phones to drive morning and late-night visits. It reached 25% engagement, 196% of Facebook's Canvas benchmark."
 thumbnail: ../../assets/thumbnails/ihop.png
-order: 1
-draft: true # TODO: set to false (or remove) once the images are in
+order: 7
+draft: false
 sections:
   - title: "My role"
     paragraphs:
@@ -33,18 +33,18 @@ sections:
       - value: "196%"
         label: "of Facebook's Canvas benchmark"
         icon: ../../assets/icons/stats/trend.svg
-  # PLACEHOLDER images: swap each `image` for a real screenshot.
   - title: "Project features"
     features:
-      - image: ../../assets/placeholders/screenshot.svg
+      - image: ../../assets/case-studies/ihop/feature-tilt-intro.webp
         caption: "Full screen and beyond"
-      - image: ../../assets/placeholders/screenshot.svg
+      - image: ../../assets/case-studies/ihop/feature-day-and-night.webp
         caption: "A dual experience"
-      - image: ../../assets/placeholders/screenshot.svg
-        caption: "What's the occasion?"
-      - image: ../../assets/placeholders/screenshot.svg
+      - image: ../../assets/case-studies/ihop/feature-flip-to-choose.webp
         caption: "Upside down?"
-      - image: ../../assets/placeholders/screenshot.svg
+      - image: ../../assets/case-studies/ihop/feature-occasions.webp
+        caption: "What's the occasion?"
+        wide: true
+      - image: ../../assets/case-studies/ihop/feature-user-flow.webp
         caption: "User flow"
   - title: "Lessons learned"
     paragraphs:

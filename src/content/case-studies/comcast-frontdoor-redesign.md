@@ -1,5 +1,5 @@
 ---
-title: "Comcast Business Enterprise Website Redesign"
+title: "Comcast Business Front Door"
 client: "Comcast Business"
 year: 2024
 # PLACEHOLDER role: confirm your title and part in this project (résumé says Senior UX Designer).
@@ -7,8 +7,8 @@ role: "UX/UI Designer"
 product: "Homepage redesign"
 summary: "A redesigned entry point for the Comcast Business homepage that focused on reaching Small Business, Enterprise, and Public Sector customer bases."
 thumbnail: ../../assets/thumbnails/comcast-frontdoor-redesign.png
-order: 0
-draft: true # TODO: set to false (or remove) once the PLACEHOLDERs below are resolved
+order: 3
+draft: false
 sections:
   # PLACEHOLDER role card: the source write-up (an award submission) is written as "we" and never says what you personally did. Describe your part here.
   - title: "My role"

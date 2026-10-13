@@ -2,7 +2,7 @@
 title: "Comcast Business Mobile Deals"
 client: "Comcast Business"
 year: 2026
-role: "Senior UX Designer"
+role: "UX/UI Designer"
 product: "Responsive deals page redesign"
 summary: "A redesign of the Comcast Business Mobile deals page, from a single stack of one-offer banners to offers grouped by brand, with the latest iPhone launch leading the page."
 thumbnail: ../../assets/thumbnails/comcast-mobile-deals.png
@@ -32,12 +32,15 @@ sections:
   # Facts about the scope of the work, not results. Confirm these against the live page.
   - title: "At a glance"
     stats:
-      - value: "4"
-        label: "brand sections: Apple, Samsung, Google and Motorola"
-        icon: ../../assets/icons/stats/grid-view.svg
-      - value: "3"
-        label: "breakpoints designed: desktop, tablet and mobile"
-        icon: ../../assets/icons/stats/devices.svg
+      - value: "Spotlight cards"
+        label: "Offers arranged by brand"
+        icon: ../../assets/icons/stats/view-apps.svg
+      - value: "Subnavigation"
+        label: "Switch between mobile pages quickly"
+        icon: ../../assets/icons/stats/assistant-navigation.svg
+      - value: "Hero flexibility"
+        label: "Device-centric capability"
+        icon: ../../assets/icons/stats/photo.svg
   # PLACEHOLDER impact: these are the Comcast Business Mobile Digital Experience Team's results across the whole program (quoted from an award nomination), not the Deals page alone. Confirm the wording, decide how much of the nomination to cite, and swap the stand-in icons if you want.
   - title: "The impact"
     paragraphs:
@@ -46,18 +49,12 @@ sections:
       - >-
         During the 2026 Apple launch, trade-in promotions were enabled digitally for the first time, so eligible customers could take an offer all the way through the buyflow. Buyflow line sales paced at 173% of the prior year, from 22 to 38 lines per day, and total digital line sales reached 105% year over year.
     stats:
-      - value: "813%"
-        label: "increase in Mobile navigation clicks after Mobile was added to global navigation"
-        icon: ../../assets/icons/stats/ads-click.svg
-      - value: "98%"
-        label: "flow rate between identity verification and billing, up from 76%"
-        icon: ../../assets/icons/stats/trend.svg
       - value: "173%"
         label: "of last year's buyflow line sales pace during Apple's general availability"
         icon: ../../assets/icons/stats/shopping-cart.svg
       - value: "357%"
         label: "of last year's shopping visits during Apple's general availability"
-        icon: ../../assets/icons/stats/windows.svg
+        icon: ../../assets/icons/stats/web-traffic.svg
   # PLACEHOLDER images: full-page exports from the Deals Redesign folder, cropped. Replace or add as you like.
   - title: "Project features"
     features:
@@ -70,5 +67,9 @@ sections:
         caption: "Tablet: before and after"
       - image: ../../assets/case-studies/comcast-mobile-deals/feature-brand-sections.webp
         caption: "Offers grouped by brand"
-        wide: true
+        wide: true 
+  - title: "Lessons Learned"
+    paragraphs:
+      - >-
+        The Deals redesign was something we'd talked about for a really long time, and was the result of a lot of cross-functional teamwork. I started with the in-page navigation, which had both dedicated research and dev sprints. That was live for a bit, and then I developed a second prototype for user testing with the offer order and display changed. Dev capacity was limited, so the goals of ordering offers by popularity of brand and shortening the scroll on the page were done so using existing components. A project like this really shows how important a phased approach is sometimes. There are still plans to add things like filters, but we've seen improvement without a massive dev lift, so I'd consider it successful.
 ---

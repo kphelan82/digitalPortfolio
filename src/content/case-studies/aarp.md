@@ -6,8 +6,8 @@ role: "Interactive Art Director"
 product: "Website design"
 summary: "A scalable, tile-based website for AARP's medical bankruptcy campaign. A handful of filmed stories and motion design conveyed thousands of people affected and drove visitors to contact Congress."
 thumbnail: ../../assets/thumbnails/aarp.png
-order: 2
-draft: true # TODO: set to false (or remove) once the images are in
+order: 10
+draft: false
 sections:
   - title: "My role"
     paragraphs:
@@ -16,19 +16,18 @@ sections:
   - title: "The problem"
     paragraphs:
       - >-
-        AARP launched a campaign to raise awareness about medical bankruptcy and needed a website to run alongside several other digital tactics and TV commercials. They wanted to utilize a series of testimonial-style videos with the ultimate goal of inspiring people to reach out to their representatives in Congress. Initially we had 10-12 videos they had filmed ahead of time, with the possibility of more content on the way, so scalability was a priority for this project. We also knew that these were just a few of hundreds of thousands of similar stories, so it was important to have a design that looked massive.
+        AARP launched a campaign to raise awareness about medical bankruptcy and needed a website to run alongside several other digital tactics and TV commercials. They wanted to utilize a series of testimonial-style videos with the ultimate goal of inspiring people to reach out to their representatives in Congress. Initially we had 10–12 videos they had filmed ahead of time, with the possibility of more content on the way, so scalability was a priority for this project. We also knew that these were just a few of hundreds of thousands of similar stories, so it was important to have a design that looked massive.
   - title: "The solution"
     paragraphs:
       - >-
-        A fully scalable site design that was first based on one tile and expanded to fit as many stories as necessary. We decided early on that the grid would work really well for this because we could simulate scrolling through hundreds of stories while only showing 10-12 videos. First, the team laid out the grid with each story that we had, knowing that the final tile in the bottom right corner would be our form, and then developed one animation style to use for each tile reveal. The rest was a matter of creating a few different arrays for the videos themselves, the static frames, the text versions, and, for a final touch, the randomized numbers for each. Once we had a plan of attack, I spent most of my time developing the animation style of the counting numbers, video carousel, and custom video player controls that we used as the basis for each story.
+        A fully scalable site design that was first based on one tile and expanded to fit as many stories as necessary. We decided early on that the grid would work really well for this because we could simulate scrolling through hundreds of stories while only showing 10–12 videos. First, the team laid out the grid with each story that we had, knowing that the final tile in the bottom right corner would be our form, and then developed one animation style to use for each tile reveal. The rest was a matter of creating a few different arrays for the videos themselves, the static frames, the text versions, and, for a final touch, the randomized numbers for each. Once we had a plan of attack, I spent most of my time developing the animation style of the counting numbers, video carousel, and custom video player controls that we used as the basis for each story.
   - title: "At a glance"
-    # Facts about the scope of the work, not results. Each comes from this case study's own copy.
     stats:
-      - value: "10–12"
-        label: "filmed stories, presented to feel like hundreds"
+      - value: "10–12 filmed stories"
+        label: "presented as an array of thousands"
         icon: ../../assets/icons/stats/video-library.svg
-      - value: "1"
-        label: "tile template that scales to any number of stories"
+      - value: "1 tile design"
+        label: "scalable to any size database"
         icon: ../../assets/icons/stats/brick.svg
   - title: "The impact"
     paragraphs:

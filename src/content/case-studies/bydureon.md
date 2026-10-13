@@ -6,8 +6,8 @@ role: "Senior Art Director"
 product: "Full website redesign"
 summary: "A full redesign of the Bydureon consumer site, built from content modules to feel warmer and scale across AstraZeneca brands. Video, quizzes, FAQs and copay registration became reusable pieces."
 thumbnail: ../../assets/thumbnails/bydureon-hero.png
-order: 5
-draft: true # TODO: set to false (or remove) once the images are in
+order: 6
+draft: false
 sections:
   - title: "My role"
     paragraphs:
@@ -24,11 +24,16 @@ sections:
       - >-
         The modular build allowed my team and I to make important adjustments to the organization of content across multiple pages and streamline the user experience. Specifically, I wanted to use animation to emphasize high-value actions without disrupting the user's scroll down the page. For example, I built interactive quiz and FAQ modules for multiple pages, which helped users based on the context of each page rather than something at the bottom that encompassed all the information on the entire site. Our goal was to meet the patient wherever the were at, at that time in the journey.
   - title: "At a glance"
-    # Facts about the scope of the work, not results. Each comes from this case study's own copy.
     stats:
-      - value: "4"
-        label: "reusable components: video player, quiz, FAQ and registration form"
+      - value: "Modular components"
+        label: "scalable content blocks"
         icon: ../../assets/icons/stats/widgets.svg
+      - value: "Interactive quiz"
+        label: "for doctor visit talking points"
+        icon: ../../assets/icons/stats/quiz.svg
+      - value: "Contextual FAQ"
+        label: "for help during all phases of the journey"
+        icon: ../../assets/icons/stats/topic.svg
   - title: "The impact"
     paragraphs:
       - >-

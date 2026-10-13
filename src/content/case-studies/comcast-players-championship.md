@@ -2,12 +2,12 @@
 title: "THE PLAYERS Championship Landing Page"
 client: "Comcast Business"
 year: 2025
-role: "Senior UX Designer"
+role: "UX/UI Designer"
 product: "Campaign landing page"
 summary: "A digital destination for Comcast Business's partnership with THE PLAYERS Championship. It extended the onsite experience to a wider audience and fed a virtual executive forum. Traffic the week before the event was 5x 2024."
 thumbnail: ../../assets/thumbnails/comcast-players-championship.png
-order: 0
-draft: true # TODO: set to false (or remove) once the PLACEHOLDERs below are resolved
+order: 2
+draft: false
 sections:
   # PLACEHOLDER role card: you said you were directly responsible for the landing page design. Add the detail only you know (who you partnered with, how the design came together, tools, constraints).
   - title: "My role"

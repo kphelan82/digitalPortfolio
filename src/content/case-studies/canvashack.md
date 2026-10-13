@@ -6,8 +6,8 @@ role: "Interactive Art Director"
 product: "Facebook Canvas interactive ad unit and presentation"
 summary: "A proof-of-concept Facebook Canvas ad for IHOP, created at an agency hackathon by three art directors. Timed gestures and video turned the ad into shareable pancake-making mini games."
 thumbnail: ../../assets/thumbnails/canvashack.png
-order: 4
-draft: true # TODO: set to false (or remove) once the images are in
+order: 8
+draft: false
 sections:
   - title: "My role"
     paragraphs:
@@ -22,14 +22,16 @@ sections:
       - >-
         Each agency was given 10 mins to present to a panel of Executive Creative Directors and our peer groups. In order to elevate our presentation, we decided as a team that recognizing device interfaces and gestures as part of the experience would take it beyond the standard set of components Facebook was working with. Our idea was to encourage customers to "play with their food" while they wait for their orders at local IHOP restaurants. The "hacks" we came up with all involved using timed instructions together with video content to simulate different mini games. The end result of these would be to create a stack of pancakes, share to their Facebook feeds, and ultimately find a local IHOP to turn it into reality.
   - title: "At a glance"
-    # Facts about the scope of the work, not results. Each comes from this case study's own copy.
     stats:
-      - value: "10"
-        label: "minutes to present to a panel of creative directors"
-        icon: ../../assets/icons/stats/clock.svg
-      - value: "3"
-        label: "art directors on the team"
-        icon: ../../assets/icons/stats/people.svg
+      - value: "Multiple user paths"
+        label: "with different messaging"
+        icon: ../../assets/icons/stats/fork-left.svg
+      - value: "Limited components"
+        label: "but no limits on how they're used"
+        icon: ../../assets/icons/stats/widgets.svg
+      - value: "Mobile only"
+        label: "gesture and tap interactions"
+        icon: ../../assets/icons/stats/touch-double.svg
   - title: "The impact"
     paragraphs:
       - >-

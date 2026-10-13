@@ -6,8 +6,8 @@ role: "UX/UI Designer"
 product: "Site wireframe and hi-fi prototype"
 summary: "Wireframes and a hi-fi prototype for a site and mobile app that lets customers explore Roar Cycles' three models, customize a build and place an order, created for a design certification."
 thumbnail: ../../assets/thumbnails/roar-hero-v2.png
-order: 3
-draft: true # TODO: set to false (or remove) once the images are in
+order: 4
+draft: false
 sections:
   - title: "My role"
     paragraphs:
@@ -22,17 +22,16 @@ sections:
       - >-
         A custom site and mobile app that showcases the 3 bike models and displays various customization options, an online merch shop, and store finder. The primary goal was allowing customers to place and track online orders. 
   - title: "At a glance"
-    # Facts about the scope of the work, not results. Each comes from this case study's own copy. (The checkout step count is from the screens.)
     stats:
-      - value: "3"
-        label: "bike models, each customizable"
+      - value: "3 bike models"
+        label: "fully customizable"
         icon: ../../assets/icons/stats/directions-bike.svg
-      - value: "2"
-        label: "platforms: a website and a mobile app"
+      - value: "2 platforms"
+        label: "web and mobile app"
         icon: ../../assets/icons/stats/devices.svg
-      - value: "3"
-        label: "steps in the checkout: order, shipping, payment"
-        icon: ../../assets/icons/stats/trend.svg
+      - value: "New sales channel"
+        label: "fulfill orders online"
+        icon: ../../assets/icons/stats/delivery-truck-speed.svg
   - title: "Project features"
     features:
       - image: ../../assets/case-studies/roar/feature-product-page-hd.webp

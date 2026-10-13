@@ -6,8 +6,8 @@ role: "Senior Art Director"
 product: "Website redesign"
 summary: "A patient-first redesign of Latuda.com that segmented visitors into three pathways and used progressive disclosure to surface the right information faster, with almost no new content."
 thumbnail: ../../assets/thumbnails/latuda.png
-order: 6
-draft: true # TODO: set to false (or remove) once the images are in
+order: 5
+draft: false
 sections:
   - title: "My role"
     paragraphs:
@@ -26,15 +26,20 @@ sections:
       - >-
         A full site overhaul that put the people first. We were able to focus on leveraging existing patient testimonial stories and segment visitors into three pathways: those who were not yet diagnosed, those currently on Latuda, and people who needed specific support materials. Because of these three user flows, we were able to use progressive disclosure to only offer consumers the information they needed at that particular time in their journeys rather than hit them with the whole kitchen sink at one time and overwhelm them, which is a mistake that a lot of pharmaceutical brands will often make.
   - title: "At a glance"
-    # Facts about the scope of the work, not results. Each comes from this case study's own copy.
     stats:
-      - value: "3"
-        label: "audience pathways, so each visitor sees only what they need"
+      - value: "3 distinct pathways"
+        label: "visitors see only what they need"
         icon: ../../assets/icons/stats/fork-left.svg
+      - value: "Testimonial videos"
+        label: "give users relatable patient stories"
+        icon: ../../assets/icons/stats/video-library.svg
+      - value: "Resource downloads"
+        label: "to aid patients and caregivers"
+        icon: ../../assets/icons/stats/folder-open.svg
   - title: "The impact"
     paragraphs:
       - >-
-        This site launched in November 2019 and our clients are extremely happy with it. We hope to see big jumps in ad performance and traffic. In addition to the site, we have also launched a corresponding digital campaign to support, including display, social media, and custom email streams. It not only looks like a huge upgrade from where it was, the information is far more organized than ever before, and we expect consumers to get information much faster.
+        This site launched in November 2019 and our clients were extremely happy with it. At the time we didn't get a lot of insight into hard data, but given that the previous version of the site had almost no discernible hierarchy, the structural changes and interactive content could have only helped the audience. As with many pharmaceutical brands, this drug has reached the end of it's life cycle and the site is no longer live.
   - title: "Project features"
     features:
       - image: ../../assets/case-studies/latuda/feature-home-pathways.webp
@@ -54,5 +59,5 @@ sections:
   - title: "Lessons learned"
     paragraphs:
       - >-
-        I've been involved in a lot for this brand over the last several years, but I think this is the most significant shift that I've seen. We expect that the numbers will tell all when we have some analytics, and may even win some awards, but I think one of the most important things to keep in mind was that, as a consumer site, the consumer should be priority number one and we needed to keep it simple. There are so many sites out there where brands just bombard people with data, TV commercials, stats, messaging, etc. and it really does little more than confuse people and have them not be able to find what they need. Also important to note that we really didn't have a lot of new content, but we were able to display it in a much more streamlined way for specific groups within the audience and it left people with a totally refreshing and new experience. You can make massive improvements with the same content with some good user-centered design.
+        I was involved in a lot for this brand spread out through my time at MRM, but this was the most significant shift that I'd seen. There are so many sites out there where brands just bombard people with data, TV commercials, stats, messaging, etc. and it really does little more than confuse people and leave them unable to find what they need. This had a much more patient-centric, story telling approach that went a long way in reframing the existing content. It was a complete visual overhaul and a bold strategy change.
 ---
