@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import type { CaseStudy } from '../lib/caseStudies';
+import { url } from '../lib/url';
 
 interface Props {
   entry: CaseStudy;
@@ -10,7 +11,7 @@ const { entry } = Astro.props;
 const { title, client, year, summary, thumbnail, draft } = entry.data;
 ---
 
-<a class="card" href={`/work/${entry.id}`}>
+<a class="card" href={url(`/work/${entry.id}`)}>
   <div class="thumb">
     <Image src={thumbnail} alt="" width={800} loading="lazy" />
   </div>

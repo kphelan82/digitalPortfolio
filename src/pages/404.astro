@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/url';
 ---
 
 <BaseLayout title="Page not found">
   <h1 class="page-title">Page not found</h1>
-  <p>That page doesn't exist. <a href="/">Head back to the work.</a></p>
+  <p>That page doesn't exist. <a href={url('/')}>Head back to the work.</a></p>
 </BaseLayout>

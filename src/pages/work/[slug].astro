@@ -2,6 +2,7 @@
 import { render } from 'astro:content';
 import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../lib/url';
 import Lightbox from '../../components/Lightbox.astro';
 import { getCaseStudies } from '../../lib/caseStudies';
 import hexagon from '../../assets/icons/stats/hexagon.svg';
@@ -187,8 +188,8 @@ const meta = [
   }
 
   <nav class="pager" aria-label="More case studies">
-    {prev ? <a href={`/work/${prev.id}`}>← {prev.data.title}</a> : <span />}
-    {next ? <a href={`/work/${next.id}`}>{next.data.title} →</a> : <span />}
+    {prev ? <a href={url(`/work/${prev.id}`)}>← {prev.data.title}</a> : <span />}
+    {next ? <a href={url(`/work/${next.id}`)}>{next.data.title} →</a> : <span />}
   </nav>
 </BaseLayout>
 

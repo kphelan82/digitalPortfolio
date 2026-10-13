@@ -1,10 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import { site } from '../data/site';
+import { url, stripBase } from '../lib/url';
 import logo from '../assets/logo/KPD-logo.svg';
 import ThemeToggle from './ThemeToggle.astro';
 
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const path = stripBase(Astro.url.pathname).replace(/\/$/, '') || '/';
 
 // "Work" (/) is also the parent of every /work/* case study page.
 const isCurrent = (href: string) =>
@@ -13,7 +14,7 @@ const isCurrent = (href: string) =>
 
 <header class="site-header">
   <div class="container bar">
-    <a class="brand" href="/">
+    <a class="brand" href={url('/')}>
       <Image class="brand-logo" src={logo} alt="" width={44} height={49} />
       <span class="brand-text">
         <span class="brand-name">{site.name}</span>
@@ -26,7 +27,7 @@ const isCurrent = (href: string) =>
           {
             site.nav.map((item) => (
               <li>
-                <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+                <a href={url(item.href)} aria-current={isCurrent(item.href) ? 'page' : undefined}>
                   {item.label}
                 </a>
               </li>

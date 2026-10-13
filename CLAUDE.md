@@ -150,7 +150,7 @@ Current map: `/case-study-aarp|roar|canvashack|bydureon|latuda|ihop` → `/work/
 
 Hosted on GitHub Pages. Pushing to `main` runs `.github/workflows/deploy.yml`, which builds with `withastro/action` and publishes `dist/`. In the GitHub repo, Settings → Pages → Source must be set to **GitHub Actions** (one-time).
 
-- The site assumes it is served from the **domain root** (custom domain, or a `<user>.github.io` user site). Internal links are root-relative (`/bio`). If it is ever served from a project subpath (`<user>.github.io/<repo>`), set `base` in `astro.config.mjs` **and** make internal links base-aware, or every link will break.
+- The real site is served from the **domain root** (`kevinphelandesign.com`). Until the DNS cutover, the deploy is a **preview under a subpath** at `kphelan82.github.io/digitalPortfolio`: the workflow sets `BASE_PATH: /digitalPortfolio`, which `astro.config.mjs` turns into `base` (and prefixes the redirect targets with). Every internal link, favicon and public file goes through `url()` in `src/lib/url.ts` (never write a bare `/bio`), so it works at both. **When the custom domain points at GitHub Pages, delete the `BASE_PATH` line from `.github/workflows/deploy.yml`** and the site builds for the root again; with `BASE_PATH` unset (local dev, `npm run build`) nothing changes.
 - Production domain is `kevinphelandesign.com` (bare domain is canonical; `www` redirects to it). `site` in `astro.config.mjs` must match. Because deploys use a GitHub Actions workflow, the custom domain is set in GitHub → Settings → Pages; a `public/CNAME` file is ignored, so don't add one.
 - Commit directly to `main` for small content edits; use a branch + PR for larger changes. `node_modules/`, `dist/` and `.astro/` are git-ignored.
 
