@@ -213,3 +213,49 @@
   --color-accent: #1658cc;
   --color-heading-accent: #b8421a;
 }
+
+/* Orange + light blue + blue — matches the recolored logo: orange #FF8552 for headings and the
+   site name, light blue #B4C5E4 as the secondary (link and label text, the header tagline), and the
+   original bright blue #2176FF as the accent (icons, buttons, underlines, focus rings). Light mode
+   darkens all three (#B8421A, #3F5F96, #1658CC) so they clear contrast. */
+:root[data-palette='orange-sky'] {
+  --color-bg: #0b1220;
+  --color-surface: #141d31;
+  --color-text: #eef2fa;
+  --color-muted: #9fb0cc;
+  --color-border: #2a3858;
+  --color-accent: #2176ff;
+  --color-secondary: #b4c5e4;
+  --color-heading-accent: #ff8552;
+  --badge-hex-text: #ff8552;
+  --header-bg: #0b1220;
+  --header-surface: #141d31;
+  --header-text: #eef2fa;
+  --header-muted: #9fb0cc;
+  --header-border: #2a3858;
+  --header-accent: #2176ff;
+  --header-secondary: #b4c5e4;
+  --header-brand-red: #ff8552;
+}
+@media (prefers-color-scheme: light) {
+  :root[data-palette='orange-sky']:not([data-theme='dark']) {
+  --color-bg: #e8edf6;
+  --color-surface: #d9e1f0;
+  --color-text: #0e1626;
+  --color-muted: #4a5873;
+  --color-border: #b9c5dc;
+  --color-accent: #1658cc;
+  --color-secondary: #3f5f96;
+  --color-heading-accent: #b8421a;
+  }
+}
+:root[data-palette='orange-sky'][data-theme='light'] {
+  --color-bg: #e8edf6;
+  --color-surface: #d9e1f0;
+  --color-text: #0e1626;
+  --color-muted: #4a5873;
+  --color-border: #b9c5dc;
+  --color-accent: #1658cc;
+  --color-secondary: #3f5f96;
+  --color-heading-accent: #b8421a;
+}
