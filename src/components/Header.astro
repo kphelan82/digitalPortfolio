@@ -154,7 +154,8 @@ const isCurrent = (href: string) =>
   nav a[aria-current='page'] {
     text-decoration: underline;
     text-decoration-color: var(--header-accent);
-    text-underline-offset: 0.35em;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.55em;
   }
   /* The global :focus-visible rule uses the page's (theme-reactive) accent
      color, which would be low-contrast against this always-dark header
