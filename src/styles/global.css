@@ -25,9 +25,9 @@
   --color-heading-accent: #ff8552;
 
   /* Fixed color, same in both themes: the "Draft" badge (dev only — drafts are left out of
-     production builds). A warning red on purpose, not part of the palette. */
-  --color-badge-bg: #b81b1b;
-  --color-badge-text: #ffffff;
+     production builds). Orange with navy text (~7.8:1). */
+  --color-badge-bg: #ff8552;
+  --color-badge-text: #0b1220;
 
   /* Numeral on the case study hero's hexagon badge. The badge sits on top of a photo with a
      dark fill baked into its SVG, so it doesn't follow the theme: the numeral has to be the
