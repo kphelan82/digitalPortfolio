@@ -3,49 +3,49 @@
    ========================================================================== */
 :root {
   /* Colors — dark is the default theme (brand-driven, not system-driven);
-     see the `prefers-color-scheme: light` override below for the alternate. */
-  --color-bg: #1e1e1e;
-  --color-surface: #292929;
-  --color-text: #f2f1ec;
-  --color-muted: #a6a59f;
-  --color-border: #3a3a38;
-  --color-accent: #4a93ba;
-  /* Text-safe companion to the accent: used for link/label/title text. Defaults to the accent;
-     a palette can set a lighter value when its accent works for graphics but not for small text. */
-  --color-secondary: var(--color-accent);
-  /* Page titles (bio, gallery, résumé, case study titles). Plain text color unless a palette sets it. */
-  --color-title: var(--color-text);
-  /* Brand red, brightened for this background — the literal brand red
-     (#b81b1b) is only ~2.5:1 against #1e1e1e, under the 3:1 large-text
-     minimum. Currently used only for résumé section headings
-     (src/pages/cv.astro). Same hue/saturation, lightened until it clears
-     3:1 (large, bold heading text) with a working margin. */
-  --color-heading-accent: #e35b5b;
+     see the `prefers-color-scheme: light` override below for the alternate.
+     Palette: a deep navy page, orange for headings and numbers, light blue for text
+     accents, and a bright blue for titles, icons and buttons. Alternate palettes for
+     comparison live in palettes.css (dev-only switcher). */
+  --color-bg: #0b1220;
+  --color-surface: #141d31;
+  --color-text: #eef2fa;
+  --color-muted: #9fb0cc;
+  --color-border: #2a3858;
+  /* The bright blue (#2176FF): icons, filled buttons, underlines, focus rings. It is 4.5:1 on
+     the page but 4.1:1 on cards, so small *text* uses --color-secondary instead. */
+  --color-accent: #2176ff;
+  /* Text-safe light blue (#B4C5E4, ~10:1): link hover, résumé job titles and labels, the
+     Email button, the header tagline. */
+  --color-secondary: #b4c5e4;
+  /* Page titles (bio, gallery, résumé, case study titles): the accent blue. Large bold text
+     only needs 3:1, and 4.5:1 is what it gets on the page. */
+  --color-title: #2176ff;
+  /* Orange (#FF8552, ~7.8:1): section headings, stat numbers, the site name. */
+  --color-heading-accent: #ff8552;
 
-  /* Fixed brand colors — same in both themes, so not overridden below.
-     Currently used only for the "Draft" badge (filled chip, not text-on-page). */
+  /* Fixed color, same in both themes: the "Draft" badge (dev only — drafts are left out of
+     production builds). A warning red on purpose, not part of the palette. */
   --color-badge-bg: #b81b1b;
   --color-badge-text: #ffffff;
 
-  /* Numeral on the case study hero's hexagon badge. The badge sits on top of a
-     photo with a dark fill baked into its SVG, so it doesn't change with the
-     theme — which means this red can't either, and it has to be the lightened
-     one (the literal brand red is ~2.5:1 on that dark fill). */
-  --badge-hex-text: #e35b5b;
+  /* Numeral on the case study hero's hexagon badge. The badge sits on top of a photo with a
+     dark fill baked into its SVG, so it doesn't follow the theme: the numeral has to be the
+     light (dark-mode) orange in both themes. */
+  --badge-hex-text: #ff8552;
 
-  /* The header is a fixed dark element by design — it doesn't follow the
-     toggle or the OS preference, so it needs its own set of colors that
-     never change, rather than reading the theme-reactive --color-* ones
-     above. Values match the dark theme. Used only by Header.astro and
-     ThemeToggle.astro (which lives inside the header). */
-  --header-bg: #1e1e1e;
-  --header-surface: #292929;
-  --header-text: #f2f1ec;
-  --header-muted: #a6a59f;
-  --header-border: #3a3a38;
-  --header-accent: #4a93ba;
-  --header-secondary: var(--header-accent);
-  --header-brand-red: #b81b1b;
+  /* The header is a fixed dark element by design — it doesn't follow the toggle or the OS
+     preference, so it needs its own set of colors that never change, rather than reading the
+     theme-reactive --color-* ones above. Values match the dark theme. Used only by
+     Header.astro and ThemeToggle.astro (which lives inside the header). */
+  --header-bg: #0b1220;
+  --header-surface: #141d31;
+  --header-text: #eef2fa;
+  --header-muted: #9fb0cc;
+  --header-border: #2a3858;
+  --header-accent: #2176ff;
+  --header-secondary: #b4c5e4;
+  --header-brand: #ff8552;
 
   /* Urbanist is loaded from Google Fonts in BaseLayout.astro's <head>.
      The system stack after it is the fallback while it loads (or if the
@@ -81,32 +81,32 @@
    guarded so an explicit `data-theme="dark"` always wins), or when the
    visitor's toggle choice is stored as light (the attribute block, which
    applies regardless of the OS setting). Keep these two blocks in sync —
-   see components/ThemeToggle.astro for how `data-theme` gets set. */
+   see components/ThemeToggle.astro for how `data-theme` gets set.
+   The brights don't have enough contrast on a light page (the blue is 3.5:1, the orange 2:1),
+   so each gets a darkened same-hue shade here. */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme='dark']) {
-    --color-bg: #d3d3d3;
-    --color-surface: #c6c6c6;
-    --color-text: #171717;
-    /* Slightly darker than a plain gray so it still clears 4.5:1 against #d3d3d3. */
-    --color-muted: #5c5c58;
-    --color-border: #b0b0b0;
-    /* The literal brand blue (#4a93ba) is only ~2.3:1 against #d3d3d3 — too low
-       for link text. Same hue and saturation, darkened until it clears 4.5:1. */
-    --color-accent: #2e607a;
-    /* The literal brand red already clears contrast against this lighter
-       background (~4.4:1), so no adjustment needed here — only dark mode
-       needs a brightened variant. */
-    --color-heading-accent: #b81b1b;
+    --color-bg: #e8edf6;
+    --color-surface: #d9e1f0;
+    --color-text: #0e1626;
+    --color-muted: #4a5873;
+    --color-border: #b9c5dc;
+    --color-accent: #1658cc;
+    --color-secondary: #3f5f96;
+    --color-title: #1658cc;
+    --color-heading-accent: #b8421a;
   }
 }
 :root[data-theme='light'] {
-  --color-bg: #d3d3d3;
-  --color-surface: #c6c6c6;
-  --color-text: #171717;
-  --color-muted: #5c5c58;
-  --color-border: #b0b0b0;
-  --color-accent: #2e607a;
-  --color-heading-accent: #b81b1b;
+  --color-bg: #e8edf6;
+  --color-surface: #d9e1f0;
+  --color-text: #0e1626;
+  --color-muted: #4a5873;
+  --color-border: #b9c5dc;
+  --color-accent: #1658cc;
+  --color-secondary: #3f5f96;
+  --color-title: #1658cc;
+  --color-heading-accent: #b8421a;
 }
 
 /* ==========================================================================
