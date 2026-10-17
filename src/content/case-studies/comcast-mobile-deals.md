@@ -4,20 +4,20 @@ client: "Comcast Business"
 year: 2026
 role: "UX/UI Designer"
 product: "Responsive deals page redesign"
-summary: "A redesign of the Comcast Business Mobile deals page, from a single stack of one-offer banners to offers grouped by brand, with the latest iPhone launch leading the page."
+summary: "A redesign of the Comcast Business Mobile deals page, which brings a more refined page hierarchy and easier navigation between mobile focused areas of the site."
 thumbnail: ../../assets/thumbnails/comcast-mobile-deals.png
 order: 1
-draft: true # TODO: set to false (or remove) once the PLACEHOLDERs below are resolved
+draft: false
 sections:
   - title: "My role"
     paragraphs:
       - >-
-        I had complete ownership of the visual redesign of the page. I worked with the research team to test the in-page navigation and the offer cards grouped by brand.
+        I had complete ownership of the visual redesign of the page. I worked with the research and dev teams to test and roll out the in-page navigation and the offer cards grouped by brand in multiple sprints. 
   # PLACEHOLDER problem: drafted from the screens only. Replace with the real reasons for the redesign and the constraints (offer cadence, legal copy, templates, development limits).
   - title: "The problem"
     paragraphs:
       - >-
-        The Comcast Business Mobile deals page is where small and medium businesses go to shop the latest phone offers, and its content changes with every promotion. The previous version was a single column of full-width banners, one offer after another, with the Black Friday trade-in as the lead. Each new device meant another banner, so the page got longer and harder to scan.
+        The Comcast Business Mobile deals page is where customers would go to see all of the biggest deals on devices being offered. There are typically a few offers on the latest devices for each of our four major brands: Apple, Samsung, Google, and Motorola. In the original page state, the offers were displayed using the same component stacked repeatedly and sorted by deal discount type, which created a very long scroll on the page and some confusion based on how the list was sorted.
     features:
       - image: ../../assets/case-studies/comcast-mobile-deals/previous-design.webp
         caption: "The previous deals page: one offer per banner"
@@ -26,9 +26,7 @@ sections:
   - title: "The solution"
     paragraphs:
       - >-
-        The redesigned page opens with a bold hero for the newest iPhone and adds a sub-navigation row (Overview, Plans, Bring your own, Phones, Deals, Network) so shoppers can move around the mobile section. Below it, offers are grouped by brand: Apple, Samsung, Google and Motorola each get their own section with two or three offer cards and a "Shop all devices" link. Switching offers and prepaid-card promotions close the page. I worked with the research team to test the in-page navigation and the offers grouped by brand.
-      - >-
-        The redesign was built to improve offer discovery, strengthen analytics and create a reusable structure for future brand and device promotions. Offers are modular cards, so a new promotion replaces a card instead of adding another full-width banner, and the same page works across desktop, tablet and mobile.
+        The redesigned page was first brought up to par with the latest brand guidelines, featuring a new hero treatment that was capable of displaying device imagery. This helped to tie the hero visual to the biggest offer we were promoting. Next, the in-page navigation introduced a helpful way for users to discover more about mobile without needing to rely on the large mega nav. Then, I changed the offer displays from single components stacked, to 2, 3, and 4 up tiles, to display more offers in a smaller area, allow for quick comparisons, and create a dedicated spotlight section for each of the major brands.
   # Facts about the scope of the work, not results. Confirm these against the live page.
   - title: "At a glance"
     stats:
@@ -47,7 +45,7 @@ sections:
       - >-
         The Deals redesign was one piece of a larger effort by the Comcast Business Mobile Digital Experience Team to make buying mobile online easier. These are the results for the team's work as a whole.
       - >-
-        During the 2026 Apple launch, trade-in promotions were enabled digitally for the first time, so eligible customers could take an offer all the way through the buyflow. Buyflow line sales paced at 173% of the prior year, from 22 to 38 lines per day, and total digital line sales reached 105% year over year.
+        During the 2026 Apple launch, trade-in promotions were enabled digitally for the first time, so we knew it was essential to make these easier to find. Line sales paced at 173% of the prior year, from 22 to 38 lines per day, and total digital line sales reached 105% year over year.
     stats:
       - value: "173%"
         label: "of last year's buyflow line sales pace during Apple's general availability"
