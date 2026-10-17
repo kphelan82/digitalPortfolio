@@ -13,6 +13,8 @@
   /* Text-safe companion to the accent: used for link/label/title text. Defaults to the accent;
      a palette can set a lighter value when its accent works for graphics but not for small text. */
   --color-secondary: var(--color-accent);
+  /* Page titles (bio, gallery, résumé, case study titles). Plain text color unless a palette sets it. */
+  --color-title: var(--color-text);
   /* Brand red, brightened for this background — the literal brand red
      (#b81b1b) is only ~2.5:1 against #1e1e1e, under the 3:1 large-text
      minimum. Currently used only for résumé section headings
@@ -206,6 +208,7 @@ svg {
 
 .page-title {
   margin-bottom: var(--space-3);
+  color: var(--color-title);
 }
 
 /* Case study / card grid */

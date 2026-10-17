@@ -227,6 +227,7 @@
   --color-accent: #2176ff;
   --color-secondary: #b4c5e4;
   --color-heading-accent: #ff8552;
+  --color-title: #2176ff;
   --badge-hex-text: #ff8552;
   --header-bg: #0b1220;
   --header-surface: #141d31;
@@ -247,6 +248,7 @@
   --color-accent: #1658cc;
   --color-secondary: #3f5f96;
   --color-heading-accent: #b8421a;
+  --color-title: #1658cc;
   }
 }
 :root[data-palette='orange-sky'][data-theme='light'] {
@@ -258,4 +260,5 @@
   --color-accent: #1658cc;
   --color-secondary: #3f5f96;
   --color-heading-accent: #b8421a;
+  --color-title: #1658cc;
 }
