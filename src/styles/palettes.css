@@ -132,3 +132,43 @@
   --color-accent: #476400;
   --color-heading-accent: #476400;
 }
+
+/* Blue (#2176FF) — primary #2176FF is the accent; secondary #B4C5E4 is the heading color in dark.
+   Light mode uses darkened versions of both (#1658CC, #3F5F96) so they clear contrast. */
+:root[data-palette='blue'] {
+  --color-bg: #0b1220;
+  --color-surface: #141d31;
+  --color-text: #eef2fa;
+  --color-muted: #9fb0cc;
+  --color-border: #2a3858;
+  --color-accent: #2176ff;
+  --color-heading-accent: #b4c5e4;
+  --badge-hex-text: #b4c5e4;
+  --header-bg: #0b1220;
+  --header-surface: #141d31;
+  --header-text: #eef2fa;
+  --header-muted: #9fb0cc;
+  --header-border: #2a3858;
+  --header-accent: #2176ff;
+  --header-brand-red: #b4c5e4;
+}
+@media (prefers-color-scheme: light) {
+  :root[data-palette='blue']:not([data-theme='dark']) {
+  --color-bg: #e8edf6;
+  --color-surface: #d9e1f0;
+  --color-text: #0e1626;
+  --color-muted: #4a5873;
+  --color-border: #b9c5dc;
+  --color-accent: #1658cc;
+  --color-heading-accent: #3f5f96;
+  }
+}
+:root[data-palette='blue'][data-theme='light'] {
+  --color-bg: #e8edf6;
+  --color-surface: #d9e1f0;
+  --color-text: #0e1626;
+  --color-muted: #4a5873;
+  --color-border: #b9c5dc;
+  --color-accent: #1658cc;
+  --color-heading-accent: #3f5f96;
+}
