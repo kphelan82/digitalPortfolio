@@ -6,4 +6,5 @@ export const palettes = [
   { id: 'indigo-coral', label: 'Indigo & coral' },
   { id: 'graphite-lime', label: 'Graphite & lime' },
   { id: 'blue', label: 'Blue (#2176FF)' },
+  { id: 'blue-orange', label: 'Blue & orange (#FF8552)' },
 ];

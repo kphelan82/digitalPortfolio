@@ -172,3 +172,44 @@
   --color-accent: #1658cc;
   --color-heading-accent: #3f5f96;
 }
+
+/* Blue & orange — the Blue palette with orange #FF8552 as the heading color (stat numbers,
+   section headings, the site name) in place of the pale blue. Light mode darkens the orange
+   to #B8421A so it clears contrast. */
+:root[data-palette='blue-orange'] {
+  --color-bg: #0b1220;
+  --color-surface: #141d31;
+  --color-text: #eef2fa;
+  --color-muted: #9fb0cc;
+  --color-border: #2a3858;
+  --color-accent: #2176ff;
+  --color-heading-accent: #ff8552;
+  --badge-hex-text: #ff8552;
+  --header-bg: #0b1220;
+  --header-surface: #141d31;
+  --header-text: #eef2fa;
+  --header-muted: #9fb0cc;
+  --header-border: #2a3858;
+  --header-accent: #2176ff;
+  --header-brand-red: #ff8552;
+}
+@media (prefers-color-scheme: light) {
+  :root[data-palette='blue-orange']:not([data-theme='dark']) {
+  --color-bg: #e8edf6;
+  --color-surface: #d9e1f0;
+  --color-text: #0e1626;
+  --color-muted: #4a5873;
+  --color-border: #b9c5dc;
+  --color-accent: #1658cc;
+  --color-heading-accent: #b8421a;
+  }
+}
+:root[data-palette='blue-orange'][data-theme='light'] {
+  --color-bg: #e8edf6;
+  --color-surface: #d9e1f0;
+  --color-text: #0e1626;
+  --color-muted: #4a5873;
+  --color-border: #b9c5dc;
+  --color-accent: #1658cc;
+  --color-heading-accent: #b8421a;
+}
