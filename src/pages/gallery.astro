@@ -42,7 +42,7 @@ const images = await Promise.all(
     images.length > 0 ? (
       <ul class="gallery">
         {images.map(({ src, alt, full }) => (
-          <li>
+          <li class="reveal">
             <a href={full} data-lightbox="gallery" aria-label={`Enlarge: ${alt}`}>
               <Image src={src} alt={alt} width={900} loading="lazy" />
             </a>

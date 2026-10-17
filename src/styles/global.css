@@ -110,6 +110,30 @@
 }
 
 /* ==========================================================================
+   Motion — cards and images rise a little and fade in as they scroll into view
+   Add class="reveal" to an element. Pure CSS scroll-driven animation (no JS), applied only
+   where `animation-timeline` is supported and the visitor hasn't asked for reduced motion, so
+   everything else just shows the finished state. Elements already on screen at load are
+   already "in", so only things below the fold animate.
+   ========================================================================== */
+@keyframes reveal {
+  from { opacity: 0; translate: 0 112px; scale: 0.96; }
+  to { opacity: 1; translate: 0 0; scale: 1; }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      /* Ease-out: a quick lift at first, then it decelerates and settles into place. */
+      animation: reveal cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      /* Over the first 560px of the element entering, however tall it is. Kept under the height
+         of the first row of cards below the header, so what's on screen at load starts finished. */
+      animation-range: entry 0px entry 560px;
+    }
+  }
+}
+
+/* ==========================================================================
    Base
    ========================================================================== */
 *,
