@@ -161,6 +161,8 @@ Current map: `/case-study-aarp|roar|canvashack|bydureon|latuda|ihop` → `/work/
 
 ## Hosting and deploys
 
+`src/pages/sitemap.xml.ts` and `src/pages/robots.txt.ts` generate `/sitemap.xml` and `/robots.txt` at build time. The sitemap lists the real pages (home, bio, cv, gallery and every published case study from `getCaseStudies()`, so drafts stay out), not the redirect stubs. **When you add a top-level page, add its path to the `paths` array in `sitemap.xml.ts`.** Submit the sitemap URL in Google Search Console after launch.
+
 Hosted on GitHub Pages. Pushing to `main` runs `.github/workflows/deploy.yml`, which builds with `withastro/action` and publishes `dist/`. In the GitHub repo, Settings → Pages → Source must be set to **GitHub Actions** (one-time).
 
 - The site is served from the **domain root** (`kevinphelandesign.com`). DNS is managed in Squarespace Domains (A records to GitHub Pages' four addresses, `www` CNAME to `kphelan82.github.io`). `astro.config.mjs` still supports a subpath: if `BASE_PATH` is set (for example `/digitalPortfolio` for a preview at `kphelan82.github.io/digitalPortfolio`), it becomes `base` and prefixes the redirect targets. The deploy workflow no longer sets it. Every internal link, favicon and public file goes through `url()` in `src/lib/url.ts` (never write a bare `/bio`), so it works at both; with `BASE_PATH` unset (production, local dev, `npm run build`) nothing changes.
