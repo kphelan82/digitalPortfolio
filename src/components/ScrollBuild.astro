@@ -1,0 +1,114 @@
+---
+// Scroll-linked "build" motion with a little physics: cards rise into place and their contents fade
+// up as they enter the screen, and each piece follows the scroll position on a spring, so it eases
+// to a stop shortly after scrolling does instead of being locked to the scrollbar.
+//
+// This replaces the CSS-only scroll-driven animations in global.css (`.reveal`, `.build`) once it
+// runs: it switches their `animation` off per element and drives `opacity`, `translate` and `scale`
+// itself. Without JS, or with Reduce Motion on, the page is static and fully visible.
+---
+
+<script>
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    type Kind = { range: number; lift: number; scale: number; fade: boolean; fadeRange: number };
+    // Cards and tiles: rise 112px and grow from 0.96 over the first 560px of scroll after entering.
+    const card: Kind = { range: 560, lift: 112, scale: 0.96, fade: false, fadeRange: 560 };
+    const tile: Kind = { ...card, fade: true };
+    // Content inside a card: lift 56px over 320px and fade in over the same distance.
+    const piece: Kind = { range: 320, lift: 56, scale: 1, fade: true, fadeRange: 320 };
+
+    // Spring: higher STIFFNESS = snappier, lower DAMPING = a little overshoot before settling.
+    const STIFFNESS = 140;
+    const DAMPING = 20;
+
+    type Item = { el: HTMLElement; kind: Kind; top: number; height: number; x: number; v: number };
+    const items: Item[] = [];
+    const add = (selector: string, kind: Kind) =>
+      document.querySelectorAll<HTMLElement>(selector).forEach((el) => {
+        items.push({ el, kind, top: 0, height: 0, x: 1, v: 0 });
+      });
+    add('.build', card);
+    add('.build :is(h2, h3, p, li, .thumb, .portrait)', piece);
+    add('.reveal', tile);
+
+    if (items.length) {
+      const ease = (p: number) => 1 - (1 - p) ** 3;
+      const clamp = (n: number) => Math.min(1, Math.max(0, n));
+      // Raw progress 0 (just below the screen) → 1 (fully risen), from the element's top edge.
+      const target = (it: Item) => ease(clamp((innerHeight - (it.top - scrollY)) / it.kind.range));
+
+      const apply = (it: Item) => {
+        const { el, kind } = it;
+        el.style.translate = `0 ${((1 - it.x) * kind.lift).toFixed(2)}px`;
+        if (kind.scale !== 1) el.style.scale = String(1 + (it.x - 1) * (1 - kind.scale)).slice(0, 7);
+        if (kind.fade) el.style.opacity = String(clamp(it.x).toFixed(3));
+      };
+
+      // Natural (untransformed) document positions, measured with our own transforms cleared.
+      const measure = () => {
+        for (const it of items) {
+          it.el.style.translate = it.el.style.scale = it.el.style.opacity = '';
+        }
+        for (const it of items) {
+          const r = it.el.getBoundingClientRect();
+          it.top = r.top + scrollY;
+          it.height = r.height;
+        }
+        for (const it of items) apply(it);
+      };
+
+      for (const it of items) it.el.style.animation = 'none';
+      measure();
+      // Start every element at its resting place for wherever the page loads, with no motion.
+      for (const it of items) {
+        it.x = target(it);
+        apply(it);
+      }
+
+      let running = false;
+      let last = 0;
+      const frame = (now: number) => {
+        const dt = Math.min(0.05, (now - last) / 1000 || 0.016);
+        last = now;
+        let moving = false;
+        for (const it of items) {
+          const t = target(it);
+          // Offscreen and already at rest at an extreme: nothing to do.
+          const a = STIFFNESS * (t - it.x) - DAMPING * it.v;
+          it.v += a * dt;
+          it.x += it.v * dt;
+          if (Math.abs(t - it.x) < 0.0005 && Math.abs(it.v) < 0.005) {
+            it.x = t;
+            it.v = 0;
+          } else {
+            moving = true;
+          }
+          apply(it);
+        }
+        if (moving) requestAnimationFrame(frame);
+        else running = false;
+      };
+      const kick = () => {
+        if (running) return;
+        running = true;
+        last = performance.now();
+        requestAnimationFrame(frame);
+      };
+
+      addEventListener('scroll', kick, { passive: true });
+      // Positions change when the window resizes or images and fonts finish loading.
+      let pending = 0;
+      const remeasure = () => {
+        cancelAnimationFrame(pending);
+        pending = requestAnimationFrame(() => {
+          measure();
+          for (const it of items) it.x = target(it);
+          for (const it of items) apply(it);
+        });
+      };
+      addEventListener('resize', remeasure);
+      addEventListener('load', remeasure);
+      new ResizeObserver(remeasure).observe(document.body);
+    }
+  }
+</script>

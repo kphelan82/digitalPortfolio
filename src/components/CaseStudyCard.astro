@@ -11,7 +11,7 @@ const { entry } = Astro.props;
 const { title, client, year, summary, thumbnail, draft } = entry.data;
 ---
 
-<a class="card reveal" href={url(`/work/${entry.id}`)}>
+<a class="card build" href={url(`/work/${entry.id}`)}>
   <div class="thumb">
     <Image src={thumbnail} alt="" width={800} loading="lazy" />
   </div>

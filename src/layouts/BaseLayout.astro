@@ -6,6 +6,7 @@ import { url } from '../lib/url';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PaletteSwitcher from '../components/PaletteSwitcher.astro';
+import ScrollBuild from '../components/ScrollBuild.astro';
 
 interface Props {
   title?: string;
@@ -71,6 +72,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefin
       <slot />
     </main>
     <Footer />
+    <ScrollBuild />
     {import.meta.env.DEV && <PaletteSwitcher />}
   </body>
 </html>

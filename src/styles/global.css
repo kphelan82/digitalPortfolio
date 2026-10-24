@@ -120,8 +120,25 @@
   from { opacity: 0; translate: 0 112px; scale: 0.96; }
   to { opacity: 1; translate: 0 0; scale: 1; }
 }
+/* Card shell for .build: rises into place but stays visible, so its contents can build inside it. */
+@keyframes rise {
+  from { translate: 0 112px; scale: 0.96; }
+  to { translate: 0 0; scale: 1; }
+}
+/* Each piece of content inside a .build card fades in on its own as it reaches the screen. The fade
+   and the lift are separate animations so the fade can be linear (an ease-out would be most of the
+   way to 100% almost immediately and read as just a slide). */
+@keyframes build-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes build-lift {
+  from { translate: 0 56px; }
+  to { translate: 0 0; }
+}
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
+    /* .reveal: the whole element fades and rises together (gallery tiles). */
     .reveal {
       /* Ease-out: a quick lift at first, then it decelerates and settles into place. */
       animation: reveal cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -129,6 +146,21 @@
       /* Over the first 560px of the element entering, however tall it is. Kept under the height
          of the first row of cards below the header, so what's on screen at load starts finished. */
       animation-range: entry 0px entry 560px;
+    }
+    /* .build: the card rises into place, and its contents fade in piece by piece. */
+    .build {
+      animation: rise cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 560px;
+    }
+    .build :is(h2, h3, p, li, .thumb, .portrait) {
+      animation:
+        build-fade linear both,
+        build-lift cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view(), view();
+      /* Short elements have a very short "entry", so the ranges are in pixels past the point where
+         the element first touches the bottom of the screen: the fade takes 320px, the lift 320px. */
+      animation-range: entry 0px entry 320px, entry 0px entry 320px;
     }
   }
 }

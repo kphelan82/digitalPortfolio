@@ -37,7 +37,7 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
   </div>
 
   <div class="info-cards">
-    <section class="info-card reveal">
+    <section class="info-card build">
       <Image src={educationIcon} alt="" width={44} height={44} />
       <h2>Education</h2>
       {
@@ -52,7 +52,7 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
       }
     </section>
 
-    <section class="info-card reveal">
+    <section class="info-card build">
       <Image src={certificationsIcon} alt="" width={44} height={44} />
       <h2>Certifications</h2>
       <ul class="tag-list">
@@ -60,7 +60,7 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
       </ul>
     </section>
 
-    <section class="info-card reveal">
+    <section class="info-card build">
       <Image src={affiliationsIcon} alt="" width={44} height={44} />
       <h2>Affiliations</h2>
       <ul class="tag-list">
@@ -74,7 +74,7 @@ import affiliationsIcon from '../assets/icons/affiliations_icon.svg';
     <div class="jobs">
       {
         resume.experience.map((job) => (
-          <section class="job reveal">
+          <section class="job build">
             <div class="job-head">
               <h3>{job.title}</h3>
               <p class="dates muted">{job.dates}</p>

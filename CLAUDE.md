@@ -136,7 +136,16 @@ Every gallery image opens in the lightbox (`components/Lightbox.astro`), at its 
 - **`--color-title`** colors page titles (bio, gallery, résumé, case study titles) and defaults to the text color; the "Orange + light blue + blue" palette sets it to the accent blue so titles match the buttons.
 - Stat tile glyphs (`src/assets/icons/stats/*.svg`) are used as a CSS mask over `--color-accent`, so they follow the theme and palettes; the fill baked into those SVGs doesn't matter.
 - Component-specific layout uses scoped `<style>` blocks but must reference the variables, never hard-coded colors or font names.
-- Mobile-first and responsive with no JS for layout: grids use `auto-fill`/`minmax`, the nav wraps, the gallery uses CSS columns. Two small inline scripts are intentional progressive-enhancement exceptions: `EmailLink` (address deobfuscation) and `ThemeToggle` (theme override) — both degrade gracefully with JS off (plain "name [at] domain" text; toggle button hidden via `<noscript>`).
+- Mobile-first and responsive with no JS for layout: grids use `auto-fill`/`minmax`, the nav wraps, the gallery uses CSS columns. Three small scripts are intentional progressive-enhancement exceptions: `EmailLink` (address deobfuscation), `ThemeToggle` (theme override) and `ScrollBuild` (scroll motion, below) — all degrade gracefully with JS off (plain "name [at] domain" text; toggle button hidden via `<noscript>`; content static and fully visible).
+
+## Scroll motion
+
+Cards rise into place as they scroll into view and their contents (headings, paragraphs, list items, stat and feature tiles, card thumbnails, the bio portrait) fade up piece by piece, with a little spring so everything settles shortly after scrolling stops.
+
+- Classes: `build` on a card (home cards, case study cards, bio cards, résumé info cards and jobs) rises and scales in, and its content pieces fade and lift; `reveal` on a gallery tile fades and rises as one piece. Put the class on the element in the template; there is no per-page setup.
+- `components/ScrollBuild.astro` (included once by `BaseLayout`) drives it: it measures each element's untransformed position, then every frame moves a spring toward the scroll-linked target and writes `opacity`, `translate` and `scale`. Tuning knobs are at the top of the script: `STIFFNESS` (snappier) / `DAMPING` (lower = a little overshoot), plus the lift, scale and range of each kind (`card`, `tile`, `piece`).
+- `global.css` keeps a CSS-only version of the same effect (`@keyframes reveal`, `rise`, `build-fade`, `build-lift`, scroll-driven via `animation-timeline: view()`). It is the fallback if the script doesn't run; once the script runs it sets `animation: none` on each element. Both are off under `prefers-reduced-motion: reduce`.
+- Elements already on screen at load start at rest (the script snaps them to their target), so the first screen never animates on arrival. If you change a range, keep it below the height of the first row of cards under the header.
 
 ## Branding
 
