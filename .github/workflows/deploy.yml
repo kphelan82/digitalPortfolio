@@ -17,10 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      # Preview at kphelan82.github.io/digitalPortfolio. Delete this line once the custom domain
-      # (kevinphelandesign.com) points here: the real site is served from the domain root.
-      BASE_PATH: /digitalPortfolio
     steps:
       - uses: actions/checkout@v4
       - uses: withastro/action@v3

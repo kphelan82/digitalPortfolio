@@ -157,13 +157,13 @@ Cards rise into place as they scroll into view and their contents (headings, par
 
 Old URLs are listed in `redirects` in `astro.config.mjs`. Add or edit entries there (`'/old-path': '/new-path'`). In a static build Astro emits a meta-refresh HTML page for each. GitHub Pages can't send real 301s, so these are meta-refresh only (browsers follow them; search engines treat them as weaker signals).
 
-Current map: `/case-study-aarp|roar|canvashack|bydureon|latuda|ihop` → `/work/<name>`, `/bio-1` → `/bio`, `/resume` → `/cv`; `/case-study_01` and `/new-page` → `/` (targets unconfirmed).
+Current map: `/case-study-aarp|roar|canvashack|bydureon|latuda|ihop` → `/work/<name>`, `/bio-1` → `/bio`, `/resume` → `/cv`; `/case-study_01` → `/work/usaf-switching-seats`, `/new-page` → `/gallery`; `/work-1`, `/case-studies`, `/case-studies-index` and `/home-five` → `/`. (Checked against the old Squarespace sitemap; note the Roar URL there is `/case-study_roar`, with an underscore.)
 
 ## Hosting and deploys
 
 Hosted on GitHub Pages. Pushing to `main` runs `.github/workflows/deploy.yml`, which builds with `withastro/action` and publishes `dist/`. In the GitHub repo, Settings → Pages → Source must be set to **GitHub Actions** (one-time).
 
-- The real site is served from the **domain root** (`kevinphelandesign.com`). Until the DNS cutover, the deploy is a **preview under a subpath** at `kphelan82.github.io/digitalPortfolio`: the workflow sets `BASE_PATH: /digitalPortfolio`, which `astro.config.mjs` turns into `base` (and prefixes the redirect targets with). Every internal link, favicon and public file goes through `url()` in `src/lib/url.ts` (never write a bare `/bio`), so it works at both. **When the custom domain points at GitHub Pages, delete the `BASE_PATH` line from `.github/workflows/deploy.yml`** and the site builds for the root again; with `BASE_PATH` unset (local dev, `npm run build`) nothing changes.
+- The site is served from the **domain root** (`kevinphelandesign.com`). DNS is managed in Squarespace Domains (A records to GitHub Pages' four addresses, `www` CNAME to `kphelan82.github.io`). `astro.config.mjs` still supports a subpath: if `BASE_PATH` is set (for example `/digitalPortfolio` for a preview at `kphelan82.github.io/digitalPortfolio`), it becomes `base` and prefixes the redirect targets. The deploy workflow no longer sets it. Every internal link, favicon and public file goes through `url()` in `src/lib/url.ts` (never write a bare `/bio`), so it works at both; with `BASE_PATH` unset (production, local dev, `npm run build`) nothing changes.
 - Production domain is `kevinphelandesign.com` (bare domain is canonical; `www` redirects to it). `site` in `astro.config.mjs` must match. Because deploys use a GitHub Actions workflow, the custom domain is set in GitHub → Settings → Pages; a `public/CNAME` file is ignored, so don't add one.
 - Commit directly to `main` for small content edits; use a branch + PR for larger changes. `node_modules/`, `dist/` and `.astro/` are git-ignored.
 
